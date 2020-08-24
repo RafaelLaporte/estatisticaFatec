@@ -1,11 +1,33 @@
-<!DOCTYPE html>
 <html lang="en">
+<script src='organizer.js'></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
 </head>
 <body>
-    <h3>Trabalho de Estatística</h3>
+    <h1>Trabalho de Estatística</h1>
+
+    <form>
+        <label for='varName'><b style="font-size: 20px;">Nome da variável:</b></label>
+        <input type='text' id='varName' name='varName' size='80px'><br><br>
+    </form>
+
+    <form>
+        <label for='varType'><b style="font-size: 20px;">Tipo da variável: </b> </label><br>
+        <input type='radio' id='varType' name='varType' value="Qualitativa Nominal"> Qualitativa Nominal <br>
+        <input type='radio' id='varType' name='varType' value="Qualitativa Ordinal"> Qualitativa Ordinal <br>
+        <input type='radio' id='varType' name='varType' value="Quantitativa Discreta"> Quantitativa Discreta <br>
+        <input type='radio' id='varType' name='varType' value="Quantitativa Contínua"> Quantitativa Contínua<br><br>
+    </form>
+
+    <form>
+        <label for='varValue'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula):</b></label><br>
+        <input type='text' id='varValue' name='varValue' size="100px">
+    </form>
+
+    <button type="button" style="font-size: 20px" onclick="funcao()"> Calcular </button> <!--Trocar 'funcao()'' pela função criada em organizer.js-->
+
+    <table id="table" style="width:100%" ></table>
 </body>
 </html>
