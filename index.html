@@ -1,17 +1,20 @@
 <html lang="en">
 <script src='organizer.js'></script>
-<script src='moveRows.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+<script id="tableScript"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
-    <style>
-        th, td {
-          border: 1px solid black;
-        }
+    <style id='style'>
+        th, td {border: 1px solid black;}        
     </style>
 </head>
-<body onload='start()'>
+
+<body>
     <h1>Trabalho de Estatística</h1>
 
     <form id='fVarName'>
@@ -21,26 +24,29 @@
 
     <form id="fVarType">
         <label for='varType'><b style="font-size: 20px;">Tipo da variável: </b> </label><br>
-        <input type='radio' id='varType' name='varType' value="Qualitativa Nominal"  disabled='disabled'> Qualitativa Nominal <br>
-        <input type='radio' id='varType' name='varType' value="Qualitativa Ordinal"  disabled='disabled'> Qualitativa Ordinal <br>
-        <input type='radio' id='varType' name='varType' value="Quantitativa Discreta"  disabled='disabled'> Quantitativa Discreta <br>
-        <input type='radio' id='varType' name='varType' value="Quantitativa Contínua"  disabled='disabled'> Quantitativa Contínua<br><br>
+        <input type='radio' id='varType' name='varType' value="qualitativaNominal"> Qualitativa Nominal <br>
+        <input type='radio' id='varType' name='varType' value="qualitativaOrdinal"> Qualitativa Ordinal <br>
+        <input type='radio' id='varType' name='varType' value="quantitativaDiscreta"> Quantitativa Discreta <br>
+        <input type='radio' id='varType' name='varType' value="quantitativaContinua"> Quantitativa Contínua<br><br>
     </form>
 
     <form id="fVarValue">
         <label for='varValue'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula):</b></label><br>
-        <input type='text' id="varValue" name='varValue' size="100px" disabled='disabled'>
+        <input type='text' id="varValue" name='varValue' size="100px">
     </form>
     <form id='fVarScope'>
         <label for='varScope'><b style="font-size: 20px;">Tipo da variável: </b> </label><br>
-        <input type='radio' id='varScope' name='varScope' value="Amostra" disabled='disabled'> Amostra
-        <input type='radio' id='varScope' name='varScope' value="Populacao" disabled='disabled'> População 
+        <input type='radio' id='varScope' name='varScope' value="amostra"> Amostra
+        <input type='radio' id='varScope' name='varScope' value="populacao"> População 
     </form>
 
     <button type="button" style="font-size: 20px" onclick="calculate()"> Calcular </button>
 
-    <table id="tabela" style="width:50%"></table>
+    <p id='explanation'></p>
 
-    <p id="moveRows"></p>
+    <table style="width:50%">
+        <thead id='thead'></thead>
+        <tbody id='tbody'></tbody>
+    </table>
 </body>
 </html>
