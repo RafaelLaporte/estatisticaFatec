@@ -29,7 +29,7 @@ function calculate() {
 
 
     //Generating Tables
-    document.getElementById("tbody").innerHTML = `<br>
+    document.getElementById("thead").innerHTML = `<br>
             <tr>
             <th>${varName}</th>
             <th>Frequência</th>
