@@ -31,8 +31,8 @@ function calculate() {
     //Generating Tables
     document.getElementById("thead").innerHTML = 
             `<tr>
-            <th>${varName}</th>
-            <th>Frequência</th>
+            <td>${varName}</td>
+            <td>Frequência</td>
             </tr>`
 
     if (varType == "qualitativaOrdinal")  {
