@@ -1,4 +1,8 @@
 function calculate() {   
+
+    document.getElementById("thead").innerHTML = "";
+    document.getElementById("tbody").innerHTML = "";
+
     let varName = document.getElementById('varName').value;
 
     //Reading Variables
