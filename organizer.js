@@ -8,12 +8,15 @@ function calculate() {
     //Reading Variables
     let varValue = document.getElementById('varValue').value;
     let varType = document.querySelector('input[name="varType"]:checked').value;
+    let dataList
     //let varScope = document.querySelector('input[name="varScope"]:checked').value;
-    let dataList = varValue.split(/\s*;\s*/); 
+    varValue.split(/\s*;\s*/) == '' || undefined || null ? alert('Erro de digitação das variáveis') : dataList =  varValue.split(/\s*;\s*/); 
     let valuesQuantity = {};
+    
 
     if (["quantitativaDiscreta", "quantitativaContinua"].includes(varType)) {
         for (i = 0; i < dataList.length; i++) {
+            console.log(typeof dataList[i])
             dataList[i] = Number(dataList[i]);
         }
         dataList.sort((a,b) => a - b);
@@ -50,7 +53,33 @@ function calculate() {
 
         document.getElementById("tableScript").innerHTML = "$('tbody').sortable();"
         
-    } else {
+    } else if(varType == "quantitativaContinua"){
+
+        let xMin = Math.min(...Object.keys(valuesQuantity))  
+        let xMax = Math.max(...Object.keys(valuesQuantity))
+        let amplitude = xMax - xMin 
+        let k = 0
+        for (key in dataList) {
+        k += Number(dataList[key])
+    }
+     k = Math.round(Math.sqrt(k)) 
+     let intervalo = Math.ceil(amplitude/k)
+       console.log(intervalo)
+       let xMaxParcial = xMin
+       while (xMaxParcial <= xMax) { 
+           let frequency = 0
+            frequency = dataList.filter(value => value < xMaxParcial + intervalo && value >= xMaxParcial).length
+
+           document.getElementById("tbody").innerHTML += 
+        `<tr>
+        <td>${xMaxParcial} &vdash; ${xMaxParcial += intervalo}</td>
+        <td>${frequency}</td>
+        </tr>` 
+              
+        } 
+      
+    }
+    else {
         for (key in valuesQuantity) {
             document.getElementById("tbody").innerHTML += 
                 `<tr>
@@ -60,3 +89,10 @@ function calculate() {
         }
     }
 }
+
+/*  document.getElementById("tbody").innerHTML += 
+        `<tr>
+        <td>${xMaxParcial} &vdash; ${xMaxParcial += intervalo}</td>
+        <td>${valuesQuantity[key]}</td>
+        </tr>` 
+        */
