@@ -63,13 +63,8 @@ function calculate() {
                 </tr>`
         }
 
-        document.getElementById("tableScript").innerHTML = "$('tbody').sortable();"
+        document.getElementById("tableScript").innerHTML = "$('tbody').sortable();"      
 
-        $('#results tr').each(() => {
-            let teste = $(this).find("td:first").html();  
-            console.log(teste)
-        });
-        
     } else if(varType == "quantitativaContinua"){
 
         let xMin = Math.min(...Object.keys(valuesQuantity));  
@@ -77,20 +72,20 @@ function calculate() {
         let amplitude = xMax - xMin 
         let k = 0
 
-        for (key in dataList) k += Number(dataList[key]);
+        for (value of dataList) k += Number(value);
     
         k = Math.round(Math.sqrt(k)); 
-        let intervalo = Math.ceil(amplitude/k);
+        let range = Math.ceil(amplitude/k);
        ///console.log(intervalo)
         let xMaxParcial = xMin
 
         while (xMaxParcial <= xMax) { 
             let frequency = 0
-            frequency = dataList.filter(value => value < xMaxParcial + intervalo && value >= xMaxParcial).length
+            frequency = dataList.filter(value => value < xMaxParcial + range && value >= xMaxParcial).length
 
            document.getElementById("tbody").innerHTML += 
                 `<tr>
-                <td>${xMaxParcial} &vdash; ${xMaxParcial += intervalo}</td>
+                <td>${xMaxParcial} &vdash; ${xMaxParcial += range}</td>
                 <td>${frequency}</td>
                 </tr>` 
         } 
