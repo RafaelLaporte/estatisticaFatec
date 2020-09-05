@@ -1,5 +1,6 @@
 function calculate() {   
 
+    $('tbody').sortable({disabled: true});
     document.getElementById("thead").innerHTML = "";
     document.getElementById("tbody").innerHTML = "";
 
@@ -11,6 +12,7 @@ function calculate() {
     let varType = document.querySelector('input[name="varType"]:checked').value;
     let dataList = varValue.split(/\s*;\s*/);
 
+    //Removing blank elements
     for (i = 0; i < dataList.length; i++) {
         if (dataList[i] === "") {
             dataList.splice(i,1);
@@ -63,7 +65,7 @@ function calculate() {
                 </tr>`
         }
 
-        document.getElementById("tableScript").innerHTML = "$('tbody').sortable();"      
+        $('tbody').sortable({disabled: false});      
 
     } else if(varType == "quantitativaContinua"){
 
