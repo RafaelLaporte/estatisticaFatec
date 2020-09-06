@@ -3,15 +3,16 @@ function calculate() {
     $('tbody').sortable({disabled: true});
     document.getElementById("thead").innerHTML = "";
     document.getElementById("tbody").innerHTML = "";
+    document.getElementById("explanation").innerHTML = "";
 
     let valuesQuantity = {};
-
+    
     //Reading Variables
     let varName = document.getElementById('varName').value;
     let varValue = document.getElementById('varValue').value;
     let varType = document.querySelector('input[name="varType"]:checked').value;
     let dataList = varValue.split(/\s*;\s*/);
-
+   
     //Removing blank elements
     for (i = 0; i < dataList.length; i++) {
         if (dataList[i] === "") {
@@ -19,8 +20,9 @@ function calculate() {
             i--
         }
     }
-    //let varScope = document.querySelector('input[name="varScope"]:checked').value;
-    
+   
+    //let varScope = document.querySelector('input[name="varScope"]:checked').value; 
+   
     if (["quantitativaDiscreta", "quantitativaContinua"].includes(varType)) {
         for (i = 0; i < dataList.length; i++) {
             dataList[i] = Number(dataList[i]);
@@ -73,25 +75,31 @@ function calculate() {
         let xMax = Math.max(...Object.keys(valuesQuantity));
         let amplitude = xMax - xMin 
         let k = 0
-
         for (value of dataList) k += Number(value);
-    
         k = Math.round(Math.sqrt(k)); 
         let range = Math.ceil(amplitude/k);
-       ///console.log(intervalo)
-        let xMaxParcial = xMin
+        let newValuesQuantity = {}
+        
+        for(let xMaxParcial = xMin; xMaxParcial <= xMax; xMaxParcial += range){
 
-        while (xMaxParcial <= xMax) { 
-            let frequency = 0
-            frequency = dataList.filter(value => value < xMaxParcial + range && value >= xMaxParcial).length
+            let key = `${xMaxParcial} &vdash; ${xMaxParcial + range}`;
+            newValuesQuantity[key] = dataList.filter(value => value < xMaxParcial + range && value >= xMaxParcial).length
+        }
 
-           document.getElementById("tbody").innerHTML += 
+        let percentFr = calcPercentFr(dataList, newValuesQuantity);
+        let fac = calcFac(newValuesQuantity);
+        let percentFac = calcPercentFac(percentFr);
+          
+        for (key in newValuesQuantity){ 
+            document.getElementById("tbody").innerHTML += 
                 `<tr>
-                <td>${xMaxParcial} &vdash; ${xMaxParcial += range}</td>
-                <td>${frequency}</td>
-                </tr>` 
-        } 
-      
+                <td>${key}</td>
+                <td>${newValuesQuantity[key]}</td>
+                <td>${percentFr[key]}</td>
+                <td>${fac[key]}</td>
+                <td>${percentFac[key]}</td>
+                </tr>`  
+        }
     }
     else {
         for (key in valuesQuantity) {
@@ -105,7 +113,6 @@ function calculate() {
             </tr>`
         }
     }
-
 }
 
 //Calcula a porcentagem das frequências
@@ -147,10 +154,3 @@ function calcPercentFac(percentFr) {
 
     return acumulatedObj
 }
-
-/*  document.getElementById("tbody").innerHTML += 
-        `<tr>
-        <td>${xMaxParcial} &vdash; ${xMaxParcial += intervalo}</td>
-        <td>${valuesQuantity[key]}</td>
-        </tr>` 
-        */
