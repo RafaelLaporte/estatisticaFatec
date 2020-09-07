@@ -127,7 +127,7 @@ function createChart() {
     let ctx = document.getElementById('chart').getContext('2d');
     let labelsList = [];
     let valuesList = [];
-    let backgroundColor = ['Red', 'Blue', 'Orange', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
+    let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
 
     $('tbody td:nth-child(1)').each(function (index) {
         let label = ($(this).text())
