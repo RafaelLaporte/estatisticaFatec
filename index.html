@@ -1,17 +1,19 @@
 <html lang="en">
-<script src='organizer.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
+    <script src='organizer.js'></script>
+    <script src="/js/prebid-ads.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <img src="adblock.png" id="fallbackImage" class="hide" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+
     <style id='style'></style>
     <style> .chart-container {width: 800px; height: 400px} </style>
+    <style> #fallbackImage.hide {display: none;} #fallbackImage.show {display: initial;} </style>
 </head>
 
 <body>
@@ -51,10 +53,18 @@
     </table>
 
     <br><br>
-    
+
     <div class="chart-container">
         <canvas id="chart"}></canvas>
     </div>
-    
+
+    <script>
+        function showFallbackImage() {
+            document.getElementById("fallbackImage").className = "show";
+        }
+        if (window.canRunAds === undefined) {
+            showFallbackImage();
+        }
+    </script>
 </body>
 </html>
