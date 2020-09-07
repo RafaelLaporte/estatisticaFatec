@@ -2,15 +2,16 @@
 <script src='organizer.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
-    <style id='style'>
-        th, td {border: 2px solid black; text-align: center;} 
-    </style>
+    <style id='style'></style>
+    <style> .chart-container {width: 800px; height: 400px} </style>
 </head>
 
 <body>
@@ -44,9 +45,16 @@
 
     <p id='explanation'></p>
 
-    <table id="results" style="width:400px">
+    <table id="results">
         <thead id='thead'></thead>
         <tbody id='tbody'></tbody>
     </table>
+
+    <br><br>
+    
+    <div class="chart-container">
+        <canvas id="chart"}></canvas>
+    </div>
+    
 </body>
 </html>
