@@ -125,6 +125,10 @@ function calcPercentFac(percentFr, sortable=false) {
 //Generate Charts
 function createChart() {
     let ctx = document.getElementById('chart').getContext('2d');
+
+    if(window.bar != undefined)
+        window.bar.destroy();
+
     let labelsList = [];
     let valuesList = [];
     let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
@@ -139,7 +143,7 @@ function createChart() {
         valuesList.push(Number(value));
     });
 
-    let chart = new Chart(ctx, {
+    window.bar = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labelsList,
