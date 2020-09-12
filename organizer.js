@@ -1,5 +1,6 @@
 function calculate() {   
 
+    //Reset when click on the button
     $('tbody').sortable({disabled: true});
     document.getElementById("thead").innerHTML = "";
     document.getElementById("tbody").innerHTML = "";
@@ -22,6 +23,8 @@ function calculate() {
     }
    
     //let varScope = document.querySelector('input[name="varScope"]:checked').value; 
+
+    //Insert the variable data in an array and sorts it (crescent order if number or alphabetical if string).
     if (["quantitativaDiscreta", "quantitativaContinua"].includes(varType)) {
         for (i = 0; i < dataList.length; i++) {
             dataList[i] = Number(dataList[i]);
@@ -123,15 +126,18 @@ function calcPercentFac(percentFr, sortable=false) {
 }
 
 //Generate Charts
-function createChart() {
+function createChart(varType) {
     let ctx = document.getElementById('chart').getContext('2d');
 
     if(window.bar != undefined)
         window.bar.destroy();
 
+    let type = '';
     let labelsList = [];
     let valuesList = [];
     let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
+
+
 
     $('tbody td:nth-child(1)').each(function (index) {
         let label = ($(this).text())
@@ -143,8 +149,10 @@ function createChart() {
         valuesList.push(Number(value));
     });
 
+    ["qualitativaNominal", "qualitativaOrdinal"].includes(varType) ? type = 'pie': type = 'bar'
+
     window.bar = new Chart(ctx, {
-        type: 'bar',
+        type: type,
         data: {
             labels: labelsList,
             datasets: [{
@@ -156,7 +164,7 @@ function createChart() {
         },
             options: {
                 legend: {
-                    display: false
+                    display: true
                 },
                 tooltips: {
                     callbacks: {
@@ -228,7 +236,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
                     $(this).text(newPercentFac[index]);
                 });  
 
-                createChart();
+                createChart(varType);
             }
         });      
 
@@ -277,5 +285,5 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
         }
     }
 
-    createChart();
+    createChart(varType);
 }
