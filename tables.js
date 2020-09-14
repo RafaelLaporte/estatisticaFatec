@@ -56,9 +56,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
         let xMin = Math.min(...Object.keys(valuesQuantity));  
         let xMax = Math.max(...Object.keys(valuesQuantity));
         let amplitude = xMax - xMin 
-        let k = 0
-
-        for (value of dataList) k += Number(value);
+        let k = dataList.length
         
         k = Math.round(Math.sqrt(k)); 
         let range = Math.ceil(amplitude/k);
