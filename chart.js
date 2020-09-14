@@ -8,7 +8,9 @@ function createChart(varType) {
     let type = '';
     let labelsList = [];
     let valuesList = [];
-    let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
+    let percentage = [];
+    let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black', 'mauve', 
+    'steelblue', 'bisque', 'forestgreen', 'maroon'];
 
     $('tbody td:nth-child(1)').each(function (index) {
         let label = ($(this).text())
@@ -18,6 +20,11 @@ function createChart(varType) {
     $('tbody td:nth-child(2)').each(function (index) {
         let value = ($(this).text())
         valuesList.push(Number(value));
+    });
+
+    $('tbody td:nth-child(3)').each(function (index) {
+        let value = ($(this).text())
+        percentage.push(value);
     });
 
     ["qualitativaNominal", "qualitativaOrdinal"].includes(varType) ? type = 'pie': type = 'bar'
@@ -30,29 +37,11 @@ function createChart(varType) {
                 label: 'Representação Gráfica',
                 data: valuesList,
                 backgroundColor: backgroundColor,
-                borderWidth: 1
+                borderWidth: 0,
+                hoverBackgroundColor: 'rgba(0, 0, 0, 0.1)'
             }]
         },
-            options: {
-                legend: {
-                    display: true
-                },
-                tooltips: {
-                    callbacks: {
-                        label: function(tooltipItem) {
-                               return tooltipItem.yLabel;
-                        }
-                     }
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
+
+            options: chartOptions(varType, percentage)
     });
 }
