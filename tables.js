@@ -4,7 +4,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
     document.getElementById("style").innerHTML = 
     `table, th, td {border: 2px solid black; text-align: center; table-layout: fixed; width: 50%;}`
 
-    document.getElementById("thead").innerHTML = 
+    document.getElementById("table_head").innerHTML = 
     `<tr>
     <td>${varName}</td>
     <td>Frequência Simples (Fi)</td>
@@ -24,7 +24,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
 
         let keys = Object.keys(valuesQuantity);
         keys.forEach((key, i) => {
-            document.getElementById("tbody").innerHTML += 
+            document.getElementById("table_body").innerHTML += 
             `<tr>
             <td>${key}</td>
             <td>${valuesQuantity[key]}</td>
@@ -74,7 +74,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
         let percentFac = calcPercentFac(percentFr);
             
         for (key in newValuesQuantity){ 
-            document.getElementById("tbody").innerHTML += 
+            document.getElementById("table_body").innerHTML += 
                 `<tr>
                 <td>${key}</td>
                 <td>${newValuesQuantity[key]}</td>
@@ -86,7 +86,7 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
     }
     else {
         for (key in valuesQuantity) {
-            document.getElementById("tbody").innerHTML += 
+            document.getElementById("table_body").innerHTML += 
             `<tr>
             <td>${key}</td>
             <td>${valuesQuantity[key]}</td>

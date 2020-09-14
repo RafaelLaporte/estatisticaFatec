@@ -2,8 +2,8 @@ function calculate() {
 
     //Reset when click on the button
     $('tbody').sortable({disabled: true});
-    document.getElementById("thead").innerHTML = "";
-    document.getElementById("tbody").innerHTML = "";
+    document.getElementById("table_head").innerHTML = "";
+    document.getElementById("table_body").innerHTML = "";
     document.getElementById("explanation").innerHTML = "";
 
     let valuesQuantity = {};
