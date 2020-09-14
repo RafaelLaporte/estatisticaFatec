@@ -23,17 +23,17 @@ function chartOptions(varType, percentage) {
                 },
         
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 scales: {
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
-                        }
+                        },
                     }],
-                    xAxes: {
+                    xAxes: [{
                         categoryPercentage: 1.0,
                         barPercentage: 1.0
-                    }
+                    }]
                 }
             }
 
