@@ -10,8 +10,6 @@ function createChart(varType) {
     let valuesList = [];
     let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black'];
 
-
-
     $('tbody td:nth-child(1)').each(function (index) {
         let label = ($(this).text())
         labelsList.push(label);

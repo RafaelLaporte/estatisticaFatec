@@ -1,6 +1,3 @@
-
-
-
 //Calcula a porcentagem das frequências
 function calcPercentFr(dataList, valuesQuantity) {
     let total = dataList.length;
