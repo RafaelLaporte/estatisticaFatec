@@ -33,6 +33,11 @@ function mode(varType) {
         return mode.toFixed(2);
     }
 
+    if (['qualitativaDiscreta, qualitativaContinua'].includes(varType)) {
+        mode = values[index];
+        return mode
+    }
+
     else {
         mode = values[index];
         return mode.toFixed(2);
