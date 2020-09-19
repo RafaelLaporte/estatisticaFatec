@@ -1,10 +1,7 @@
 function calculate() {   
 
     //Reset when click on the button
-    $('tbody').sortable({disabled: true});
-    document.getElementById("table_head").innerHTML = "";
-    document.getElementById("table_body").innerHTML = "";
-    document.getElementById("explanation").innerHTML = "";
+    resetHTML();
 
     let valuesQuantity = {};
     
@@ -40,4 +37,9 @@ function calculate() {
     });
 
     generateTable(varName, varType, dataList, valuesQuantity);
+    createChart(varType);
+
+    document.getElementById('mean').innerHTML += `Média: ${mean(varType)}`
+    document.getElementById('mode').innerHTML += `Moda: ${mode(varType)}` 
+    //document.getElementById('median').innerHTML += 'Mediana: '
 }

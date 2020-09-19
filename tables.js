@@ -94,6 +94,4 @@ function generateTable(varName, varType, dataList, valuesQuantity) {
             </tr>`
         }
     }
-
-    createChart(varType);
 }

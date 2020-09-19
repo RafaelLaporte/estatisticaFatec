@@ -3,11 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
+    <script src='reset.js'></script>
     <script src='calculate.js'></script>
     <script src='freqCalc.js'></script>
-    <script src='chart.js'></script>
+    
+    <script src='./chart/chart.js'></script>
+    <script src='./chart/chartOptions.js'></script>
     <script src='tables.js'></script>
-    <script src='chartOptions.js'></script>
+
+
+    <script src='./statistical/mean.js'></script>
+    <script src='./statistical/mode.js'></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -57,6 +64,14 @@
 
     <div class="chart-container">
         <canvas id="chart"></canvas>
+    </div>
+
+    <br><br>
+
+    <div class="statistical-values">
+        <h1 id='mean'></h1><br>
+        <h1 id='mode'></h1><br>
+        <h1 id='median'></h1><br>
     </div>
 </body>
 </html>
