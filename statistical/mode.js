@@ -39,7 +39,7 @@ function mode(varType) {
     }
 
     else {
-        mode = values[index];
+        mode = Number(values[index]);
         return mode.toFixed(2);
     }
 }
