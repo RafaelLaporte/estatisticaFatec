@@ -3,17 +3,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de estatística</title>
-    <script src='reset.js'></script>
-    <script src='calculate.js'></script>
-    <script src='freqCalc.js'></script>
+    <script src='./frontend/resetHTML.js'></script>
+    <script src='./frontend/inputReader.js'></script>
+    <script src='./frontend/chart/chart.js'></script>
+    <script src='./frontend/chart/chartOptions.js'></script>
+    <script src='./frontend/tables.js'></script>    
     
-    <script src='./chart/chart.js'></script>
-    <script src='./chart/chartOptions.js'></script>
-    <script src='tables.js'></script>
-
-
-    <script src='./statistical/mean.js'></script>
-    <script src='./statistical/mode.js'></script>
+    <script src='./backend/frequencies.js'></script>
+    <script src='./backend/sortData.js'></script>
+    <script src='./backend/calculateButton.js'></script>
+    <script src='./backend/statisticalVariables/mean.js'></script>
+    <script src='./backend/statisticalVariables/mode.js'></script>
+    <script src='./backend/statisticalVariables/median.js'></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -41,8 +42,8 @@
     </form>
 
     <form id="fVarValue">
-        <label for='varValue'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula):</b></label><br>
-        <input type='text' id="varValue" name='varValue' size="100px">
+        <label for='varValues'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula):</b></label><br>
+        <input type='text' id="varValues" name='varValues' size="100px">
     </form>
     
     <form id='fVarScope'>
@@ -51,7 +52,7 @@
         <input type='radio' id='varScope' name='varScope' value="populacao"> População 
     </form>
 
-    <button id='btn-calculate' type="button" style="font-size: 20px" onclick="calculate()"> Calcular </button>
+    <button id='btn-calculate' type="button" style="font-size: 20px" onclick="calculateButton()"> Calcular </button>
 
     <p id='explanation'></p>
 
