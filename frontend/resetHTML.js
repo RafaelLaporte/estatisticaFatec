@@ -5,4 +5,6 @@ function resetHTML() {
     document.getElementById("explanation").innerHTML = "";
     document.getElementById('mean').innerHTML = ``;
     document.getElementById('mode').innerHTML = ``; 
+    document.getElementById('measure').innerHTML = ``;
+    document.getElementById('median').innerHTML = ``;    
 }

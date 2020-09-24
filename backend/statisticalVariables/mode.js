@@ -25,9 +25,8 @@ function mode(varType) {
     if (mode.length == values.length) return 'Não existe moda'
 
     if (varType === 'quantitativaContinua') {
-
+        
         for(i = 0; i < mode.length; i++) {
-
             let stringList = mode[i].split(' ')
             let intervalStart = Number(stringList[0]);
             let intervalEnding = Number(stringList[stringList.length - 1]);
