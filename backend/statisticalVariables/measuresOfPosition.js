@@ -18,7 +18,7 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
     $('tbody td:nth-child(2)').each(function (index) {
         let frequency = ($(this).text())
-        frequencies.push(frequency);
+        frequencies.push(Number(frequency));
     });
 
     $('tbody td:nth-child(4)').each(function (index) {
@@ -30,21 +30,30 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     let percent;
     percent = Math.round((totalElements/varMeasureType)*part)
     
-    if (varType === 'quantitativaContinua') {
+    let i = 0   
+    while(percent > frequenciesAc[i]) i++ 
+    
+    measure = values[i]
+    let freqAcAnterior = frequenciesAc[i - 1]
+    let freqSimpl = frequencies[i]
+    
+    if (varType == 'quantitativaContinua') { 
 
-    } else{
-        let i = 0
+        let valList = values[i].split(' ')
+        let init = Number(valList[0]);
+        let interval = Number(valList[2]) - init;
+
+        console.log(init)
+        console.log(interval)
+
        
-        while(percent > frequenciesAc[i]) i++ 
+        measure = init + ((percent - freqAcAnterior)/ freqSimpl) * interval
 
-        measure = values[i]
-
-        if(totalElements % 2 == 0){
-            varType == 'quantitativaDiscreta' ? 
-            measure = (Number(values[i]) + Number(values[i + 1]))/2 :
-            measure = [values[i], values[i + 1]]      
-        }
+    } else if(totalElements % 2 == 0){
+        varType == 'quantitativaDiscreta' ? 
+        measure = (Number(values[i]) + Number(values[i + 1]))/2 :
+        measure = [values[i], values[i + 1]]   
     }
 
-    return measure == undefined ? "Não consta" : measure
+    return measure == undefined ? "Não consta" : measure.toFixed(2)
 }
