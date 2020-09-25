@@ -1,5 +1,8 @@
 function calculateButton() {   
 
+    let varMeasureType = document.getElementById('measureSel').value;
+    let varMeasurePart = document.getElementById('partMeasure').value;
+
     //Resets when click on the button
     resetHTML();
 
@@ -15,6 +18,6 @@ function calculateButton() {
     //Generates Mean, Mode and Median
     document.getElementById('mean').innerHTML += `Média: ${mean(variable.type)}`
     document.getElementById('mode').innerHTML += `Moda: ${mode(variable.type)}`
-    median(variable.type);
-    document.getElementById('measure').innerHTML += `Medida separatriz: ${measure(variable.type)}`
+    document.getElementById('median').innerHTML += `Mediana: ${median(variable.type,)}`
+    document.getElementById('measure').innerHTML += `Medida separatriz: ${measure(variable.type, varMeasureType, varMeasurePart)}`
 }

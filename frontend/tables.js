@@ -82,8 +82,8 @@ function generateTable(variable) {
                     if (percentualFac > 99.5) percentualFac = 100;
                     $(this).text(`${percentualFac.toFixed(2)}%`)
                 });  
-                measuresCalc(variable.type, percent);
-                median(variable.type);
+               // measuresCalc(variable.type, varMeasureType, varMeasurePart);
+               // median(variable.type);
                 createChart(variable.type);
             }
         });      

@@ -1,7 +1,6 @@
 function median(varType){
 
-    let median = measuresCalc(varType, 2);
+    let median = measuresCalc(varType, 2, 1);
 
-    document.getElementById('median').innerHTML += `Mediana: ${median}`
-   
+    return median
 };

@@ -1,9 +1,16 @@
-function measuresCalc(varType, partType) {
+function measuresCalc(varType, varMeasureType, varMeasurePart) {
     
     let values = [];
     let frequencies = [];
     let frequenciesAc = [];
     let measure;
+    let part = Number(varMeasurePart)
+    
+    if(varMeasureType == 'quartil') varMeasureType = 4
+    if(varMeasureType == 'quintil') varMeasureType = 5
+    if(varMeasureType == 'decil') varMeasureType = 10
+    if(varMeasureType == 'percentil') varMeasureType = 100
+
 
     $('tbody td:nth-child(1)').each(function (index) {
         let value = ($(this).text())
@@ -21,13 +28,15 @@ function measuresCalc(varType, partType) {
     });
     let totalElements = frequenciesAc[frequenciesAc.length -1]
     let percent;
-    totalElements % 2 == 0 ?
-        percent = totalElements/partType :
-        percent = (totalElements + 1)/partType
+    percent = Math.round((totalElements/varMeasureType)*part)
     
     if (varType === 'quantitativaContinua') {
 
     } else{
+
+        console.log(varMeasurePart)
+        console.log(varMeasureType)
+        
 
         let i = 0
        
@@ -35,11 +44,12 @@ function measuresCalc(varType, partType) {
 
         measure = values[i]
 
-        if(totalElements % 2 == 0 && percent + 1 > frequenciesAc[i]){
+        if(totalElements % 2 == 0){
 
             varType == 'quantitativaDiscreta' ? 
             measure = (Number(values[i]) + Number(values[i + 1]))/2 :
             measure = [values[i], values[i + 1]]
+            
         }
        return measure 
     }
