@@ -21,10 +21,11 @@ function standardDeviation(mean, varType) {
     });
 
     let maxFac = fac[fac.length - 1];
+    //NESSA LINHA: Se for amostra, maxFac = maxFac - 1;
 
     if (varType == 'quantitativaContinua') {
         for (i = 0; i < values.length; i++) {
-            let stringList = mode[i].split(' ')
+            let stringList = values[i].split(' ')
             let intervalStart = Number(stringList[0]);
             let intervalEnding = Number(stringList[stringList.length - 1]);
 
@@ -44,4 +45,6 @@ function standardDeviation(mean, varType) {
     standardDeviation == undefined ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
 
     return standardDeviation
+
+    //calcular o que ela chama de variância.
 }

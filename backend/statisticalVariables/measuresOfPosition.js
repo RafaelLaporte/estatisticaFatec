@@ -46,5 +46,5 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
         }
     }
 
-    return measure == undefined ? "Não foi possível determinar o" : measure
+    return measure == undefined ? "Não consta" : measure
 }
