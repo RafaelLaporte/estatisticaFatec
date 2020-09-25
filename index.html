@@ -4,13 +4,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Trabalho de estatística</title>
-    <link rel="stylesheet" href="./frontend/css/style.css">  
+    <style id='style'></style>
+    <style> .chart-container {width: 800px; height: 400px} </style>
+    <link rel="stylesheet" href="./frontend/css/style.css"> 
+</head>
+
+<body>
+    <div class="header">
+    <h1>SKYLAB</h1>
+        
+        <form id='fVarName'>
+            <label for='varName'><b style="font-size: 20px;">Nome da variável</b></label><br>
+            <input type='text' id='varName' name='varName' size='80px' class="input"><br><br>
+        </form>
+
+        <form id="fVarType">
+            <label for='varType'><b style="font-size: 20px;">Tipo da variável</b> </label><br>
+            <input type='radio' id='varType' name='varType' value="qualitativaNominal" class="radio"> Qualitativa Nominal <br>
+            <input type='radio' id='varType' name='varType' value="qualitativaOrdinal" class="radio"> Qualitativa Ordinal <br>
+            <input type='radio' id='varType' name='varType' value="quantitativaDiscreta"  class="radio"> Quantitativa Discreta <br>
+            <input type='radio' id='varType' name='varType' value="quantitativaContinua"  class="radio"> Quantitativa Contínua<br><br>
+        </form>
+
+        <form id="fVarValue">
+            <label for='varValues'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula)</b></label><br>
+            <input type='text' id="varValues" name='varValues' size="100px" class="input">
+        </form>
+        
+        <form id='fVarScope'>
+            <label for='varScope'><b style="font-size: 20px;">Tipo do conjunto de valores </b> </label><br>
+            <input type='radio' id='varScope' name='varScope' value="amostra" class="radio"> Amostra
+            <input type='radio' id='varScope' name='varScope' value="populacao" class="radio"> População 
+        </form>
+
+        <form id='fVarMeasures'>
+            <label for='varMeasures'><b style="font-size: 20px;">Selecione a medida separatriz </b> </label><br>
+            <select name="measureSel" id="measureSel" class="select" onchange="populate(this.id, 'partMeasure')">
+                <h3>Medida</h3>
+                <option value=""></option>
+                <option value="quartil">Quartil</option>
+                <option value="quintil">Quintil</option>
+                <option value="decil">Decil</option>
+                <option value="percentil">Percentil</option>
+            </select><br><br>
+
+            <select name="partMeasure" id="partMeasure" class="select"></select>
+        </form>
+
+        <button id='btn-calculate' type="button" class="btn" onclick="calculateButton()"> Calcular </button>
+
+        <p id='explanation'></p>
+
+        <table id="results">
+            <thead id='table_head'></thead>
+            <tbody id='table_body'></tbody>
+        </table>
+
+        <br><br>
+
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+        
+        <div class="statistical-values">
+            <h3 id='mean'></h3><hr>
+            <h3 id='mode'></h3><hr>
+            <h3 id='median'></h3><hr>
+            <h3 id='measure'></h3><hr>
+        </div>
+    </div>
+
     <script src='./frontend/resetHTML.js'></script>
     <script src='./frontend/inputReader.js'></script>
     <script src='./frontend/chart/chart.js'></script>
     <script src='./frontend/chart/chartOptions.js'></script>
     <script src='./frontend/tables.js'></script>
-      
+    <script src='./frontend/populate.js'></script>      
     
     <script src='./backend/frequencies.js'></script>
     <script src='./backend/sortData.js'></script>
@@ -18,8 +87,8 @@
     <script src='./backend/statisticalVariables/mean.js'></script>
     <script src='./backend/statisticalVariables/mode.js'></script>
     <script src='./backend/statisticalVariables/median.js'></script>
-    <script src='./backend/statisticalVariables/measure.js'></script>
-    <script src='./backend/statisticalVariables/measuresCalc.js'></script>
+    <!--<script src='./backend/statisticalVariables/measure.js'></script> -->
+    <script src='./backend/statisticalVariables/measuresOfPosition.js'></script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -27,92 +96,5 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
-    <style id='style'></style>
-    <style> .chart-container {width: 800px; height: 400px} </style>
-</head>
-
-<body>
-    <div class="header">
-   <h1>Trabalho de Estatística</h1>
-    
-    <form id='fVarName'>
-        <label for='varName'><b style="font-size: 20px;">Nome da variável</b></label><br>
-        <input type='text' id='varName' name='varName' size='80px' class="input"><br><br>
-    </form>
-
-    <form id="fVarType">
-        <label for='varType'><b style="font-size: 20px;">Tipo da variável</b> </label><br>
-        <input type='radio' id='varType' name='varType' value="qualitativaNominal" class="radio"> Qualitativa Nominal <br>
-        <input type='radio' id='varType' name='varType' value="qualitativaOrdinal" class="radio"> Qualitativa Ordinal <br>
-        <input type='radio' id='varType' name='varType' value="quantitativaDiscreta"  class="radio"> Quantitativa Discreta <br>
-        <input type='radio' id='varType' name='varType' value="quantitativaContinua"  class="radio"> Quantitativa Contínua<br><br>
-    </form>
-
-    <form id="fVarValue">
-        <label for='varValues'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula)</b></label><br>
-        <input type='text' id="varValues" name='varValues' size="100px" class="input">
-    </form>
-    
-    <form id='fVarScope'>
-        <label for='varScope'><b style="font-size: 20px;">Tipo do conjunto de valores </b> </label><br>
-        <input type='radio' id='varScope' name='varScope' value="amostra" class="radio"> Amostra
-        <input type='radio' id='varScope' name='varScope' value="populacao" class="radio"> População 
-    </form>
-
-    <form id='fVarMeasures'>
-        <label for='varMeasures'><b style="font-size: 20px;">Selecione a medida separatriz </b> </label><br>
-        <select name="measureSel" id="measureSel" class="select" onchange="populate(this.id, 'partMeasure')">
-            <h3>Medida</h3>
-            <option value=""></option>
-            <option value="quartil">Quartil</option>
-            <option value="quintil">Quintil</option>
-            <option value="decil">Decil</option>
-            <option value="percentil">Percentil</option>
-        </select><br><br>
-
-        <select name="partMeasure" id="partMeasure" class="select"></select>
-    </form>
-
-    <button id='btn-calculate' type="button" class="btn" onclick="calculateButton()"> Calcular </button>
-
-    <p id='explanation'></p>
-
-    <table id="results">
-        <thead id='table_head'></thead>
-        <tbody id='table_body'></tbody>
-    </table>
-
-    <br><br>
-
-    <div class="chart-container">
-        <canvas id="chart"></canvas>
-    </div>
-    
-    <div class="statistical-values">
-        <h3 id='mean'></h3><hr>
-        <h3 id='mode'></h3><hr>
-        <h3 id='median'></h3><hr>
-        <h3 id='measure'></h3><hr>
-    </div>
-    </div>
 </body>
 </html>
-
-<script>
-   function populate(measure,  partMeasure){
-       measure = document.getElementById(measure);
-       partMeasure = document.getElementById(partMeasure);
-       partMeasure.innerHTML = '';
-       let cond = 4;
-       if(measure.value == "quintil") cond = 5 
-       if(measure.value == "decil") cond = 10
-       if(measure.value == "percentil") cond = 100
-           for(let i = 0; i < cond; i++){
-               let newOption = document.createElement("option");
-               newOption.value = `${i + 1}`
-               newOption.innerHTML = `${i + 1}`
-               partMeasure.options.add(newOption)
-       }
-   }
-
-</script>

@@ -82,8 +82,13 @@ function generateTable(variable) {
                     if (percentualFac > 99.5) percentualFac = 100;
                     $(this).text(`${percentualFac.toFixed(2)}%`)
                 });  
-               // measuresCalc(variable.type, varMeasureType, varMeasurePart);
-               // median(variable.type);
+               
+                let varMeasureType = document.getElementById('measureSel').value;
+                let varMeasurePart = document.getElementById('partMeasure').value;
+
+                document.getElementById("measure").innerHTML = `Medida Separatriz: ${measuresOfPosition(variable.type, varMeasureType, varMeasurePart)}`
+                document.getElementById("median").innerHTML = `Mediana: ${median(variable.type)}`
+
                 createChart(variable.type);
             }
         });      

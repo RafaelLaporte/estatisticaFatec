@@ -5,8 +5,6 @@ function inputReader() {
     let varValues = document.getElementById('varValues').value;
     let varType = document.querySelector('input[name="varType"]:checked').value;
     
-   
-
     //let varScope = document.querySelector('input[name="varScope"]:checked').value; 
 
     varValues = organizeAndSort(varValues, varType);
@@ -17,4 +15,3 @@ function inputReader() {
 
     return varData
 }
-

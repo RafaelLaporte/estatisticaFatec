@@ -10,8 +10,10 @@
   }
 
 .header {
-  background-color: #8EC5FC;
-  background-image: linear-gradient(152deg, #8EC5FC 0%, #fcc3c4 100%);
+  background: #998988;
+  background: -webkit-linear-gradient(bottom right, #998988, #FFFFFF);
+  background: -moz-linear-gradient(bottom right, #998988, #FFFFFF);
+  background: linear-gradient(to top left, #998988, #FFFFFF);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -28,7 +30,6 @@
 .title {
   font: bold;
   text-shadow: 1ch;
-
 }
 
 .input {
@@ -39,7 +40,6 @@
   border: solid;
   border-color: #c1a8c8;  
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .radio {
@@ -61,5 +61,4 @@
   padding: 5px 10px;
   position: justify;
   transition: border-color 300ms;
-  
 }

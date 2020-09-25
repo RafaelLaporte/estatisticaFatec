@@ -9,7 +9,7 @@ function organizeAndSort(data, varType) {
             i--
         }
     }    
-
+    
     //Sorts the data array (crescent order if number or alphabetical if string).
     if (["quantitativaDiscreta", "quantitativaContinua"].includes(varType)) {
         for (i = 0; i < data.length; i++) {

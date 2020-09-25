@@ -19,5 +19,5 @@ function calculateButton() {
     document.getElementById('mean').innerHTML += `Média: ${mean(variable.type)}`
     document.getElementById('mode').innerHTML += `Moda: ${mode(variable.type)}`
     document.getElementById('median').innerHTML += `Mediana: ${median(variable.type,)}`
-    document.getElementById('measure').innerHTML += `Medida separatriz: ${measure(variable.type, varMeasureType, varMeasurePart)}`
+    document.getElementById('measure').innerHTML += `Medida separatriz: ${measuresOfPosition(variable.type, varMeasureType, varMeasurePart)}`
 }

@@ -1,4 +1,4 @@
-function measuresCalc(varType, varMeasureType, varMeasurePart) {
+function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     
     let values = [];
     let frequencies = [];
@@ -10,7 +10,6 @@ function measuresCalc(varType, varMeasureType, varMeasurePart) {
     if(varMeasureType == 'quintil') varMeasureType = 5
     if(varMeasureType == 'decil') varMeasureType = 10
     if(varMeasureType == 'percentil') varMeasureType = 100
-
 
     $('tbody td:nth-child(1)').each(function (index) {
         let value = ($(this).text())
@@ -26,6 +25,7 @@ function measuresCalc(varType, varMeasureType, varMeasurePart) {
         let frequencyAc = ($(this).text())
         frequenciesAc.push(Number(frequencyAc));
     });
+
     let totalElements = frequenciesAc[frequenciesAc.length -1]
     let percent;
     percent = Math.round((totalElements/varMeasureType)*part)
@@ -33,11 +33,6 @@ function measuresCalc(varType, varMeasureType, varMeasurePart) {
     if (varType === 'quantitativaContinua') {
 
     } else{
-
-        console.log(varMeasurePart)
-        console.log(varMeasureType)
-        
-
         let i = 0
        
         while(percent > frequenciesAc[i]) i++ 
@@ -45,12 +40,10 @@ function measuresCalc(varType, varMeasureType, varMeasurePart) {
         measure = values[i]
 
         if(totalElements % 2 == 0){
-
             varType == 'quantitativaDiscreta' ? 
-            measure = (Number(values[i]) + Number(values[i + 1]))/2 :
-            measure = [values[i], values[i + 1]]
-            
+            measure = (Number(values[i]) + Number(values[i + 1]))/2 : measure = [values[i], values[i + 1]]      
         }
-       return measure 
     }
+
+    return measure == undefined ? "Fudeu" : measure
 }
