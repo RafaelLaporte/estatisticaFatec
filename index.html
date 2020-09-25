@@ -11,15 +11,19 @@
 
 <body>
     <div class="header">
-    <h1>SKYLAB</h1>
+    <hr class="hr">
+    <h1 class="title">SKYLAB</h1>
+    <h3 class="subtitle">Statistics System</h3>
+    <hr class="hr">
+    <br>
         
         <form id='fVarName'>
-            <label for='varName'><b style="font-size: 20px;">Nome da variável</b></label><br>
+            <label for='varName'><b class="textTitle">Nome da variável</b></label><br>
             <input type='text' id='varName' name='varName' size='80px' class="input"><br><br>
         </form>
 
         <form id="fVarType">
-            <label for='varType'><b style="font-size: 20px;">Tipo da variável</b> </label><br>
+            <label for='varType'><b class="textTitle">Tipo da variável</b> </label><br>
             <input type='radio' id='varType' name='varType' value="qualitativaNominal" class="radio"> Qualitativa Nominal <br>
             <input type='radio' id='varType' name='varType' value="qualitativaOrdinal" class="radio"> Qualitativa Ordinal <br>
             <input type='radio' id='varType' name='varType' value="quantitativaDiscreta"  class="radio"> Quantitativa Discreta <br>
@@ -27,18 +31,18 @@
         </form>
 
         <form id="fVarValue">
-            <label for='varValues'><b style="font-size: 20px;">Entre com os valores separados por ; (ponto e vírgula)</b></label><br>
+            <label for='varValues'><b class="textTitle">Entre com os valores separados por ; (ponto e vírgula)</b></label><br>
             <input type='text' id="varValues" name='varValues' size="100px" class="input">
         </form>
         
         <form id='fVarScope'>
-            <label for='varScope'><b style="font-size: 20px;">Tipo do conjunto de valores </b> </label><br>
+            <label for='varScope'><b class="textTitle">Tipo do conjunto de valores </b> </label><br>
             <input type='radio' id='varScope' name='varScope' value="amostra" class="radio"> Amostra
             <input type='radio' id='varScope' name='varScope' value="populacao" class="radio"> População 
         </form>
 
         <form id='fVarMeasures'>
-            <label for='varMeasures'><b style="font-size: 20px;">Selecione a medida separatriz </b> </label><br>
+            <label for='varMeasures'><b class="textTitle">Selecione a medida separatriz </b> </label><br>
             <select name="measureSel" id="measureSel" class="select" onchange="populate(this.id, 'partMeasure')">
                 <h3>Medida</h3>
                 <option value=""></option>
@@ -67,10 +71,10 @@
         </div>
         
         <div class="statistical-values">
-            <h3 id='mean'></h3><hr>
-            <h3 id='mode'></h3><hr>
-            <h3 id='median'></h3><hr>
-            <h3 id='measure'></h3><hr>
+            <h3 id='mean'></h3><hr class="hr">
+            <h3 id='mode'></h3><hr class="hr">
+            <h3 id='median'></h3><hr class="hr">
+            <h3 id='measure'></h3><hr class="hr">
         </div>
     </div>
 

@@ -41,9 +41,10 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
         if(totalElements % 2 == 0){
             varType == 'quantitativaDiscreta' ? 
-            measure = (Number(values[i]) + Number(values[i + 1]))/2 : measure = [values[i], values[i + 1]]      
+            measure = (Number(values[i]) + Number(values[i + 1]))/2 :
+            measure = [values[i], values[i + 1]]      
         }
     }
 
-    return measure == undefined ? "Fudeu" : measure
+    return measure == undefined ? "Não foi possível determinar o" : measure
 }

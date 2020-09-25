@@ -1,7 +1,7 @@
 .btn {
-    background-color: #c1a8c8; 
+    background-color: rgba(41, 4, 4, 0.822); 
     border-radius: 1ch;
-    color: black;
+    color:  #E9DCDC;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -10,14 +10,15 @@
   }
 
 .header {
-  background: #998988;
-  background: -webkit-linear-gradient(bottom right, #998988, #FFFFFF);
-  background: -moz-linear-gradient(bottom right, #998988, #FFFFFF);
-  background: linear-gradient(to top left, #998988, #FFFFFF);
+  background: #E9DCDC;
+  background: -webkit-linear-gradient(bottom right, #E9DCDC, #FFFFFF);
+  background: -moz-linear-gradient(bottom right, #E9DCDC, #FFFFFF);
+  background: linear-gradient(to top left, #E9DCDC, #FFFFFF);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(41, 4, 4);
 }
 
 .statistical-values {
@@ -28,8 +29,19 @@
 }
 
 .title {
-  font: bold;
+  font-size: 80px;
   text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  margin: 0ch;
+  font-weight: 200;
+}
+.subtitle {
+  font-size: 20px;
+  text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  margin: 0ch;
+  letter-spacing: 15px;
+  font-weight: lighter;
 }
 
 .input {
@@ -38,27 +50,39 @@
 	padding: 10px 20px;
   border-radius: 8px;
   border: solid;
-  border-color: #c1a8c8;  
+  border-color: rgba(41, 4, 4, 0.522);  
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .radio {
-  border: 2px solid #545556;
-  border-color: #c1a8c8; 
-  border-radius: 50%;
+  
+  border-color: rgba(41, 4, 4, 0.822); 
   cursor: pointer;
-  height: 20px;
-  position: justify;
-  transition: border-color 300ms;
+  height: 15px;
+  transition: 300ms;
   width: 20px;
+  background-color: rgba(41, 4, 4, 0.522);  
+  margin: 0.8ch;
 }
 
 .select {
-  border: 2px solid #545556;
-  border-color: #c1a8c8; 
+  border: 2px solid;
+  border-color: rgba(41, 4, 4, 0.522); 
   border-radius: 1ch;
   cursor: pointer;
   padding: 5px 10px;
   position: justify;
   transition: border-color 300ms;
+}
+
+.hr {
+  border-color: rgba(41, 4, 4, 0.322);
+  border-radius: 2px;
+}
+
+.textTitle {
+  font-size: 20px;
+  text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  font-weight: lighter;
 }
