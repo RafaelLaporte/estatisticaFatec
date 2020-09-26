@@ -53,10 +53,11 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
             measure = (Number(values[i]) + Number(values[i + 1]))/2
             measure.toFixed(2) 
         } else{
-            
+
             measure = [values[i], values[i + 1]];
         }
     } 
 
     return measure == undefined ? "Não consta" : measure
 }
+    
