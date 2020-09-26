@@ -42,18 +42,21 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
         let valList = values[i].split(' ')
         let init = Number(valList[0]);
         let interval = Number(valList[2]) - init;
-
-        console.log(init)
-        console.log(interval)
-
        
         measure = init + ((percent - freqAcAnterior)/ freqSimpl) * interval
+        measure.toFixed(2)
 
-    } else if(totalElements % 2 == 0){
-        varType == 'quantitativaDiscreta' ? 
-        measure = (Number(values[i]) + Number(values[i + 1]))/2 :
-        measure = [values[i], values[i + 1]]   
-    }
+    } else if(totalElements % 2 == 0 && percent + 1 > frequenciesAc[i]){
 
-    return measure == undefined ? "Não consta" : measure.toFixed(2)
+        if (varType == 'quantitativaDiscreta'){ 
+
+            measure = (Number(values[i]) + Number(values[i + 1]))/2
+            measure.toFixed(2) 
+        } else{
+            
+            measure = [values[i], values[i + 1]];
+        }
+    } 
+
+    return measure == undefined ? "Não consta" : measure
 }
