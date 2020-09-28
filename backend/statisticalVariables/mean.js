@@ -16,7 +16,7 @@ function mean(varType) {
     });
 
     if (['qualitativaNominal','qualitativaOrdinal'].includes(varType)) {
-        return 'Não existe média de variáveis qualitativas'
+        return 'Não consta'
     }
 
     if (varType === 'quantitativaDiscreta') {

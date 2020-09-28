@@ -42,7 +42,7 @@ function standardDeviation(mean, varType) {
     }
 
     standardDeviation = Math.sqrt(standardDeviation/maxFac);
-    standardDeviation == undefined || isNaN ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
+    standardDeviation == undefined || standardDeviation == isNaN ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
     
     return standardDeviation
 
