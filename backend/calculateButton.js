@@ -27,5 +27,5 @@ function calculateButton() {
     document.getElementById('mode').innerHTML += `Moda: ${mode(variable.type)}`
     document.getElementById('median').innerHTML += `Mediana: ${median(variable.type)}`
     document.getElementById('measure').innerHTML += `Medida separatriz: ${measuresOfPosition(variable.type, varMeasureType, varMeasurePart)}`
-    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${standardDeviation(newMean, variable.type)}`
+  //  document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${standardDeviation(newMean, variable.type)}`
 }

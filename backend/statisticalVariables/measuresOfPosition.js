@@ -5,7 +5,8 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     let frequenciesAc = [];
     let measure;
     let part = Number(varMeasurePart)
-    
+
+    if(varMeasureType == '' || varMeasurePart == '') return 'Especifique um valor para as medidas separatrizes'
     if(varMeasureType == 'quartil') varMeasureType = 4
     if(varMeasureType == 'quintil') varMeasureType = 5
     if(varMeasureType == 'decil') varMeasureType = 10
@@ -29,21 +30,24 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     let totalElements = frequenciesAc[frequenciesAc.length -1]
     let percent;
     percent = Math.round((totalElements/varMeasureType)*part)
-    
-    let i = 0   
+    let i = 0 
+ 
     while(percent > frequenciesAc[i]) i++ 
     
     measure = values[i]
-    let freqAcAnterior = frequenciesAc[i - 1]
+    let freqAcAnterior 
+    i == 0 ? freqAcAnterior = 0 : freqAcAnterior = frequenciesAc[i - 1]
     let freqSimpl = frequencies[i]
     
     if (varType == 'quantitativaContinua') { 
         let valList = values[i].split(' ')
         let init = Number(valList[0]);
         let interval = Number(valList[2]) - init;
+
+        
+        console.log(varMeasureType)
        
         measure = init + ((percent - freqAcAnterior)/ freqSimpl) * interval
-        measure = measure.toFixed(2)
 
     } else if(totalElements % 2 == 0 && percent + 1 > frequenciesAc[i]){
         if (varType == 'quantitativaDiscreta'){ 
