@@ -27,9 +27,9 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
         frequenciesAc.push(Number(frequencyAc));
     });
 
-    let totalElements = frequenciesAc[frequenciesAc.length -1]
+    let numberOfValues = frequenciesAc[frequenciesAc.length -1]
     let percent;
-    percent = Math.round((totalElements/varMeasureType)*part)
+    percent = Math.round((numberOfValues/varMeasureType)*part)
     let i = 0 
  
     while(percent > frequenciesAc[i]) i++ 
@@ -44,12 +44,9 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
         let init = Number(valList[0]);
         let interval = Number(valList[2]) - init;
 
-        
-        console.log(varMeasureType)
-       
         measure = init + ((percent - freqAcAnterior)/ freqSimpl) * interval
 
-    } else if(totalElements % 2 == 0 && percent + 1 > frequenciesAc[i]){
+    } else if(numberOfValues % 2 == 0 && percent + 1 > frequenciesAc[i]){
         if (varType == 'quantitativaDiscreta'){ 
             measure = (Number(values[i]) + Number(values[i + 1]))/2
             measure = measure.toFixed(2) 
