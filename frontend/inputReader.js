@@ -3,15 +3,15 @@ function inputReader() {
     //Reading Variables
     let varName = document.getElementById('varName').value;
     let varValues = document.getElementById('varValues').value;
-    let varType = document.querySelector('input[name="varType"]:checked').value;
+    let varType
 
-    /*let varMeasureType = document.getElementById('measureSel').value;
-    let varMeasurePart = document.getElementById('partMeasure').value;
-        varMeasures = { type: varMeasureType , part: varMeasurePart}*/
     
-    //let varScope = document.querySelector('input[name="varScope"]:checked').value; 
-
     varValues = organizeAndSort(varValues, varType);
+
+    varValues.some(isNaN) ? varType = 'qualitativaOrdinal' :
+    varValues.length < 10 ? varType = 'quantitativaDiscreta':
+    varType = 'quantitativaContinua'
+       
 
     //Counting
     let valuesFi = simpleFrequencies(varValues);

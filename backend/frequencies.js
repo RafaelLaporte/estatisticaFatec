@@ -27,7 +27,7 @@ function variableData(varName, varType, varValues, valuesFi) {
         //Constructing the new valuesFi values, counting how many values are in each classInterval
         let countinuousFi = {}
         
-        for(let i = 0; i <= xMax; i += classInterval){
+        for(let i = xMin; i <= xMax; i += classInterval){
             let key = `${i} &vdash; ${i + classInterval}`;
             countinuousFi[key] = varValues.filter(value => value >= i && value < i + classInterval).length
         }
