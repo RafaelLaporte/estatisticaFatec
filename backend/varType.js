@@ -1,8 +1,10 @@
-function type(varValues){
-    let type;
+function type(valuesFi){
 
-    varValues.some(isNaN) ? type = 'qualitativaOrdinal' :
-    varValues.length < 10 ? type = 'quantitativaDiscreta':
+    let type;
+    let values = Object.keys(valuesFi)
+
+    values.some(isNaN) ? type = 'qualitativaOrdinal' :
+    values.length < 10 ? type = 'quantitativaDiscreta':
     type = 'quantitativaContinua'
 
     return type

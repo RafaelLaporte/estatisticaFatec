@@ -18,14 +18,19 @@ function calculateButton() {
     //createChart(input.data.type)
     createChart(variable.type);
 
-    //Generates Mean, Mode and Median
+    //Generates Mean, Mode and Median (ARRUMAR ESSA QUESTÃO DO newNOME)
     let newMean = mean(variable.type);
     let newMode = mode(variable.type);
     let newMedian = median(variable.type);
+    let newMeasuresOfPosition = measuresOfPosition(variable.type, varMeasureType, varMeasurePart);
+    let newStandardDeviation = standardDeviation(newMean, variable.type, variable.scope);
+    let newVariance = variance(newStandardDeviation, newMean);
 
     document.getElementById('mean').innerHTML += `Média: ${newMean}`
-    document.getElementById('mode').innerHTML += `Moda: ${mode(variable.type)}`
-    document.getElementById('median').innerHTML += `Mediana: ${median(variable.type)}`
-    document.getElementById('measure').innerHTML += `Medida separatriz: ${measuresOfPosition(variable.type, varMeasureType, varMeasurePart)}`
-  //  document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${standardDeviation(newMean, variable.type)}`
+    document.getElementById('mode').innerHTML += `Moda: ${newMode}`
+    document.getElementById('median').innerHTML += `Mediana: ${newMedian}`
+    document.getElementById('measure').innerHTML += `Medida separatriz: ${newMeasuresOfPosition}`
+    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${newStandardDeviation}  
+    Coeficiente de Variância: ${newVariance}`
+  
 }

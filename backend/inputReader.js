@@ -3,19 +3,17 @@ function inputReader() {
     //Reading Variables
     let varName = document.getElementById('varName').value;
     let varValues = document.getElementById('varValues').value;
-    let varType
+    let varScope = document.querySelector('input[name="varScope"]:checked').value
 
-    
-    varValues = organizeAndSort(varValues, varType);
-
-    varValues.some(isNaN) ? varType = 'qualitativaOrdinal' :
-    varValues.length < 10 ? varType = 'quantitativaDiscreta':
-    varType = 'quantitativaContinua'
-       
+    varValues = organize(varValues);
 
     //Counting
     let valuesFi = simpleFrequencies(varValues);
-    let varData = variableData(varName, varType, varValues, valuesFi);
+    let varType = type(valuesFi);
+
+    valuesFi = sort(valuesFi, varType);
+    
+    let varData = variableData(varName, varType, varValues, valuesFi, varScope);
     //return {data: varData, measures: varMeasures}
     return varData
 }

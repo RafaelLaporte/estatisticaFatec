@@ -9,25 +9,25 @@ function simpleFrequencies(varValues) {
     return simpleFrequencies;
 }
 
-function variableData(varName, varType, varValues, valuesFi) {    
+function variableData(varName, varType, varValues, valuesFi, varScope) {    
     let frequencies = [];
     let accumulated = 0;
     let numberOfValues = varValues.length;
 
     if (varType === 'quantitativaContinua') {
         //Max and Min values
-        let xMin = Math.min(...varValues);
-        let xMax = Math.max(...varValues);
+        let min = Math.min(...varValues);
+        let max = Math.max(...varValues);
 
         //Calculating the classInterval
-        let amplitude = xMax - xMin       
+        let amplitude = max - min       
         let k = Math.round(Math.sqrt(numberOfValues)); 
         let classInterval = Math.ceil(amplitude/k);
 
         //Constructing the new valuesFi values, counting how many values are in each classInterval
         let countinuousFi = {}
         
-        for(let i = xMin; i <= xMax; i += classInterval){
+        for(let i = min; i <= max; i += classInterval){
             let key = `${i} &vdash; ${i + classInterval}`;
             countinuousFi[key] = varValues.filter(value => value >= i && value < i + classInterval).length
         }
@@ -48,5 +48,5 @@ function variableData(varName, varType, varValues, valuesFi) {
         });
     }
 
-    return {name: varName, type: varType, data: frequencies}
+    return {name: varName, type: varType, scope: varScope, data: frequencies}
 }

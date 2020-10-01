@@ -1,4 +1,4 @@
-function standardDeviation(mean, varType) {
+function standardDeviation(mean, varType, varScope) {
 
     let values = [];
     let frequencies = [];
@@ -21,9 +21,10 @@ function standardDeviation(mean, varType) {
     });
 
     let maxFac = fac[fac.length - 1];
-    //NESSA LINHA: Se for amostra, maxFac = maxFac - 1;
 
-    if (varType == 'quantitativaContinua') {
+    if(varScope == 'amostra') maxFac = maxFac - 1
+
+    if (varType === 'quantitativaContinua') {
         for (i = 0; i < values.length; i++) {
             let stringList = values[i].split(' ')
             let intervalStart = Number(stringList[0]);
@@ -46,5 +47,8 @@ function standardDeviation(mean, varType) {
     
     return standardDeviation
 
-    //calcular o que ela chama de variância.
+}
+
+function variance(standardDeviation, mean) {
+    return `${((standardDeviation/mean)*100).toFixed(2)}%`
 }
