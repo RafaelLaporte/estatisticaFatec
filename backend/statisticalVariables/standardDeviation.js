@@ -43,12 +43,14 @@ function standardDeviation(mean, varType, varScope) {
     }
 
     standardDeviation = Math.sqrt(standardDeviation/maxFac);
-    standardDeviation == undefined || standardDeviation == isNaN ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
+    standardDeviation == undefined || isNaN(standardDeviation) ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
     
     return standardDeviation
 
 }
 
 function variance(standardDeviation, mean) {
+    if(standardDeviation == 'Não consta') return 'Não consta'
+
     return `${((standardDeviation/mean)*100).toFixed(2)}%`
 }
