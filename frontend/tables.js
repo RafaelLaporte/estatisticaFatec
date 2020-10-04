@@ -41,7 +41,7 @@ function generateTable(variable) {
         createHeader(variable)
     ); 
 
-    //Generate all lines of the table.
+    //Generate all lines of the table.    
     variable.data.forEach(valueData => {
         document.getElementById("table_body").appendChild(
             createLine(valueData)

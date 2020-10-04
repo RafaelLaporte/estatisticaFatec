@@ -5,6 +5,7 @@ function mean(varType) {
     let mean = 0;
     let N = 0;
 
+    //CRIAR FUNÇÃO PARA LER LINHA 'I' DA TABELA
     $('tbody td:nth-child(1)').each(function (index) {
         let value = ($(this).text())
         values.push(value);

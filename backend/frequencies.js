@@ -13,6 +13,7 @@ function variableData(varName, varType, varValues, valuesFi, varScope) {
     let frequencies = [];
     let accumulated = 0;
     let numberOfValues = varValues.length;
+    let orderedKeys = Object.keys(valuesFi);
 
     if (varType === 'quantitativaContinua') {
         //Max and Min values
@@ -33,9 +34,19 @@ function variableData(varName, varType, varValues, valuesFi, varScope) {
         }
 
         valuesFi = countinuousFi;
+        orderedKeys = Object.keys(valuesFi);
     }
 
-    for (key in valuesFi) {
+    //Order the values if varType == 'quantitativaDiscreta'
+    if (varType == 'quantitativaDiscreta') {
+        for (let i = 0; i < orderedKeys.length; i++) {
+            orderedKeys[i] = Number(orderedKeys[i]);
+        }
+
+        orderedKeys = mergeSort(orderedKeys);
+    }
+
+    for (key of orderedKeys) {
         let fi = valuesFi[key];
         accumulated += fi;
 
@@ -48,5 +59,5 @@ function variableData(varName, varType, varValues, valuesFi, varScope) {
         });
     }
 
-    return {name: varName, type: varType, scope: varScope, data: frequencies}
+    return {name: varName, type: varType, scope: varScope, data: frequencies, keys: orderedKeys}
 }
