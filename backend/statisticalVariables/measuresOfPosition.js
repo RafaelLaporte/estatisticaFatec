@@ -47,7 +47,7 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
         measure = init + ((position - facAnterior)/ fi) * interval
         measure = measure.toFixed(2);
 
-    } else if((numberOfValues % 2 == 0) && (position + 1 > fac[i]) && (part/varMeasureType == 1/2)){
+    } else if(numberOfValues % 2 == 0 && position + 1 > fac[i] && part/varMeasureType == 1/2){
         if (varType == 'quantitativaDiscreta'){ 
             measure = (Number(values[i]) + Number(values[i + 1]))/2
             measure = measure.toFixed(2); 
