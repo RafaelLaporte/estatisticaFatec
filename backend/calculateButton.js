@@ -9,6 +9,7 @@ function calculateButton() {
     //Reads the inputs
     let variable = inputReader();
     //let input = inputReader()
+    
 
     //Generates the frequencies table
     //generateTable(input.data)
@@ -30,7 +31,7 @@ function calculateButton() {
     document.getElementById('mode').innerHTML += `Moda: ${newMode}`
     document.getElementById('median').innerHTML += `Mediana: ${newMedian}`
     document.getElementById('measure').innerHTML += `Medida separatriz: ${newMeasuresOfPosition}`
-    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${newStandardDeviation}  
-    Coeficiente de Variância: ${newVariance}`
+    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${newStandardDeviation}`  
+    document.getElementById('variance').innerHTML += `Variância: ${newVariance}`
   
 }

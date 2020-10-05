@@ -7,5 +7,6 @@ function resetHTML() {
     document.getElementById('mode').innerHTML = ``; 
     document.getElementById('measure').innerHTML = ``;
     document.getElementById('median').innerHTML = ``;    
-    document.getElementById('standard-deviation').innerHTML = ``;     
+    document.getElementById('standard-deviation').innerHTML = ``;  
+    document.getElementById('variance').innerHTML = ``;   
 }
