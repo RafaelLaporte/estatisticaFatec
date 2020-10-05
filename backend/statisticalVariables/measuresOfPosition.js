@@ -2,7 +2,7 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     
     let values = [];
     let frequencies = [];
-    let frequenciesAc = [];
+    let fac = [];
     let measure;
     let part = Number(varMeasurePart)
 
@@ -24,20 +24,20 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
     $('tbody td:nth-child(4)').each(function (index) {
         let frequencyAc = ($(this).text())
-        frequenciesAc.push(Number(frequencyAc));
+        fac.push(Number(frequencyAc));
     });
 
-    let numberOfValues = frequenciesAc[frequenciesAc.length -1]
-    let percent;
-    percent = Math.round((numberOfValues/varMeasureType)*part)
+    let numberOfValues = fac[fac.length -1]
+    let position;
+    position = Math.round((numberOfValues/varMeasureType)*part)
     let i = 0 
  
-    while(percent > frequenciesAc[i]) i++ 
+    while(position > fac[i]) i++ 
     
     measure = values[i]
-    let freqAcAnterior 
-    i == 0 ? freqAcAnterior = 0 : freqAcAnterior = frequenciesAc[i - 1]
-    let freqSimpl = frequencies[i]
+    let facAnterior 
+    i == 0 ? facAnterior = 0 : facAnterior = fac[i - 1]
+    let fi = frequencies[i]
     
     if (varType == 'quantitativaContinua') { 
         let valList = values[i].split(' ')
@@ -46,10 +46,10 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
         //console.log(varMeasureType)
        
-        measure = init + ((percent - freqAcAnterior)/ freqSimpl) * interval
+        measure = init + ((position - facAnterior)/ fi) * interval
         measure = measure.toFixed(2);
 
-    } else if(numberOfValues % 2 == 0 && percent + 1 > frequenciesAc[i]){
+    } else if(fac[i] > numberOfValues/position){
         if (varType == 'quantitativaDiscreta'){ 
             measure = (Number(values[i]) + Number(values[i + 1]))/2
             measure = measure.toFixed(2); 
