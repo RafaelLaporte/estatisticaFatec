@@ -1,3 +1,4 @@
+//Determines how many parts selected measure of position has.
 function populate(measure,  partMeasure){
     measure = document.getElementById(measure);
     partMeasure = document.getElementById(partMeasure);

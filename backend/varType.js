@@ -1,5 +1,5 @@
+//Determines the variable type by analysing the input
 function type(valuesFi){
-
     let type;
     let values = Object.keys(valuesFi)
 

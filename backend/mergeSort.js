@@ -1,34 +1,33 @@
-//MELHORAR ESCRITA DESTE MERGESORT (TROCAR PARA INGLÊS).
+//Merge sort algorithm
+function mergeSort(vector, fnComp){
+    function mergeValues(leftVec, rightVec){
+        let result = [], leftPos = 0, rightPos = 0, remainingVector
 
-function mergeSort(vetor){
-    function mesclaValores(vetEsq, vetDir){
-        let vetRes = [], posEsq = 0, posDir = 0, sobra
-
-        while(posEsq < vetEsq.length && posDir < vetDir.length) {
-            if (vetEsq[posEsq] < vetDir[posDir]){
-                vetRes.push(vetEsq[posEsq])
-                posEsq++
+        while(leftPos < leftVec.length && rightPos < rightVec.length) {
+            if (fnComp(leftVec[leftPos],rightVec[rightPos])){
+                result.push(leftVec[leftPos])
+                leftPos++
             } else {
-                vetRes.push(vetDir[posDir]) 
-                posDir++           
+                result.push(rightVec[rightPos]) 
+                rightPos++           
             }
         }
     
-        if(posEsq < posDir) sobra = vetEsq.slice(posEsq)
-        else sobra = vetDir.slice(posDir)
+        if(leftPos < rightPos) remainingVector = leftVec.slice(leftPos)
+        else remainingVector = rightVec.slice(rightPos)
 
-        return vetRes.concat(sobra)
+        return result.concat(remainingVector)
     }   
 
-    if(vetor.length > 1){
-        let meio = Math.floor(vetor.length / 2);
-        let vetEsq = vetor.slice(0, meio);
-        let vetDir = vetor.slice(meio);
-        vetEsq = mergeSort(vetEsq);
-        vetDir = mergeSort(vetDir);
-        let vetorFinal = mesclaValores(vetEsq, vetDir);
-        return vetorFinal
+    if(vector.length > 1){
+        let middle = Math.floor(vector.length / 2);
+        let leftVec = vector.slice(0, middle);
+        let rightVec = vector.slice(middle);
+        leftVec = mergeSort(leftVec, fnComp);
+        rightVec = mergeSort(rightVec, fnComp);
+        let vectorFinal = mergeValues(leftVec, rightVec);
+        return vectorFinal
     }
     
-    return vetor
+    return vector
 }

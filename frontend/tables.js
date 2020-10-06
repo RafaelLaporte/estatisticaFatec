@@ -14,6 +14,7 @@ function createLine(variable) {
     return line
 }
 
+//Creates the Table header
 function createHeader(variable) {
     let headerContent = `
         <td>${variable.name}</td>
@@ -53,6 +54,7 @@ function generateTable(variable) {
         document.getElementById("explanation").innerHTML = 
         "<b style='font-size: 20px;'>Clique e arraste para trocar a posição das linhas.</b>"
 
+        //When change the lines of table, updates everything according.
         $('tbody').sortable({
             disabled: false,
             update: function () {
@@ -82,11 +84,8 @@ function generateTable(variable) {
                     if (percentualFac > 99.5) percentualFac = 100;
                     $(this).text(`${percentualFac.toFixed(2)}%`)
                 });  
-               
-                let varMeasureType = document.getElementById('measureSel').value;
-                let varMeasurePart = document.getElementById('partMeasure').value;
 
-                document.getElementById("measure").innerHTML = `Medida Separatriz: ${measuresOfPosition(variable.type, varMeasureType, varMeasurePart)}`
+                document.getElementById("measure").innerHTML = `Medida Separatriz: ${measuresOfPosition(variable.type, variable.measureType, variable.measurePart)}`
                 document.getElementById("median").innerHTML = `Mediana: ${median(variable.type)}`
 
                 createChart(variable.type);

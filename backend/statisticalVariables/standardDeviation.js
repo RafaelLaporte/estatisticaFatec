@@ -5,6 +5,7 @@ function standardDeviation(mean, varType, varScope) {
     let fac = [];
     let standardDeviation = 0;
     
+    //Taking the table values of interest
     $('tbody td:nth-child(1)').each(function (index) {
         let value = ($(this).text())
         values.push(value);
@@ -20,10 +21,16 @@ function standardDeviation(mean, varType, varScope) {
         fac.push(Number(value));
     });
 
-    let maxFac = fac[fac.length - 1];
+    //Taking the highest Fac value
+    let maxFac = fac[0]
+    for (i = 0; i < fac.length; i++) {
+        if(maxFac < fac[i]) maxFac = fac[i]
+    }
 
+    //If the varScope is 'amostra', we need to subtract the maxFac by 1
     if(varScope == 'amostra') maxFac = maxFac - 1
 
+    //Calculating the standard deviation for each type of statistical variable
     if (varType === 'quantitativaContinua') {
         for (i = 0; i < values.length; i++) {
             let stringList = values[i].split(' ')
@@ -43,12 +50,16 @@ function standardDeviation(mean, varType, varScope) {
     }
 
     standardDeviation = Math.sqrt(standardDeviation/maxFac);
-    standardDeviation == undefined || isNaN(standardDeviation) ? standardDeviation = "Não consta" : standardDeviation = standardDeviation.toFixed(2);
+
+    /*If the variable is qualitative, it's impossible to do the calculations above, so the standardDeviation
+    would be undefined or isNaN*/
+    standardDeviation == undefined || isNaN(standardDeviation) ? standardDeviation = "Não consta" : 
+                        standardDeviation = standardDeviation.toFixed(2);
     
     return standardDeviation
-
 }
 
+//Calculates the variance
 function variance(standardDeviation, mean) {
     if(standardDeviation == 'Não consta') return 'Não consta'
 

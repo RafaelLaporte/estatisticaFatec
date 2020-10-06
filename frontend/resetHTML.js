@@ -1,3 +1,4 @@
+//Resets the HTML values
 function resetHTML() {
     $('tbody').sortable({disabled: true});
     document.getElementById("table_head").innerHTML = "";

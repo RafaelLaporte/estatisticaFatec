@@ -48,9 +48,13 @@
             <select name="partMeasure" id="partMeasure" class="select"></select>
         </form>
 
-        <button id='btn-calculate' type="button" class="btn" onclick="calculateButton()"> Calcular </button>
+        <button id='btn-calculate' type="button" class="btn" onclick="btnCalculate()"> Calcular </button>
 
         <p id='explanation'></p>
+
+        <div id='btn-organize'>
+
+        </div>
 
         <table id="results">
             <thead id='table_head'></thead>
@@ -78,12 +82,14 @@
     <script src='./frontend/chart/chartOptions.js'></script>
     <script src='./frontend/tables.js'></script>
     <script src='./frontend/populate.js'></script>
+    <script src='./frontend/statisticalVariables.js'></script>
     
     <script src='./backend/varType.js'></script>
     <script src='./backend/frequencies.js'></script>
     <script src='./backend/organizeData.js'></script>
     <script src='./backend/mergeSort.js'></script>
-    <script src='./backend/calculateButton.js'></script>
+    <script src='./backend/btn-calculate.js'></script>
+    <script src='./backend/btn-organize.js'></script>
     <script src='./backend/inputReader.js'></script>
     <script src='./backend/statisticalVariables/mean.js'></script>
     <script src='./backend/statisticalVariables/mode.js'></script>

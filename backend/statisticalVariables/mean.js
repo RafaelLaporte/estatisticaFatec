@@ -31,6 +31,7 @@ function mean(varType) {
         return mean
     }
 
+    //If the variable is continuous, the mean is calculated by taking the mean of each class interval as value.
     if (varType === 'quantitativaContinua') {
         for (i = 0; i < values.length; i++) {
             let stringList = values[i].split(' ')
