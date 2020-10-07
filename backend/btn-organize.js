@@ -25,12 +25,5 @@ function btnOrganize() {
     variable.data = newData;
 
     //From here, we are updating all values in html.
-    resetHTML();
-    generateTable(variable);
-
-    document.getElementById('btn-organize').innerHTML = `
-    <button type="button" class="btn" onclick="btnOrganize()"> Organizar por Fi </button>`
-
-    createChart(variable.type);
-    statisticalVariables(variable, variable.measureType, variable.measurePart)
+    btnCalculate(variable);
 }

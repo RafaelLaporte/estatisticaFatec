@@ -1,19 +1,14 @@
-function btnCalculate() {   
+function btnCalculate(variable = undefined) {   
     //Resets when click on the button
     resetHTML();
 
     //Reads the inputs
-    let variable = inputReader();
-    //let input = inputReader()
+    variable == undefined ? variable = inputReader() : variable = variable
     
     //Generates the frequencies table
     generateTable(variable);
 
-    document.getElementById('btn-organize').innerHTML = `
-    <button type="button" class="btn" onclick="btnOrganize()"> Organizar por Fi </button>`
-
     //Generates the variable graphs
-    //createChart(input.data.type)
     createChart(variable.type);
 
     //Generates Mean, Mode and Median

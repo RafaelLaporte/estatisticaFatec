@@ -32,6 +32,9 @@ function createHeader(variable) {
 }
 
 function generateTable(variable) {
+    //Generates the organize button
+    document.getElementById('btn-organize').innerHTML = `
+    <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>`
 
     //Generates the Table Style (CSS FILE LATER)
     let style = `table, th, td {border: 2px solid black; text-align: center; table-layout: fixed; width: 50%;}`    

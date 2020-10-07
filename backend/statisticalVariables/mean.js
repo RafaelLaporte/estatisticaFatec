@@ -1,5 +1,4 @@
 function mean(varType) {
-
     let values = [];
     let frequencies = [];
     let mean = 0;
