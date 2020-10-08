@@ -12,7 +12,7 @@ function simpleFrequencies(varValues) {
 //Generates the final variable object.
 function variableData(varName, varType, varValues, valuesFi, varScope, varMeasureType, varMeasurePart) {    
     let frequencies = [];
-    let accumulated = 0;
+    let fac = 0;
     let numberOfValues = varValues.length;
     let orderedKeys = Object.keys(valuesFi);
 
@@ -53,16 +53,16 @@ function variableData(varName, varType, varValues, valuesFi, varScope, varMeasur
     //Making the data proprierty of the object, contaning all statistical values.
     for (key of orderedKeys) {
         let fi = valuesFi[key];
-        accumulated += fi;
+        fac += fi;
 
         frequencies.push({
             value: key,
             fi: fi,
             percentualFi: `${(100*fi/numberOfValues).toFixed(2)}%`,
-            fac: accumulated,
+            fac: fac,
             /*We are rounded all values, so, we need to verify if the final percentage is above 100%. 
             The error margin were defined as 0.5%*/
-            percentualFac: 100*accumulated/numberOfValues > 99.5 ? `100.00%` : `${(100*accumulated/numberOfValues).toFixed(2)}%`
+            percentualFac: 100*fac/numberOfValues > 99.5 ? `100.00%` : `${(100*fac/numberOfValues).toFixed(2)}%`
         });
     }
 

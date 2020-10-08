@@ -1,10 +1,4 @@
 function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
-    
-    let values = [];
-    let frequencies = [];
-    let fac = [];
-    let measure;
-    let part = Number(varMeasurePart)
 
     //Sets in how many parts the dataset we'll be divided
     if(varMeasureType == '' || varMeasurePart == '') return 'Especifique um valor para as medidas separatrizes'
@@ -13,33 +7,23 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     if(varMeasureType == 'decil') varMeasureType = 10
     if(varMeasureType == 'percentil') varMeasureType = 100
 
+    let part = Number(varMeasurePart);
+
     //Taking the table values of interest
-    $('tbody td:nth-child(1)').each(function (index) {
-        let value = ($(this).text())
-        values.push(value);
-    });
-
-    $('tbody td:nth-child(2)').each(function (index) {
-        let frequency = ($(this).text())
-        frequencies.push(Number(frequency));
-    });
-
-    $('tbody td:nth-child(4)').each(function (index) {
-        let frequencyAc = ($(this).text())
-        fac.push(Number(frequencyAc));
-    });
+    let varNames = readTable(1);
+    let frequencies = readTable(2);
+    let fac = readTable(4);
+    let facAnterior;
 
     //Declaring the variables of interest.
     let numberOfValues = fac[fac.length -1]
-    let position;
-    position = Math.round((numberOfValues/varMeasureType)*part)
+    let position = Math.round((numberOfValues/varMeasureType)*part)
     let i = 0 
  
     //Calculates the highest position of the defined division.
     while(position > fac[i]) i++ 
     
-    measure = values[i]
-    let facAnterior 
+    let measure = varNames[i];
 
     /*Verifies if the fac is the first value in the table. So the 'previous fac' doesn't exist, 
     so it need to be set to 0.*/
@@ -49,22 +33,23 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
     //Calculates the measure of position for each type of variable
     if (varType == 'quantitativaContinua') { 
-        let valList = values[i].split(' ')
-        let init = Number(valList[0]);
-        let interval = Number(valList[2]) - init;
+        let varName = varNames[i].split(' ')
+        let intervalStart = Number(varName[0]);
+        let intervalEnd = Number(varName[2])
+        let classInterval = intervalEnd - intervalStart;
        
-        measure = init + ((position - facAnterior)/ fi) * interval
+        measure = intervalStart + ((position-facAnterior)/fi)*classInterval
         measure = measure.toFixed(2);
 
     /*If we were taking the median of the dataset, we need to verify if this has a even number of elements to take the
     mean between the middle values, in discrete case, or print these two in the qualitative case*/
     } else if(numberOfValues % 2 == 0 && position + 1 > fac[i] && part/varMeasureType == 1/2){
         if (varType == 'quantitativaDiscreta'){ 
-            measure = (Number(values[i]) + Number(values[i + 1]))/2
+            measure = (Number(varNames[i]) + Number(varNames[i + 1]))/2
             measure = measure.toFixed(2); 
 
         } else{
-            measure = [values[i], values[i + 1]];
+            measure = [varNames[i], varNames[i + 1]];
         }
     } 
 

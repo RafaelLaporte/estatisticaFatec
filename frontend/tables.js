@@ -61,36 +61,36 @@ function generateTable(variable) {
         $('tbody').sortable({
             disabled: false,
             update: function () {
-                let fi = [];
+                let fi = readTable(2);
                 let percentualFi = [];
                 let fac = 0;
                 let percentualFac = 0;
 
-                $('tbody td:nth-child(2)').each(function (index) {
-                    let value = Number($(this).text());
-                    fi.push(value);
-                });
-
+                //Takes all percentual Fi's removing the '%' symbol.
                 $('tbody td:nth-child(3)').each(function (index) {
                     let value = $(this).text();
                     value = Number(value.slice(0, value.length - 1));
                     percentualFi.push(value);
                 });
  
+                //Updates fac
                 $('tbody td:nth-child(4)').each(function (index) {
                     fac += fi[index];
                     $(this).text(fac);
                 });
 
+                //Updates percentualFac
                 $('tbody td:nth-child(5)').each(function (index) {
                     percentualFac += percentualFi[index]
                     if (percentualFac > 99.5) percentualFac = 100;
                     $(this).text(`${percentualFac.toFixed(2)}%`)
                 });  
 
+                //Updates the median and measureOfPosition
                 document.getElementById("measure").innerHTML = `Medida Separatriz: ${measuresOfPosition(variable.type, variable.measureType, variable.measurePart)}`
                 document.getElementById("median").innerHTML = `Mediana: ${median(variable.type)}`
 
+                //Updates the chart
                 createChart(variable.type);
             }
         });      

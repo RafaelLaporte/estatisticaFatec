@@ -1,32 +1,26 @@
 function mode(varType) {
 
-    let values = [];
-    let frequencies = [];
     let mode = [];
 
     //Taking the table values of interest
-    $('tbody td:nth-child(1)').each(function (index) {
-        let value = ($(this).text())
-        values.push(value);
-    });
-
-    $('tbody td:nth-child(2)').each(function (index) {
-        let frequency = ($(this).text())
-        frequencies.push(frequency);
-    }); 
+    let varNames = readTable(1);
+    let frequencies = readTable(2);
 
     //Determining the higher frequency value
-    let maxFrequency = Math.max(...frequencies);
+    maxFrequency = frequencies[0];
+    for (i = 0; i < frequencies.length; i++) {
+        if(frequencies[i] > maxFrequency) maxFrequency = frequencies[i];
+    }
 
     //Determining the value(s) that has the highest frequency calculed before
     for(i = 0; i < frequencies.length; i++) {
         if (frequencies[i] == maxFrequency) {
-            mode.push(values[i])
+            mode.push(varNames[i])
         }
     }
 
     //If there isn't a lowest value, there's no mode
-    if (mode.length == values.length) return 'Não existe moda'
+    if (mode.length == varNames.length) return 'Não existe moda'
 
     //If the variable is '''continuous''', calculates the mode by verifying the mean of each class interval
     if (varType === 'quantitativaContinua') {        
@@ -37,8 +31,7 @@ function mode(varType) {
 
             mode[i] = ((intervalStart + intervalEnding)/2).toFixed(2);
         }
-
-        return mode;
-
-    } else return mode;
+    } 
+    
+    return mode;
 }

@@ -6,28 +6,13 @@ function createChart(varType) {
         window.bar.destroy();
 
     let type = '';
-    let labelsList = [];
-    let valuesList = [];
-    let percentage = [];
-    let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Black', 'mauve', 
-    'steelblue', 'bisque', 'forestgreen', 'maroon'];
+    let labelsList = readTable(1);
+    let frequencies = readTable(2);
+    let fiPercent = readTable(3);
+    let backgroundColor = ['Red', 'Blue', 'Purple', 'Yellow', 'Green', 'Pink', 'Turquoise', 'Orange', 
+    'Darkblue', 'bisque', 'forestgreen', 'maroon'];
 
-    $('tbody td:nth-child(1)').each(function (index) {
-        let label = ($(this).text())
-        labelsList.push(label);
-    });
-
-    $('tbody td:nth-child(2)').each(function (index) {
-        let value = ($(this).text())
-        valuesList.push(Number(value));
-    });
-
-    $('tbody td:nth-child(3)').each(function (index) {
-        let value = ($(this).text())
-        percentage.push(value);
-    });
-
-    ["qualitativaNominal", "qualitativaOrdinal"].includes(varType) ? type = 'pie': type = 'bar'
+    varType == 'qualitativaOrdinal' ? type = 'pie': type = 'bar'
 
     window.bar = new Chart(ctx, {
         type: type,
@@ -35,13 +20,13 @@ function createChart(varType) {
             labels: labelsList,
             datasets: [{
                 label: 'Representação Gráfica',
-                data: valuesList,
+                data: frequencies,
                 backgroundColor: backgroundColor,
                 borderWidth: 0,
                 hoverBackgroundColor: 'rgba(0, 0, 0, 0.1)'
             }]
         },
 
-            options: chartOptions(varType, percentage)
+            options: chartOptions(varType, fiPercent)
     });
 }

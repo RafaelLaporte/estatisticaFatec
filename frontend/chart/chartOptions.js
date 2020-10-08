@@ -7,7 +7,7 @@ function chartOptions(varType, percentage) {
                         render: (args) => {return percentage[args.index]},
                         position: 'outside',
                         fontStyle: 'bold'
-                    }
+                    },
                 },
         
                 legend: {
@@ -47,7 +47,7 @@ function chartOptions(varType, percentage) {
                     render: (args) => {return percentage[args.index]},
                     position: 'outside',
                     fontStyle: 'bold'
-                }
+                },
             },
     
             legend: {
@@ -76,14 +76,14 @@ function chartOptions(varType, percentage) {
         return options
     }
 
-    if(varType === 'qualitativaNominal' || varType === 'qualitativaOrdinal') {
+    if(varType === 'qualitativaOrdinal') {
         let options = {
                 plugins: {
                     labels: {
                         render: (args) => {return percentage[args.index]},
                         position: 'outside',
                         fontStyle: 'bold'
-                    }
+                    },
                 },
 
                 legend: {
