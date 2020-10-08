@@ -15,10 +15,15 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
     let fac = readTable(4);
     let facAnterior;
 
+    //Taking the maxFac, that's the total number of values
+    let numberOfValues = fac[0];
+    for (let i = 0; i < fac.length; i++) {
+        if (numberOfValues < fac[i]) numberOfValues = fac[i];
+    }
+
     //Declaring the variables of interest.
-    let numberOfValues = fac[fac.length -1]
-    let position = Math.round((numberOfValues/varMeasureType)*part)
-    let i = 0 
+    let position = Math.round((numberOfValues/varMeasureType)*part);
+    let i = 0;
  
     //Calculates the highest position of the defined division.
     while(position > fac[i]) i++ 
@@ -27,16 +32,16 @@ function measuresOfPosition(varType, varMeasureType, varMeasurePart) {
 
     /*Verifies if the fac is the first value in the table. So the 'previous fac' doesn't exist, 
     so it need to be set to 0.*/
-    i == 0 ? facAnterior = 0 : facAnterior = fac[i - 1]
-    let fi = frequencies[i]
+    let fi = frequencies[i];
     
-
     //Calculates the measure of position for each type of variable
     if (varType == 'quantitativaContinua') { 
         let varName = varNames[i].split(' ')
         let intervalStart = Number(varName[0]);
         let intervalEnd = Number(varName[2])
         let classInterval = intervalEnd - intervalStart;
+
+        i == 0 ? facAnterior = 0 : facAnterior = fac[i - 1];
        
         measure = intervalStart + ((position-facAnterior)/fi)*classInterval
         measure = measure.toFixed(2);

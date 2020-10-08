@@ -47,8 +47,11 @@ function variableData(varName, varType, varValues, valuesFi, varScope, varMeasur
         }
 
         //Sort the values in crescent order
-        orderedKeys = mergeSort(orderedKeys, (a,b) => a < b);
-    }
+        quickSort(orderedKeys, (a,b) => a < b);
+        
+    } else quickSort(orderedKeys, (a,b) => a < b);
+
+    //quickSort(orderedKeys, (a,b) => a < b);
 
     //Making the data proprierty of the object, contaning all statistical values.
     for (key of orderedKeys) {

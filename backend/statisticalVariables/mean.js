@@ -5,7 +5,12 @@ function mean(varType) {
     let varNames = readTable(1);
     let frequencies = readTable(2);
     let fac = readTable(4);
-    let numberOfValues = fac[fac.length - 1];
+
+    //Taking the maxFac, that's the number of values
+    let numberOfValues = fac[0];
+    for (i = 0; i < fac.length; i++) {
+        if (numberOfValues < fac[i]) numberOfValues = fac[i]
+    }
 
     //It's not possible to calculate the mean of a qualitative variable
     if (varType == 'qualitativaOrdinal') return 'Não consta'
@@ -28,10 +33,10 @@ function mean(varType) {
             let intervalEnd = Number(varName[varName.length - 1]);
 
             varNames[i] = (intervalStart + intervalEnd)/2;
-            sum += Number(varNames[i])*frequencies[i];
+            fiSum += Number(varNames[i])*frequencies[i];
         }
 
-        meanValue = (sum/maxFac).toFixed(2);
+        meanValue = (fiSum/numberOfValues).toFixed(2);
         
         return meanValue
     }
