@@ -1,6 +1,6 @@
-function btnCalculate(variable = undefined) {   
+function btnCalculate(variable = undefined, btnOrganize = false) {   
     //Resets when click on the button
-    resetHTML();
+    resetHTML(btnOrganize);
 
     //Reads the inputs
     variable == undefined ? variable = inputReader() : variable = variable
@@ -12,5 +12,5 @@ function btnCalculate(variable = undefined) {
     createChart(variable.type);
 
     //Generates Mean, Mode and Median
-    statisticalVariables(variable)
+    statisticalVariables(variable, btnOrganize)
 }

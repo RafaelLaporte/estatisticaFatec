@@ -1,5 +1,5 @@
-//The median and measure of position can't be different by ordering the table.
 function btnOrganize() {
+
     //Read the necessary values
     let variable = inputReader();
 
@@ -12,6 +12,6 @@ function btnOrganize() {
         }
     });
 
-    //From here, we are updating all values in html.
-    btnCalculate(variable);
+    //From here, we are updating all values in html. The median and measures of position can't change by ordering.
+    btnCalculate(variable, true);
 }

@@ -1,5 +1,5 @@
 //Prints the statistical values in the HTML
-function statisticalVariables(variable) {
+function statisticalVariables(variable, btnOrganize = false) {
     let newMean = mean(variable.type);
     let newMode = mode(variable.type);
     let newMedian = median(variable.type);
@@ -9,8 +9,12 @@ function statisticalVariables(variable) {
 
     document.getElementById('mean').innerHTML += `Média: ${newMean}`
     document.getElementById('mode').innerHTML += `Moda: ${newMode}`
-    document.getElementById('median').innerHTML += `Mediana: ${newMedian}`
-    document.getElementById('measure').innerHTML += `Medida separatriz: ${newMeasuresOfPosition}`
+
+    if (btnOrganize == false) {
+        document.getElementById('median').innerHTML += `Mediana: ${newMedian}`
+        document.getElementById('measure').innerHTML += `Medida separatriz: ${newMeasuresOfPosition}`
+    } 
+
     document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${newStandardDeviation}`  
     document.getElementById('variance').innerHTML += `Variância: ${newVariance}`
 }
