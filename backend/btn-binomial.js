@@ -7,11 +7,6 @@ function btnBinomial() {
     let n = Number(document.getElementById('sample').value); //Sample Length
     let k = Number(document.getElementById('ocurrences').value); //Number of ocurrences desired
 
-    console.log(k)
-    console.log(n)
-
-    //n = n - 1 //To use in binomial
-
     if (p > 100 || p < 0) document.getElementById('result').innerHTML = '<br> O chance de Sucesso deve ser um número entre 0 e 100'
     else verifier++
 
