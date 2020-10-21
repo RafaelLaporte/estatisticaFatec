@@ -2,13 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Trabalho de estatística</title>
-    <style id='style'></style>
-    <style> .chart-container {width: 800px; height: 400px} </style>
+    <title>SKYLAB</title>
     <link rel="stylesheet" href="./frontend/css/style.css"> 
 </head>
-
 <body>
     <div class="header">
     <hr class="hr">
@@ -16,92 +12,11 @@
     <h3 class="subtitle">Statistical System</h3>
     <hr class="hr">
     <br>
-        
-        <form id='fVarName'>
-            <label for='varName'><b class="textTitle">Nome da variável</b></label><br>
-            <input type='text' id='varName' name='varName' size='80px' class="input"><br>
-        </form>
 
+    <form>
+        <a href="descritiva.html"><button type="button" class="btn">Estatística Descritiva</button></a>
+        <a href="probabilidade.html"><button type="button" class="btn">Probabilidade</button></a>
+    </form>
 
-        <form id="fVarValue">
-            <label for='varValues'><b class="textTitle">Entre com os valores separados por ; (ponto e vírgula)</b></label><br>
-            <input type='text' id="varValues" name='varValues' size="100px" class="input">
-        </form>
-        
-        <form id='fVarScope'>
-            <label for='varScope'><b class="textTitle">Tipo do conjunto de valores </b> </label><br>
-            <input type='radio' id='varScope' name='varScope' value="amostra" class="radio"checked> Amostra |
-            <input type='radio' id='varScope' name='varScope' value="populacao" class="radio"> População 
-        </form>
-
-        <form id='fVarMeasures'>
-            <label for='varMeasures'><b class="textTitle">Selecione a medida separatriz </b> </label><br>
-            <select name="measureSel" id="measureSel" class="select" onchange="populate(this.id, 'partMeasure')">
-                <h3>Medida</h3>
-                <option value=""></option>
-                <option value="quartil">Quartil</option>
-                <option value="quintil">Quintil</option>
-                <option value="decil">Decil</option>
-                <option value="percentil">Percentil</option>
-            </select><br><br>
-
-            <select name="partMeasure" id="partMeasure" class="select"></select>
-        </form>
-
-        <button id='btn-calculate' type="button" class="btn" onclick="btnCalculate()"> Calcular </button>
-
-        <p id='explanation'></p>
-
-        <div id='btn-organize'>
-
-        </div>
-
-        <table id="results">
-            <thead id='table_head'></thead>
-            <tbody id='table_body'></tbody>
-        </table>
-
-        <br><br>
-
-        <div class="chart-container">
-            <canvas id="chart"></canvas>
-        </div>
-        
-        <div class="statistical-values">
-            <h3 id='mean'></h3><hr class="hr">
-            <h3 id='mode'></h3><hr class="hr">
-            <h3 id='median'></h3><hr class="hr">
-            <h3 id='measure'></h3><hr class="hr">
-            <h3 id='standard-deviation'></h3><hr class="hr">    
-            <h3 id='variance'></h3><hr class="hr">
-        </div>
-    </div>
-
-    <script src='./frontend/resetHTML.js'></script>
-    <script src='./frontend/chart/chart.js'></script>
-    <script src='./frontend/chart/chartOptions.js'></script>
-    <script src='./frontend/tables.js'></script>
-    <script src='./frontend/populate.js'></script>
-    <script src='./frontend/statisticalVariables.js'></script>
-    
-    <script src='./backend/varType.js'></script>
-    <script src='./backend/frequencies.js'></script>
-    <script src='./backend/organizeData.js'></script>
-    <script src='./backend/quickSort.js'></script>
-    <script src='./backend/btn-calculate.js'></script>
-    <script src='./backend/btn-organize.js'></script>
-    <script src='./backend/inputReader.js'></script>
-    <script src='./backend/readTable.js'></script>
-    <script src='./backend/statisticalVariables/mean.js'></script>
-    <script src='./backend/statisticalVariables/mode.js'></script>
-    <script src='./backend/statisticalVariables/median.js'></script>
-    <script src='./backend/statisticalVariables/measuresOfPosition.js'></script>
-    <script src='./backend/statisticalVariables/standardDeviation.js'></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
 </body>
 </html>

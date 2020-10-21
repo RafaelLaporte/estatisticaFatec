@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYLAB</title>
+    <link rel="stylesheet" href="./frontend/css/style.css"> 
+</head>
+<body>
+    <div class="header">
+    <hr class="hr">
+    <h1 class="title">SKYLAB</h1>
+    <h3 class="subtitle">Statistical System</h3>
+    <hr class="hr">
+    <br>
+
+    <form id='form-Sucess'>
+        <label for='varSucess'><b class="textTitle">Probabilidade de ocorrência do evento (%):</b></label><br>
+        <input type='text' id='sucess' name='varSucess' size='20px' class="input" placeholder="Número entre 0 e 100"><br>
+    </form>
+
+    <form id='form-sample'>
+        <label for='varSample'><b class="textTitle">Qual o tamanho da amostra?</b></label><br>
+        <input type='text' id='sample' name='varSample' size='20px' class="input" placeholder="Número inteiro positivo"><br>
+    </form>
+
+    <form id='form-ocurrences'>
+        <label for='varOcurrences'><b class="textTitle">Qual o mínimo de ocorrências desejadas?</b></label><br>
+        <input type='text' id='ocurrences' name='varOcurrences' size='40px' class="input" placeholder="Número menor ou igual ao tamanho da amostra"><br>
+    </form>
+
+    <button id='btn-binomial' type="button" class="btn" onclick="btnBinomial()"> Calcular </button>
+
+
+    <script src='./backend/fatorial.js'></script>
+    <script src='./backend/btn-binomial.js'></script>
+
+    <p id='result'></p>
+
+    <div class="statistical-values">
+        <h3 id='probability'></h3><hr class="hr">
+        <h3 id='mean'></h3><hr class="hr">
+        <h3 id='standard-deviation'></h3><hr class="hr">
+    </div>
+
+</body>
+</html>
