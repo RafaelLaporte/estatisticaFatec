@@ -1,20 +1,20 @@
 //Prints the statistical values in the HTML
 function statisticalVariables(variable, btnOrganize = false) {
-    let newMean = mean(variable.type);
-    let newMode = mode(variable.type);
-    let newMedian = median(variable.type);
-    let newMeasuresOfPosition = measuresOfPosition(variable.type, variable.measureType, variable.measurePart);
-    let newStandardDeviation = standardDeviation(newMean, variable.type, variable.scope);
-    let newVariance = variance(newStandardDeviation, newMean);
+    let dataMean = mean(variable.type);
+    let dataMode = mode(variable.type);
+    let dataMedian = median(variable.type);
+    let dataMeasuresOfPosition = measuresOfPosition(variable.type, variable.measureType, variable.measurePart);
+    let dataStandardDeviation = standardDeviation(dataMean, variable.type, variable.scope);
+    let dataVariance = variance(dataStandardDeviation, dataMean);
 
-    document.getElementById('mean').innerHTML += `Média: ${newMean}`
-    document.getElementById('mode').innerHTML += `Moda: ${newMode}`
+    document.getElementById('mean').innerHTML += `Média: ${dataMean}`
+    document.getElementById('mode').innerHTML += `Moda: ${dataMode}`
 
-    if (btnOrganize == false) {
-        document.getElementById('median').innerHTML += `Mediana: ${newMedian}`
-        document.getElementById('measure').innerHTML += `Medida separatriz: ${newMeasuresOfPosition}`
+    if (!btnOrganize) {
+        document.getElementById('median').innerHTML += `Mediana: ${dataMedian}`
+        document.getElementById('measure').innerHTML += `Medida separatriz: ${dataMeasuresOfPosition}`
     } 
 
-    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${newStandardDeviation}`  
-    document.getElementById('variance').innerHTML += `Variância: ${newVariance}`
+    document.getElementById('standard-deviation').innerHTML += `Desvio Padrão: ${dataStandardDeviation}`  
+    document.getElementById('variance').innerHTML += `Variância: ${dataVariance}`
 }

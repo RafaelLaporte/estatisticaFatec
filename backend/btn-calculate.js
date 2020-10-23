@@ -13,4 +13,6 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
 
     //Generates Mean, Mode and Median
     statisticalVariables(variable, btnOrganize)
+
+    return false
 }

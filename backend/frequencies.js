@@ -45,13 +45,10 @@ function variableData(varName, varType, varValues, valuesFi, varScope, varMeasur
         for (let i = 0; i < orderedKeys.length; i++) {
             orderedKeys[i] = Number(orderedKeys[i]);
         }
-
-        //Sort the values in crescent order
-        quickSort(orderedKeys, (a,b) => a < b);
-        
-    } else quickSort(orderedKeys, (a,b) => a < b);
-
-    //quickSort(orderedKeys, (a,b) => a < b);
+    } 
+    
+    //Sort the values in crescent order
+    quickSort(orderedKeys, (a,b) => a < b);
 
     //Making the data proprierty of the object, contaning all statistical values.
     for (key of orderedKeys) {

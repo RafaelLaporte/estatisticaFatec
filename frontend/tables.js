@@ -32,12 +32,20 @@ function createHeader(variable) {
 }
 
 function generateTable(variable) {
+    let tableHead = document.createElement('thead');
+    tableHead.id = 'table_head'
+    let tableBody = document.createElement('tbody');
+    tableBody.id = 'table_body'
+
+    document.getElementById('results').appendChild(tableHead)
+    document.getElementById('results').appendChild(tableBody)
+
     //Generates the organize button
     document.getElementById('btn-organize').innerHTML = `
     <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>`
 
     //Generates the Table Style (CSS FILE LATER)
-    let style = `table, th, td {border: 2px solid black; text-align: center; table-layout: fixed; width: 50%;}`    
+    let style = `table, th, td {border: 2px solid black; text-align: center; table-layout: auto; width: 50%;}`    
     document.getElementById("style").innerHTML = style;
 
     //Generates the Header.
