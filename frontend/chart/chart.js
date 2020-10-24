@@ -22,8 +22,7 @@ function createChart(varType) {
                 label: 'Representação Gráfica',
                 data: frequencies,
                 backgroundColor: backgroundColor,
-                borderWidth: 0,
-                hoverBackgroundColor: 'rgba(0, 0, 0, 0.1)'
+                hoverBackgroundColor: '#d9dac0'
             }]
         },
 

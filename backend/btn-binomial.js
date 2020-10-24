@@ -20,17 +20,21 @@ function btnBinomial() {
 
         let q = 1 - p //Failure rate
         let minProbability = 0 //Minimum probability desired
+        let maxProbability = 0
         let probability = combination(n,k)*Math.pow(p, k)*Math.pow(q, n-k)
 
         for(i = k; i <= n; i++) {
             minProbability += combination(n, i)*Math.pow(p, i)*Math.pow(q, n-i)
         }
+        
+        maxProbability = 1 - minProbability + probability
 
         let mean = n*p //Mean calculation
         let standardDeviation = Math.sqrt(n*p*q).toFixed(2) //Standard Deviation calculation
     
-        document.getElementById('probability').innerHTML = `Probabilidade de se obter ${k} eventos: ${(probability*100).toFixed(2)}%`
-        document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${k} eventos: ${(minProbability*100).toFixed(2)}%`
+        document.getElementById('probability').innerHTML = `Probabilidade de se obter ${k} eventos: ${(probability*100).toFixed(4)}%`
+        document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${k} eventos: ${(minProbability*100).toFixed(4)}%`
+        document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter no máximo ${k} eventos: ${(maxProbability*100).toFixed(4)}%`
         document.getElementById('mean').innerHTML = `Média: ${mean}`
         document.getElementById('standard-deviation').innerHTML = `Desvio Padrão: ${standardDeviation}`
     }

@@ -9,6 +9,10 @@
     font-size: 16px;
   }
 
+.btn:hover {
+  background-color: rgb(59, 14, 3);
+}
+
 .header {
   background: #E9DCDC;
   background: -webkit-linear-gradient(bottom right, #E9DCDC, #FFFFFF);
@@ -21,11 +25,16 @@
   color: rgb(41, 4, 4);
 }
 
-.statistical-values {
+.statistical-values h3{
   padding: 15px 32px;
-  text-align: justify ;
+  text-align: center ;
   text-decoration: none;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.statistical-values hr {
+  border-color: rgba(41, 4, 4, 0.322);
+  border-radius: 2px;
 }
 
 .title {
@@ -73,11 +82,6 @@
   padding: 5px 10px;
   position: justify;
   transition: border-color 300ms;
-}
-
-.hr {
-  border-color: rgba(41, 4, 4, 0.322);
-  border-radius: 2px;
 }
 
 .textTitle {

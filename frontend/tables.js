@@ -1,14 +1,15 @@
 //Creates a line in table containing the variable value, fi, percentualFi, fac and percentual Fac
 function createLine(variable) {
     let lineContent = `
-        <td>${variable.value}</td>
-        <td>${variable.fi}</td>
-        <td>${variable.percentualFi}</td>
-        <td>${variable.fac}</td>
-        <td>${variable.percentualFac}</td>
+        <td class='cell'>${variable.value}</td>
+        <td class='cell'>${variable.fi}</td>
+        <td class='cell'>${variable.percentualFi}</td>
+        <td class='cell'>${variable.fac}</td>
+        <td class='cell'>${variable.percentualFac}</td>
     `
 
     let line = document.createElement('tr')
+    line.className = 'row'
     line.innerHTML = lineContent
 
     return line
@@ -17,15 +18,15 @@ function createLine(variable) {
 //Creates the Table header
 function createHeader(variable) {
     let headerContent = `
-        <td>${variable.name}</td>
-        <td>Frequência Simples(Fi)</td>
-        <td>Frequência Simples % (Fi%)</td>
-        <td>Frequência acumulada (Fac)</td>
-        <td>Frequência acumulada % (Fac%)</td>
-        </tr>
+        <td >${variable.name}</td>
+        <td class='cell'>Frequência Simples(Fi)</td>
+        <td class='cell'>Frequência Simples % (Fi%)</td>
+        <td class='cell'>Frequência acumulada (Fac)</td>
+        <td class='cell'>Frequência acumulada % (Fac%)</td>
     `
 
     let header = document.createElement('tr')
+    header.className = 'row header'
     header.innerHTML = headerContent
 
     return header
@@ -34,8 +35,10 @@ function createHeader(variable) {
 function generateTable(variable) {
     let tableHead = document.createElement('thead');
     tableHead.id = 'table_head'
+    tableHead.className = 'table-head'
     let tableBody = document.createElement('tbody');
     tableBody.id = 'table_body'
+    tableBody.className = 'table-body'
 
     document.getElementById('results').appendChild(tableHead)
     document.getElementById('results').appendChild(tableBody)
@@ -43,10 +46,6 @@ function generateTable(variable) {
     //Generates the organize button
     document.getElementById('btn-organize').innerHTML = `
     <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>`
-
-    //Generates the Table Style (CSS FILE LATER)
-    let style = `table, th, td {border: 2px solid black; text-align: center; table-layout: auto; width: 50%;}`    
-    document.getElementById("style").innerHTML = style;
 
     //Generates the Header.
     document.getElementById('table_head').appendChild(
@@ -62,6 +61,7 @@ function generateTable(variable) {
 
     //Create sortable property for qualitative ordinal variable.
     if (variable.type == "qualitativaOrdinal")  {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!
         document.getElementById("explanation").innerHTML = 
         "<b style='font-size: 20px;'>Clique e arraste para trocar a posição das linhas.</b>"
 

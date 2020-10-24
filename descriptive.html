@@ -3,10 +3,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Trabalho de estatística</title>
+    <title>SKYLAB - Descritiva</title>
     <style id='style'></style>
-    <style> .chart-container {width: 800px; height: 400px} </style>
     <link rel="stylesheet" href="./frontend/css/style.css"> 
+    <link rel="stylesheet" href="./frontend/css/table.css">
+    <link rel="stylesheet" href="./frontend/css/chart.css">
 </head>
 
 <body>
@@ -98,22 +99,26 @@
 
         <div id='btn-organize'></div><br>
 
-        <table id="results"></table>
+        <table id="results" class='table'></table>
 
         <br><br>
 
-        <div class="chart-container">
-            <canvas id="chart"></canvas>
+        <div class='graph-and-values'>
+            <div class="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+            
+            <div class="statistical-values">
+                <hr class="hr">
+                <h3 id='mean'></h3><hr>
+                <h3 id='mode'></h3><hr>
+                <h3 id='median'></h3><hr>
+                <h3 id='measure'></h3><hr>
+                <h3 id='standard-deviation'></h3><hr>    
+                <h3 id='variance'></h3><hr class="hr">
+            </div>
         </div>
-        
-        <div class="statistical-values">
-            <h3 id='mean'></h3><hr class="hr">
-            <h3 id='mode'></h3><hr class="hr">
-            <h3 id='median'></h3><hr class="hr">
-            <h3 id='measure'></h3><hr class="hr">
-            <h3 id='standard-deviation'></h3><hr class="hr">    
-            <h3 id='variance'></h3><hr class="hr">
-        </div>
+
     </div>
 
     <script src='./frontend/resetHTML.js'></script>

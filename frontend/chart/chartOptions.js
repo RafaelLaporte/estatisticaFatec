@@ -11,7 +11,7 @@ function chartOptions(varType, percentage) {
                 },
         
                 legend: {
-                    display: true
+                    display: false
                 },
         
                 tooltips: {
@@ -23,17 +23,29 @@ function chartOptions(varType, percentage) {
                 },
         
                 responsive: true,
+
                 maintainAspectRatio: false,
+
                 scales: {
+
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
                         },
                     }],
                     xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         categoryPercentage: 1.0,
                         barPercentage: 1.0
                     }]
+                },
+
+                layout: {
+                    padding: {
+                        top: 25
+                    }
                 }
             }
 
@@ -51,7 +63,7 @@ function chartOptions(varType, percentage) {
             },
     
             legend: {
-                display: true
+                display: false
             },
     
             tooltips: {
@@ -65,11 +77,22 @@ function chartOptions(varType, percentage) {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
                     }
                 }],
+            },
+
+            layout: {
+                padding: {
+                    top: 25
+                }
             }
         }
 
@@ -82,12 +105,14 @@ function chartOptions(varType, percentage) {
                     labels: {
                         render: (args) => {return percentage[args.index]},
                         position: 'outside',
-                        fontStyle: 'bold'
+                        fontStyle: 'bold',
+                        fontSize: 15
                     },
                 },
 
                 legend: {
-                    display: true
+                    display: true,
+                    position: 'right'
                 },
 
                 tooltips: {
@@ -100,11 +125,13 @@ function chartOptions(varType, percentage) {
 
                 responsive: true,
                 maintainAspectRatio: false,
+
                 scales: {
+                    xAxes: [{
+                        display: false,
+                    }],
                     yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
+                        display: false,
                     }]
                 }
             }
