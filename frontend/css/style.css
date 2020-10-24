@@ -25,9 +25,13 @@
   color: rgb(41, 4, 4);
 }
 
+.statistical-values {
+  display: inline-block;
+}
+
 .statistical-values h3{
   padding: 15px 32px;
-  text-align: center ;
+  text-align: justify ;
   text-decoration: none;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -35,6 +39,24 @@
 .statistical-values hr {
   border-color: rgba(41, 4, 4, 0.322);
   border-radius: 2px;
+}
+
+.statistical-title {
+  display: inline-block;
+  font-size: 30px;
+  text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  font-weight: 200;
+  border-radius: 2px;
+  margin-right: 35%;
+}
+
+.graph-title {
+  display: inline-block;
+  font-size: 30px;
+  text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  font-weight: 200;
 }
 
 .title {
@@ -64,7 +86,7 @@
 }
 
 .radio {
-  
+
   border-color: rgba(41, 4, 4, 0.822); 
   cursor: pointer;
   height: 15px;

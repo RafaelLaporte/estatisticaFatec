@@ -8,11 +8,11 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
     //Generates the frequencies table
     generateTable(variable);
 
-    //Generates the variable graphs
-    createChart(variable.type);
-
     //Generates Mean, Mode and Median
     statisticalVariables(variable, btnOrganize)
+
+    //Generates the variable graphs
+    createChart(variable.type);
 
     return false
 }

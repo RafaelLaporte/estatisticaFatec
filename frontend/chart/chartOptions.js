@@ -76,6 +76,7 @@ function chartOptions(varType, percentage) {
     
             responsive: true,
             maintainAspectRatio: false,
+            
             scales: {
                 xAxes: [{
                     gridLines: {

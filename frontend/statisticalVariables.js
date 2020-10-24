@@ -1,5 +1,11 @@
 //Prints the statistical values in the HTML
 function statisticalVariables(variable, btnOrganize = false) {
+
+    let title = document.createElement('div');
+    title.className = 'statistical-title';
+    title.innerHTML = 'Medidas Estatísticas:'
+    document.getElementById('results-title').appendChild(title);
+
     let dataMean = mean(variable.type);
     let dataMode = mode(variable.type);
     let dataMedian = median(variable.type);

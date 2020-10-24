@@ -4,6 +4,7 @@ function resetHTML(btnOrganize = false) {
 
     if(window.bar != undefined) window.bar.destroy();
 
+    document.getElementById('results-title').innerHTML = ""
     document.getElementById('btn-organize').innerHTML = "";
     document.getElementById("style").innerHTML = "" //PROVISÓRIO
     document.getElementById('results').innerHTML = "";

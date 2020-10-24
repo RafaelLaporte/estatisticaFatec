@@ -103,23 +103,24 @@
 
         <br><br>
 
-        <div class='graph-and-values'>
-            <div class="chart-container">
-                <canvas id="chart"></canvas>
-            </div>
-            
-            <div class="statistical-values">
-                <hr class="hr">
-                <h3 id='mean'></h3><hr>
-                <h3 id='mode'></h3><hr>
-                <h3 id='median'></h3><hr>
-                <h3 id='measure'></h3><hr>
-                <h3 id='standard-deviation'></h3><hr>    
-                <h3 id='variance'></h3><hr class="hr">
-            </div>
-        </div>
+        <div id='results-title' class='results-title'></div>  
 
-    </div>
+            <div id='graph-and-values' class='graph-and-values'>
+                <div class="statistical-values">
+                    <h3 id='mean'></h3>
+                    <h3 id='mode'></h3>
+                    <h3 id='median'></h3>
+                    <h3 id='measure'></h3>
+                    <h3 id='standard-deviation'></h3>  
+                    <h3 id='variance'></h3>
+                </div>  
+
+                <div class="chart-container"> 
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>      
+                
+        </div>
 
     <script src='./frontend/resetHTML.js'></script>
     <script src='./frontend/chart/chart.js'></script>
