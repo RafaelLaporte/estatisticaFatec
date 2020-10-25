@@ -36,6 +36,12 @@
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.probability-values h3{
+  text-align: center ;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .statistical-values hr {
   border-color: rgba(41, 4, 4, 0.322);
   border-radius: 2px;
@@ -46,18 +52,18 @@
   font-size: 30px;
   text-shadow: 1ch;
   color: rgba(41, 4, 4, 0.822);
-  font-weight: 200;
+  font-weight: bold;
   border-radius: 2px;
-  margin-right: 35%;
+  /* margin-right: 35%; */
 }
 
-.graph-title {
+/* .graph-title {
   display: inline-block;
   font-size: 30px;
   text-shadow: 1ch;
   color: rgba(41, 4, 4, 0.822);
   font-weight: 200;
-}
+} */
 
 .title {
   font-size: 80px;

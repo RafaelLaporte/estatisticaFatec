@@ -1,5 +1,5 @@
 //Resets the HTML values
-function resetHTML(btnOrganize = false) {
+function resetDescriptive(btnOrganize = false) {
     $('tbody').sortable({disabled: true});
 
     if(window.bar != undefined) window.bar.destroy();

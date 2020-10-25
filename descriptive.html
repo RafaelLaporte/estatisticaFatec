@@ -70,13 +70,13 @@
             </div><br><br>
 
             <div>
-                <label for='handScope'><b class="textTitle">Tipo do conjunto de valores: </b> </label><br>
+                <label for='handScope'><b class="textTitle">Tipo do conjunto de valores: </b> </label><br><br>
                 <input type='radio' id='handScope' name='handScope' value="amostra" class="radio"checked> Amostra |
                 <input type='radio' id='handScope' name='handScope' value="populacao" class="radio"> População
-            </div><br>
+            </div><br><br>
 
             <div>
-                <label for='handMeasures'><b class="textTitle">Selecione a medida separatriz: </b> </label><br>
+                <label for='handMeasures'><b class="textTitle">Selecione a medida separatriz: </b> </label><br><br>
                 <select name="handMeasures" id="handMeasures" class="select" onchange="populate(this.id, 'handPartMeasure')">
                     <h3>Medida</h3>
                     <option value=""></option>
@@ -86,7 +86,7 @@
                     <option value="percentil">Percentil</option>
                 </select><br><br>
 
-                <select name="handPartMeasure" id="handPartMeasure" class="select"></select><br>
+                <select name="handPartMeasure" id="handPartMeasure" class="select"></select><br><br>
             </div><br>
 
             <button id='btn-calculate' type="submit" class="btn"> Calcular </button>
@@ -103,7 +103,7 @@
 
         <br><br>
 
-        <div id='results-title' class='results-title'></div>  
+        <div id='results-title' class='results-title'></div><br><br>  
 
             <div id='graph-and-values' class='graph-and-values'>
                 <div class="statistical-values">
@@ -122,7 +122,7 @@
                 
         </div>
 
-    <script src='./frontend/resetHTML.js'></script>
+    <script src='./frontend/resetDescriptive.js'></script>
     <script src='./frontend/chart/chart.js'></script>
     <script src='./frontend/chart/chartOptions.js'></script>
     <script src='./frontend/tables.js'></script>

@@ -1,6 +1,6 @@
 function readFile(btnOrganize = false) {
     //Resets when click on the button
-    resetHTML(btnOrganize);
+    resetDescriptive(btnOrganize);
 
     let input = document.getElementById('input-file');
     let file = input.files[0];

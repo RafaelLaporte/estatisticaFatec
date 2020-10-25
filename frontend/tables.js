@@ -36,6 +36,7 @@ function generateTable(variable) {
     let tableHead = document.createElement('thead');
     tableHead.id = 'table_head'
     tableHead.className = 'table-head'
+
     let tableBody = document.createElement('tbody');
     tableBody.id = 'table_body'
     tableBody.className = 'table-body'

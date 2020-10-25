@@ -1,10 +1,10 @@
 //Generate Charts
 function createChart(varType) {
 
-    let graphTitle = document.createElement('div')
-    graphTitle.className = 'graph-title'
-    graphTitle.innerHTML = 'Gráfico:'
-    document.getElementById('results-title').appendChild(graphTitle);
+    // let graphTitle = document.createElement('div')
+    // graphTitle.className = 'graph-title'
+    // graphTitle.innerHTML = 'Gráfico:'
+    // document.getElementById('results-title').appendChild(graphTitle);
 
     let ctx = document.getElementById('chart').getContext('2d');
 

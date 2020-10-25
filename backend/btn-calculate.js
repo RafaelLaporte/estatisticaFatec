@@ -1,6 +1,6 @@
 function btnCalculate(variable = undefined, btnOrganize = false) {   
     //Resets when click on the button
-    resetHTML(btnOrganize);
+    resetDescriptive(btnOrganize);
 
     //Reads the inputs
     variable == undefined ? variable = inputReader() : variable = variable
