@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="./frontend/css/style.css"> 
     <link rel="stylesheet" href="./frontend/css/table.css">
     <link rel="stylesheet" href="./frontend/css/chart.css">
+
+    <div class="header">
+        <hr class="hr">
+        <h1 class="title">SKYLAB</h1>
+        <h3 class="subtitle">Statistical System</h3>
+        <hr class="hr">
+    </div><br>
 </head>
 
-<body>
-    <div class="header">
-    <hr class="hr">
-    <h1 class="title">SKYLAB</h1>
-    <h3 class="subtitle">Statistical System</h3>
-    <hr class="hr">
-    <br>
+<body class='body'>
     <div>
         <div>
             <label for='import-select'><b class="textTitle">Como deseja importar os dados?</b> </label><br><br>
@@ -118,31 +119,32 @@
                 <div class="chart-container"> 
                     <canvas id="chart"></canvas>
                 </div>
-            </div>      
-                
+            </div>         
         </div>
+    </div>
 
     <script src='./frontend/resetDescriptive.js'></script>
-    <script src='./frontend/chart/chart.js'></script>
-    <script src='./frontend/chart/chartOptions.js'></script>
     <script src='./frontend/tables.js'></script>
     <script src='./frontend/populate.js'></script>
     <script src='./frontend/statisticalVariables.js'></script>
+    <script src='./frontend/chart/chart.js'></script>
+    <script src='./frontend/chart/chartOptions.js'></script>
     
     <script src='./backend/varType.js'></script>
     <script src='./backend/frequencies.js'></script>
-    <script src='./backend/organizeData.js'></script>
+    <script src='./backend/csv-to-array.js'></script>
     <script src='./backend/quickSort.js'></script>
-    <script src='./backend/btn-calculate.js'></script>
-    <script src='./backend/btn-organize.js'></script>
-    <script src='./backend/inputReader.js'></script>
-    <script src='./backend/readTable.js'></script>
+    <script src='./backend/btn/calculate.js'></script>
+    <script src='./backend/btn/organize.js'></script>
+    <script src='./backend/read/input.js'></script>
+    <script src='./backend/read/table.js'></script>
+    <script src='./backend/read/file.js'></script>
     <script src='./backend/statisticalVariables/mean.js'></script>
     <script src='./backend/statisticalVariables/mode.js'></script>
     <script src='./backend/statisticalVariables/median.js'></script>
     <script src='./backend/statisticalVariables/measuresOfPosition.js'></script>
     <script src='./backend/statisticalVariables/standardDeviation.js'></script>
-    <script src='./backend/readFile.js'></script>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -153,7 +155,7 @@
     <script>
         $("#import-select").on("change", function() {
             let table = document.getElementById('results');
-            if (table.innerHTML != "") resetHTML();
+            if (table.innerHTML != "") resetDescriptive();
 
             let dataType = document.getElementById('import-select').value;
 
@@ -177,6 +179,5 @@
             }
         })
     </script>
-
 </body>
 </html>
