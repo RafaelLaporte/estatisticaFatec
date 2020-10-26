@@ -48,7 +48,7 @@ function variableData(varName, varType, varValues, valuesFi, varScope, varMeasur
     } 
     
     //Sort the values in crescent order
-    quickSort(orderedKeys, (a,b) => a < b);
+    if (varType != 'quantitativaContinua') quickSort(orderedKeys, (a,b) => a < b);
 
     //Making the data proprierty of the object, contaning all statistical values.
     for (key of orderedKeys) {
