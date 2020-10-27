@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SKYLAB - Probabilidade</title>
     <link rel="stylesheet" href="./frontend/css/style.css"> 
 
@@ -10,8 +11,8 @@
         <h1 class="title">SKYLAB</h1>
         <h3 class="subtitle">Statistical System</h3>
         <hr class="hr">
-        <br>
-    </div>
+    </div><br>
+    
 </head>
 
 <body class='body'>
@@ -34,8 +35,22 @@
             <label for='varSample'><b class="textTitle">Tamanho da amostra:</b></label><br>
             <input required type='number' id='sample' name='varSample' size='50px' class="input" placeholder="Número inteiro positivo"><br><br>
     
-            <label for='varOcurrences'><b class="textTitle">Número de ocorrências desejadas:</b></label><br>
-            <input required type='number' id='ocurrences' name='varOcurrences' size='50px' class="input" placeholder="Número menor ou igual ao tamanho da amostra" required><br><br>
+            <div>
+
+            </div>
+            <div>
+                <!-- <label for='analysis-type'><b class="textTitle">Escolha uma distribuição de probabilidades:</b> </label><br><br> -->
+                <!-- <select id='analysis-type' name='analysis-type' class='select'>
+                    <option selected=""></option>
+                    <option value="binomial">Binomial</option>
+                    <option value="gaussian">Gaussiana (Normal)</option>
+                    <option value="uniform">Uniforme</option>
+                </select> -->
+
+                <label for='varOcurrences'><b class="textTitle">Número de ocorrências desejadas:</b></label><br>
+                <input required type='number' id='ocurrences' name='varOcurrences' size='50px' class="input" placeholder="Número menor ou igual ao tamanho da amostra" required><br><br>
+            </div>
+
             <button id='btn-binomial' type="submit" class="btn"> Calcular </button><br><br>
         </form>
     

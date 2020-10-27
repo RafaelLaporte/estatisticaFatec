@@ -6,7 +6,7 @@ function resetDescriptive(btnOrganize = false) {
 
     document.getElementById('results-title').innerHTML = ""
     document.getElementById('btn-organize').innerHTML = "";
-    document.getElementById("style").innerHTML = "" //PROVISÓRIO
+    //document.getElementById("style").innerHTML = "" //PROVISÓRIO
     document.getElementById('results').innerHTML = "";
     document.getElementById("explanation").innerHTML = "";
     document.getElementById("chart").innerHTML = "";
