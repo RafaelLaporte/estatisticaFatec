@@ -58,11 +58,29 @@
         
             <label for='varMax'><b class="textTitle">Entre com o valor máximo da distribuição:</b></label><br>
             <input required type='number' id='varMax' name='varMax' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            <div>
+                <label for='uniformValues-select'><b class="textTitle">Escolha um intervalo:</b> </label><br><br>
+                <select id='uniformValues-select' name='uniformValues-select' class='select'>
+                    <option selected=""></option>
+                    <option value="lessThan">Menor que</option>
+                    <option value="higherThan">Maior que</option>
+                    <option value="between">Entre</option>
+                </select>
+            </div><br>
+            <div id='uniformValue' method="GET" style='display:none'>
+                <label for='varValue'><b class="textTitle">Entre com o valor a ser analisado: </b></label><br>
+                <input required type='number' id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            </div>
+            <div id='uniformValues' method="GET" style='display:none'>
+                <label for='varValue'><b class="textTitle">Entre com os valores a serem analisados: </b></label><br>
+                <input required type='number' id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
+                <input required type='number' id='varValueMax' name='varValueMax' size='50px' class="input" placeholder="Entre com um número"><br>
+            </div>
         
-            <label for='varValue'><b class="textTitle">Entre com o valor a ser analisado: </b></label><br>
-            <input required type='number' id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número"><br><br>
-            <button id='btn-uniform' type="submit" class="btn"> Calcular </button><br><br>
+            <button id='btn-uniform' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
+            
         </form>
+
     
         <p id='result'></p><br><br>
     
@@ -116,6 +134,36 @@
                 document.getElementById('gaussian').style = 'display:none'
                 document.getElementById('uniform').style = 'display:none'
         }
+        })
+        $("#uniformValues-select").on("change", function() {
+
+            let dataType = document.getElementById('uniformValues-select').value;
+
+            if(dataType == undefined || dataType == ''){
+                document.getElementById('btn-uniform').style = 'display:none'
+            } else {
+                document.getElementById('btn-uniform').style = ''
+            }
+
+            if (dataType == 'lessThan' || dataType == 'higherThan') {
+                $('#uniformValues').trigger('reset');
+                document.getElementById('uniformValue').style = ''
+                document.getElementById('uniformValues').style = 'display:none'
+            }
+
+            if (dataType == 'between') {
+                $('#uniformValue').trigger('reset');
+                document.getElementById('uniformValues').style = ''
+                document.getElementById('uniformValue').style = 'display:none'
+            }
+
+            if (dataType == '' || dataType == undefined) {
+                $('#uniformValues').trigger('reset');
+                $('#uniformValue').trigger('reset');
+                document.getElementById('uniformValue').style = 'display:none'
+                document.getElementById('uniformValues').style = 'display:none'
+            }
+
         })
     </script>
 

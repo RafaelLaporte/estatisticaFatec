@@ -3,11 +3,20 @@ function btnUniform() {
     let min = Number(document.getElementById('varMin').value);
     let max = Number(document.getElementById('varMax').value);
     let value = Number(document.getElementById('varValue').value);
+    let valueMax = Number(document.getElementById('varValueMax').value);
+    let type = document.getElementById('uniformValues-select').value;
 
     if (value < min || value > max) document.getElementById('result').innerHTML = `
     O valor a ser analisado deve se encontrar no intervalo [min, max] estabelecido`
 
-    else {
+    if (valueMax < value ) document.getElementById('result').innerHTML = `
+    O valor mínimo do intervalo deve ser menor ou igual ao valor máximo do intervalo`
+
+
+    else{
+
+      //  [value, valueMax] = [valueMax, value]
+
         let distribution = 1/(max - min);
         let minProbability = (max - value)*distribution;
         let maxProbability = (value - min)*distribution;
@@ -19,8 +28,8 @@ function btnUniform() {
         probabilityElements()
 
         // document.getElementById('probability').innerHTML = `Probabilidade de se obter o valor ${value}: ${(probability*100).toFixed(2)}%`
-        document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${value}: ${(minProbability*100).toFixed(2)}%`
-        document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter no máximo ${value}: ${(maxProbability*100).toFixed(2)}%`
+        if(type == 'higherThan') document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${value}: ${(minProbability*100).toFixed(2)}%`
+        if(type == 'lessThan') document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter no máximo ${value}: ${(maxProbability*100).toFixed(2)}%`
         document.getElementById('mean').innerHTML = `Média: ${mean}`
         document.getElementById('standard-deviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
         document.getElementById('variance').innerHTML = `Variância: ${(variance*100).toFixed(2)}`
