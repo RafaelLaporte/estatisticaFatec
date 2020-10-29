@@ -54,10 +54,10 @@
         <!-- Uniform distribution form -->
         <form id='uniform' onsubmit="return btnUniform()" method="GET" style='display:none'>
             <label for='varMin'><b class="textTitle">Entre com o valor mínimo da distribuição:</b></label><br>
-            <input required type='number' id='varMin' name='varMin' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            <input required type='number' step="any" id='varMin' name='varMin' size='50px' class="input" placeholder="Entre com um número"><br><br>
         
             <label for='varMax'><b class="textTitle">Entre com o valor máximo da distribuição:</b></label><br>
-            <input required type='number' id='varMax' name='varMax' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            <input required type='number' step="any" id='varMax' name='varMax' size='50px' class="input" placeholder="Entre com um número"><br><br>
             <div>
                 <label for='uniformValues-select'><b class="textTitle">Escolha um intervalo e seu valor:</b> </label><br><br>
                 <select id='uniformValues-select' name='uniformValues-select' class='select'>
@@ -69,8 +69,8 @@
             </div>
             <div id='uniformValue'>
                 <label for='varValue'><b class="textTitle"></b></label><br>
-                <input required type='number' id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
-                <input type='number' id='varValueMax' method="GET" style='display:none' name='varValueMax' size='50px' class="input" placeholder="Entre com um número">
+                <input required type='number' step="any" id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
+                <input type='number' step="any" id='varValueMax' method="GET" style='display:none' name='varValueMax' size='50px' class="input" placeholder="Entre com um número">
                 <br>
                 <p id='result'></p>
                 <button id='btn-uniform' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br> 
