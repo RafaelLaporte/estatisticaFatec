@@ -25,7 +25,8 @@
                 <option value="gaussian">Gaussiana (Normal)</option>
                 <option value="uniform">Uniforme</option>
             </select>
-        </div><br><br>
+        </div><br>
+        
     
         <!-- Binomial distribution Form -->
         <form id='binomial' onsubmit="return btnBinomial()" method="GET" style='display:none'>
@@ -36,19 +37,35 @@
             <input required type='number' id='sample' name='varSample' size='50px' class="input" placeholder="Número inteiro positivo"><br><br>
     
             <div>
-
+                <label for='varOcurrences'><b class="textTitle">Eventos:</b></label><br>
+                <input required id='ocurrences' name='varOcurrences' size='50px' class="input" placeholder="Separados por ; " required><br><br>
             </div>
-            <div>
 
-                <label for='varOcurrences'><b class="textTitle">Número de ocorrências desejadas:</b></label><br>
-                <input required type='number' id='ocurrences' name='varOcurrences' size='50px' class="input" placeholder="Número menor ou igual ao tamanho da amostra" required><br><br>
-            </div>
+            <p id='result'></p>
 
             <button id='btn-binomial' type="submit" class="btn"> Calcular </button><br><br>
         </form>
     
         <!-- Gaussian distribution Form -->
         <form id='gaussian' onsubmit="return btnBinomial()" method="GET" style='display:none'>
+            <label for='median'><b class="textTitle">Média:</b></label><br>
+            <input required type='number' id='sucess' name='median' size='50px' class="input" placeholder="0"><br>
+        
+            <label for='standard-deviation'><b class="textTitle">Desvio padrão:</b></label><br>
+            <input required type='number' id='standard-deviation' name='standard-deviation' size='50px' class="input" placeholder="0"><br><br>
+            
+            <div>
+                <label for='gaussianValues-select'><b class="textTitle">Escolha um intervalo e seu valor:</b> </label><br><br>
+                <select id='gaussianValues-select' name='gaussianValues-select' class='select'>
+                    <option selected=""></option>
+                    <option value="between">Entre</option>
+                    <option value="lessThan">Menor que</option>
+                    <option value="higherThan">Maior que</option>
+                    <option value="exactValues">Valor(es) exato(s)</option>
+                </select>
+            </div>
+    
+            <button id='btn-gaussian' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
         </form>
     
         <!-- Uniform distribution form -->
@@ -62,9 +79,9 @@
                 <label for='uniformValues-select'><b class="textTitle">Escolha um intervalo e seu valor:</b> </label><br><br>
                 <select id='uniformValues-select' name='uniformValues-select' class='select'>
                     <option selected=""></option>
+                    <option value="between">Entre</option>
                     <option value="lessThan">Menor que</option>
                     <option value="higherThan">Maior que</option>
-                    <option value="between">Entre</option>
                 </select>
             </div>
             <div id='uniformValue'>

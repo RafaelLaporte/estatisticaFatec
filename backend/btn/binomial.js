@@ -4,16 +4,39 @@ function btnBinomial() {
 
     let p = Number(document.getElementById('sucess').value); //Sucess rate
     let n = Number(document.getElementById('sample').value); //Sample Length
-    let k = Number(document.getElementById('ocurrences').value); //Number of ocurrences desired
+    let data = document.getElementById('ocurrences').value; //Number of ocurrences desired
 
-    if (p > 100 || p < 0) document.getElementById('result').innerHTML = '<br> A probabilidade de ocorrência deve ser um número entre 0 e 100'
+    function organize(data) {
+        //Creating the data array
+        data = data.split(/\s*;\s*/);
+    
+        //Removing blank elements from input
+        for (i = 0; i < data.length; i++) {
+            if(isNaN(data[i])) verifier += 1
+            if (data[i] === "") {
+                data.splice(i,1);
+                i--
+            }
+        }
+    
+        return data.length
+    }
+
+    let k = organize(data)
+
+   
+
+    if(verifier == 1) document.getElementById('result').innerHTML = 'Insira somente números como eventos'
+
+    if (p > 100 || p < 0) document.getElementById('result').innerHTML = 'A probabilidade de ocorrência deve ser um número entre 0 e 100'
     else verifier++
 
-    if (n < 0 || Number.isInteger(n) == false) document.getElementById('result').innerHTML += '<br> O tamanho da amostra deve ser um número inteiro positivo.'
+    if (n < 0 || Number.isInteger(n) == false) document.getElementById('result').innerHTML += 'O tamanho da amostra deve ser um número inteiro positivo.'
     else verifier++
 
-    if (k > n) document.getElementById('result').innerHTML += '<br> O número de ocorrências deve ser um número inteiro menor ou igual ao tamanho da amostra'
+    if (k > n) document.getElementById('result').innerHTML += 'O número de ocorrências deve ser um número inteiro menor ou igual ao tamanho da amostra'
     else verifier++
+    
     
     if (verifier == 3) {
         probabilityElements();
@@ -37,7 +60,7 @@ function btnBinomial() {
         document.getElementById('probability').innerHTML = `Probabilidade de se obter ${k} eventos: ${(probability*100).toFixed(4)}%`
         document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${k} eventos: ${(minProbability*100).toFixed(4)}%`
         document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter no máximo ${k} eventos: ${(maxProbability*100).toFixed(4)}%`
-        document.getElementById('mean').innerHTML = `Média: ${mean}`
+        document.getElementById('mean').innerHTML = `Média: ${mean.toFixed(4)}`
         document.getElementById('standard-deviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
     }
 
