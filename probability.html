@@ -47,9 +47,9 @@
         </form>
     
         <!-- Gaussian distribution Form -->
-        <form id='gaussian' onsubmit="return btnBinomial()" method="GET" style='display:none'>
-            <label for='median'><b class="textTitle">Média:</b></label><br>
-            <input required type='number' id='sucess' name='median' size='50px' class="input" placeholder="0"><br>
+        <form id='gaussian' onsubmit="return btnGaussian()" method="GET" style='display:none'>
+            <label for='mean-gaussian'><b class="textTitle">Média:</b></label><br>
+            <input required type='number' id='mean-gaussian' name='mean-gaussian' size='50px' class="input" placeholder="0"><br>
         
             <label for='standard-deviation'><b class="textTitle">Desvio padrão:</b></label><br>
             <input required type='number' id='standard-deviation' name='standard-deviation' size='50px' class="input" placeholder="0"><br><br>
@@ -61,11 +61,19 @@
                     <option value="between">Entre</option>
                     <option value="lessThan">Menor que</option>
                     <option value="higherThan">Maior que</option>
-                    <option value="exactValues">Valor(es) exato(s)</option>
                 </select>
             </div>
+            <div id='gaussianValue'>
+                <label for='varValue'><b class="textTitle"></b></label><br>
+                <input required type='number' step="any" id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
+                <input type='number' step="any" id='varValueMax' method="GET" style='display:none' name='varValueMax' size='50px' class="input" placeholder="Entre com um número">
+                <br>
+                <p id='result'></p>
+                <button id='btn-gaussian' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
+                <button onclick="btnGaussian()"> Calcular </button><br><br>
+
+            </div>
     
-            <button id='btn-gaussian' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
         </form>
     
         <!-- Uniform distribution form -->
@@ -92,8 +100,7 @@
                 <p id='result'></p>
                 <button id='btn-uniform' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br> 
             </div>
-        
-            
+         
         </form>
    
         <div id='probability-values' class="probability-values"></div>
@@ -102,6 +109,8 @@
     <script src='./backend/fatorial.js'></script>
     <script src='./backend/btn/binomial.js'></script>
     <script src='./backend/btn/uniform.js'></script>
+    <script src='./backend/btn/gaussian.js'></script>
+    <script src='./backend/csv-to-array.js'></script>
     
     <script src='./frontend/probability-elements.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -168,6 +177,26 @@
             }
 
         })
+        $("#gaussianValues-select").on("change", function() {
+
+let dataType = document.getElementById('gaussianValues-select').value;
+
+if (dataType == 'between') {
+    $('#gaussianValue').trigger('reset');
+    document.getElementById('varValueMax').style = ''
+    document.getElementById('btn-gaussian').style = 'display:inline-block'
+}
+ else if (dataType == ''|| dataType == undefined){
+
+    document.getElementById('btn-gaussian').style = 'display:none'             
+
+}
+else {       
+    $('#gaussianValues').trigger('reset');
+    document.getElementById('varValueMax').style = 'display:none'
+    document.getElementById('btn-gaussian').style = 'display:inline-block'
+}
+})
     </script>
 
 </body>

@@ -13,7 +13,7 @@ function probabilityElements () {
     mean.id = 'mean'
 
     let standardDeviation = document.createElement('h3');
-    standardDeviation.id = 'standard-deviation'
+    standardDeviation.id = 'standardDeviation'
 
     let variance = document.createElement('h3');
     variance.id = 'variance'

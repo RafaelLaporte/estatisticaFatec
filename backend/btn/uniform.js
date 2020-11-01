@@ -45,7 +45,7 @@ function btnUniform() {
         document.getElementById('result').innerHTML = ``
         document.getElementById('probability').innerHTML = `Probabilidade: ${(probability*100).toFixed(2)}%`
         document.getElementById('mean').innerHTML = `Média: ${mean}`
-        document.getElementById('standard-deviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
+        document.getElementById('standardDeviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
         document.getElementById('variance').innerHTML = `Variância: ${(variance*100).toFixed(2)}`
     }
 
