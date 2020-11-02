@@ -1,6 +1,4 @@
 // verificar valores
-
-
 function btnGaussian() {
     let value = Number(document.getElementById('varValue').value);
     let valueMax = Number(document.getElementById('varValueMax').value);
@@ -10,22 +8,13 @@ function btnGaussian() {
     let probability
     let probabilityMax
 
-    if(value >= valueMax) document.getElementById('result').innerHTML = `O valor inicial deve ser menor que o valor final`
+    if(value >= valueMax) document.getElementById('gaussian-result').innerHTML = `O valor inicial deve ser menor que o valor final`
 
     probability = zScore(value, mean, standardDeviation)
     probabilityMax = zScore(valueMax, mean, standardDeviation)
 
-
-    if(type == 'higherThan'){
-        if(value < mean){
-            probability = 1 - probability  
-        }     
-    }
-
-    if(type == 'between'){
-
-        probability = probabilityMax - probability
-    }
+    if(type == 'higherThan') probability = 1 - probability  
+    if(type == 'between') probability = probabilityMax - probability
         
     probabilityElements()
 

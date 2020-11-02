@@ -1,15 +1,13 @@
 // arrumar verificação de valores 
-
+// em caso erros não aparece nenhuma mensagem e o cálculo é efetuado.
 function btnBinomial() {
     let p = Number(document.getElementById('sucess').value); //Sucess rate
     let n = Number(document.getElementById('sample').value); //Sample Length
     let data = document.getElementById('ocurrences').value; //Number of ocurrences desired
     let verifier = 0
 
-    data = organize(data)
-
+    data = organize(data);
     probabilityElements();
-
     verifier = verification(p, n, verifier)
 
     // if(verifier != 0) document.getElementById('result').innerHTML = `${result}`
@@ -33,9 +31,6 @@ function btnBinomial() {
         let mean = n*p //Mean calculation
         let standardDeviation = Math.sqrt(n*p*q) //Standard Deviation calculation
 
-        console.log(mean)
-
-
         document.getElementById('probability').innerHTML = `Probabilidade de se obter ${k} eventos: ${(probability*100).toFixed(4)}%`
         document.getElementById('minimum-probability').innerHTML = `Probabilidade de se obter no mínimo ${k} eventos: ${(minProbability*100).toFixed(4)}%`
         document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter no máximo ${k} eventos: ${(maxProbability*100).toFixed(4)}%`
@@ -43,20 +38,15 @@ function btnBinomial() {
         document.getElementById('standardDeviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
     }
 
-    if(data.length > 1){
-
-      
+    if(data.length > 1){      
         p = (p/100); //Turning percentage in decimal
 
         let q = 1 - p //Failure rate
         let probability = 0
+
         data.forEach(k => {
-
             k = Number(k)
-
             probability += combination(n,k)*Math.pow(p, k)*Math.pow(q, n-k)
-
-
         })
 
         let mean = n*p //Mean calculation
@@ -71,7 +61,6 @@ function btnBinomial() {
 }
 
 function verification(p, n, verifier){
-
     let probability = 0
     let result
 
@@ -86,11 +75,8 @@ function verification(p, n, verifier){
     //     probability += combination(n,k)*Math.pow(p, k)*Math.pow(q, n-k)
     // }
 
-
     if(p > 100 || p < 0) verifier = 3
-
     if(n < 0 || Number.isInteger(n) == false) verifier = 4
-
     if(probability > n) verifier = 5
 
     switch(verifier){
@@ -115,10 +101,6 @@ function verification(p, n, verifier){
         default: 
         result = 0; 
     }
-
-    console.log(result)
-    console.log(verifier)
-
 
     return result
 }

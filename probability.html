@@ -41,7 +41,7 @@
                 <input required id='ocurrences' name='varOcurrences' size='50px' class="input" placeholder="Separados por ; " required><br><br>
             </div>
 
-            <p id='result'></p>
+            <p id='binomial-result'></p>
 
             <button id='btn-binomial' type="submit" class="btn"> Calcular </button><br><br>
         </form>
@@ -59,7 +59,7 @@
                 <select id='gaussianValues-select' name='gaussianValues-select' class='select'>
                     <option selected=""></option>
                     <option value="between">Entre</option>
-                    <option value="lessThan">Menor que</option>
+                    <option value="lesserThan">Menor que</option>
                     <option value="higherThan">Maior que</option>
                 </select>
             </div>
@@ -68,37 +68,36 @@
                 <input required type='number' step="any" id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
                 <input type='number' step="any" id='varValueMax' method="GET" style='display:none' name='varValueMax' size='50px' class="input" placeholder="Entre com um número">
                 <br>
-                <p id='result'></p>
+                <p id='gaussian-result'></p>
                 <button id='btn-gaussian' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
-                <button onclick="btnGaussian()"> Calcular </button><br><br>
-
             </div>
     
         </form>
     
         <!-- Uniform distribution form -->
         <form id='uniform' onsubmit="return btnUniform()" method="GET" style='display:none'>
-            <label for='varMin'><b class="textTitle">Entre com o valor mínimo da distribuição:</b></label><br>
-            <input required type='number' step="any" id='varMin' name='varMin' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            <label for='uniform-min'><b class="textTitle">Entre com o valor mínimo da distribuição:</b></label><br>
+            <input required type='number' step="any" id='uniform-min' name='uniform-min' size='50px' class="input" placeholder="Entre com um número"><br><br>
         
-            <label for='varMax'><b class="textTitle">Entre com o valor máximo da distribuição:</b></label><br>
-            <input required type='number' step="any" id='varMax' name='varMax' size='50px' class="input" placeholder="Entre com um número"><br><br>
+            <label for='uniform-max'><b class="textTitle">Entre com o valor máximo da distribuição:</b></label><br>
+            <input required type='number' step="any" id='uniform-max' name='uniform-max' size='50px' class="input" placeholder="Entre com um número"><br><br>
             <div>
-                <label for='uniformValues-select'><b class="textTitle">Escolha um intervalo e seu valor:</b> </label><br><br>
-                <select id='uniformValues-select' name='uniformValues-select' class='select'>
+                <label for='uniform-select'><b class="textTitle">Determine um intervalo:</b> </label><br><br>
+                <select id='uniform-select' name='uniform-select' class='select'>
                     <option selected=""></option>
                     <option value="between">Entre</option>
-                    <option value="lessThan">Menor que</option>
+                    <option value="lesserThan">Menor que</option>
                     <option value="higherThan">Maior que</option>
                 </select>
             </div>
             <div id='uniformValue'>
-                <label for='varValue'><b class="textTitle"></b></label><br>
-                <input required type='number' step="any" id='varValue' name='varValue' size='50px' class="input" placeholder="Entre com um número">
-                <input type='number' step="any" id='varValueMax' method="GET" style='display:none' name='varValueMax' size='50px' class="input" placeholder="Entre com um número">
+                <label for='uniform-value-min'><b class="textTitle"></b></label><br>
+                <input required type='number' step="any" id='uniform-value-min' name='uniform-value-min' size='50px' class="input" placeholder="Entre com um número">
+                <input type='number' step="any" id='uniform-value-max' method="GET" style='display:none' name='uniform-value-max' size='50px' class="input" placeholder="Entre com um número">
                 <br>
-                <p id='result'></p>
-                <button id='btn-uniform' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br> 
+                <p id='uniform-result'></p>
+                <button id='btn-uniform' type="submit" class="btn" method="GET" style='display:none'> Calcular </button><br><br>
+                <!-- <button id='btn-uniform' type="button" class="btn" onclick='btnUniform()'> Calcular </button><br><br> -->
             </div>
          
         </form>
@@ -118,6 +117,11 @@
     
     <script>
         $("#distribution-select").on("change", function() {
+            document.getElementById('binomial-result').innerHTML = ''
+            document.getElementById('uniform-result').innerHTML = ''
+            document.getElementById('gaussian-result').innerHTML = ''
+
+
             let probabilityValues = document.getElementById('probability-values');
             if (probabilityValues.innerHTML != "") probabilityValues.innerHTML = "";
 
@@ -154,49 +158,48 @@
                 document.getElementById('binomial').style = 'display:none'
                 document.getElementById('gaussian').style = 'display:none'
                 document.getElementById('uniform').style = 'display:none'
-        }
+           }
         })
-        $("#uniformValues-select").on("change", function() {
 
-            let dataType = document.getElementById('uniformValues-select').value;
+        $("#uniform-select").on("change", function() {
+            let dataType = document.getElementById('uniform-select').value;
 
             if (dataType == 'between') {
                 $('#uniformValue').trigger('reset');
-                document.getElementById('varValueMax').style = ''
+                document.getElementById('uniform-value-max').style = ''
                 document.getElementById('btn-uniform').style = 'display:inline-block'
             }
-             else if (dataType == ''|| dataType == undefined){
 
+            else if (dataType == ''|| dataType == undefined){
                 document.getElementById('btn-uniform').style = 'display:none'             
-
             }
+
             else {       
-                $('#uniformValues').trigger('reset');
-                document.getElementById('varValueMax').style = 'display:none'
+                $('#uniformValue').trigger('reset');
+                document.getElementById('uniform-value-max').style = 'display:none'
                 document.getElementById('btn-uniform').style = 'display:inline-block'
             }
-
         })
+
         $("#gaussianValues-select").on("change", function() {
+            let dataType = document.getElementById('gaussianValues-select').value;
 
-let dataType = document.getElementById('gaussianValues-select').value;
+            if (dataType == 'between') {
+                $('#gaussianValue').trigger('reset');
+                document.getElementById('varValueMax').style = ''
+                document.getElementById('btn-gaussian').style = 'display:inline-block'
+            }
 
-if (dataType == 'between') {
-    $('#gaussianValue').trigger('reset');
-    document.getElementById('varValueMax').style = ''
-    document.getElementById('btn-gaussian').style = 'display:inline-block'
-}
- else if (dataType == ''|| dataType == undefined){
+            else if (dataType == ''|| dataType == undefined){
+                document.getElementById('btn-gaussian').style = 'display:none'             
+            }
 
-    document.getElementById('btn-gaussian').style = 'display:none'             
-
-}
-else {       
-    $('#gaussianValues').trigger('reset');
-    document.getElementById('varValueMax').style = 'display:none'
-    document.getElementById('btn-gaussian').style = 'display:inline-block'
-}
-})
+            else {       
+                $('#gaussianValue').trigger('reset');
+                document.getElementById('varValueMax').style = 'display:none'
+                document.getElementById('btn-gaussian').style = 'display:inline-block'
+            }
+        })
     </script>
 
 </body>

@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SKYLAB - Descritiva</title>
+    <link rel="stylesheet" href="./frontend/css/style.css"> 
+    <link rel="stylesheet" href="./frontend/css/table.css">
+    <link rel="stylesheet" href="./frontend/css/chart.css">
+
+    <div class="header">
+        <hr class="hr">
+        <h1 class="title">SKYLAB</h1>
+        <h3 class="subtitle">Statistical System</h3>
+        <hr class="hr">
+    </div><br>
+</head>
+
+<body class='body'>
+    <div>
+        <form id='correlation-form' onsubmit="return correlation()">
+            <div>
+                <label for='xValues'><b class="textTitle">Entre com os valores (x) separados por ";" (ponto e vírgula):</b></label><br>
+                <input required type='text' id='xValues' name='xValues' size='80px' class="input" placeholder="Ex: -1; 5; 2.9; 1500.12"><br>
+            </div>
+
+            <div>
+                <label for='yValues'><b class="textTitle">Entre com os valores (y) correspondentes, separados por ";" (ponto e vírgula):</b></label><br>
+                <input required type='text' id='yValues' name='yValues' size='80px' class="input" placeholder="Ex: 0; 20; 0.5; 29"><br>
+            </div>
+         
+            <button id='btn-file' type="submit" class="btn"> Obter função de correlação </button>
+        </form>      
+
+        <div class='textTitle' id='correlation-result'></div><br><br>
+
+        <div class="chart-container"> 
+            <canvas id="chart-correlation"></canvas>
+        </div>
+
+        <form id='future-form'></form>
+        </form>      
+    </div>
+
+    <script src='./backend/csv-to-array.js'></script>
+    <script src='./backend/btn/correlation.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
+    <script src='./frontend/chart/chart-correlation.js'></script>
+    <script src='./frontend/chart/chart-test.js'></script>
+</body>
