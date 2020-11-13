@@ -1,0 +1,196 @@
+/*---------------Header and Body---------------*/
+.header {
+  background: #E9DCDC;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(41, 4, 4);
+}
+
+.body {
+  margin-top: 200px;
+  background: linear-gradient(to top left, transparent 20%, white 50%),
+              radial-gradient(white, #e9f5f8, rgba(21, 105, 116, 0.767));
+  text-align: center;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(41, 4, 4);
+}
+
+
+
+/*---------------Labels---------------*/
+.label{
+  float: left;
+  display: block;
+  position: relative;
+  font-size: 20px;
+  text-shadow: 1ch;
+  color: rgba(0, 0, 0, 0.822);
+  font-weight: lighter;
+  font-family: 'Comic Sans MS'
+}
+
+.label-form{
+  display: block;
+  position: relative;
+  font-size: 20px;
+  text-shadow: 1ch;
+  color: rgba(0, 0, 0, 0.822);
+  font-weight: lighter;
+}
+
+
+
+/*---------------Buttons---------------*/
+.btn {
+  background-color: rgb(11, 87, 19); 
+  border-radius: 1ch;
+  color:  #E9DCDC;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.btn:hover {
+background-color: rgb(12, 184, 40);
+}
+
+/*Help Buttons*/
+.help-btn {
+  position: absolute;
+  display: inline-block;
+  margin-left: -20px;
+  margin-top: 10px;
+  border-radius: 100%;
+}
+
+.help-btn-form {
+  position: absolute;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 0px;
+  border-radius: 100%;
+}
+
+/*Radio Buttons*/
+.radio {
+  border-color: rgba(0, 0, 0, 0.822); 
+  cursor: pointer;
+  height: 15px;
+  transition: 300ms;
+  width: 20px;
+  background-color: rgba(0, 0, 0, 0.522);  
+  margin: 0.8ch;
+}
+
+/*Select Buttons*/
+.select {
+  border: 2px solid;
+  border-color: rgba(0, 0, 0, 0.522); 
+  border-radius: 1ch;
+  cursor: pointer;
+  padding: 5px 10px;
+  position: justify;
+  transition: border-color 300ms;
+  text-align: center;
+  display: inline-block
+}
+
+/*Upload Button*/
+.upload-btn {
+  border: solid;
+  padding: 10px 20px
+}
+
+
+
+/*---------------Statistical Values Styles---------------*/
+.statistical-values {
+  display: inline-block;
+}
+
+.statistical-values h3{
+  padding: 15px 32px;
+  text-align: justify ;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.statistical-title {
+  display: inline-block;
+  font-size: 30px;
+  text-shadow: 1ch;
+  color: rgba(41, 4, 4, 0.822);
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+
+
+/*---------------Probability Values---------------*/
+.probability-values{
+  padding: 15px 32px;
+  text-align: center ;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+/*---------------Inputs---------------*/
+.import-box {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  margin: auto;
+  position: relative;
+  height: 100px;
+  width: 550px;
+  display: block;
+}
+
+.input {
+  display: block;
+  float: left;
+  background: #f4f7f8;
+	margin: 10px auto;
+	padding: 10px 20px;
+  border-radius: 8px;
+  border: solid;
+  border-color: rgba(0, 0, 0, 0.522);  
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.input-form{
+    display: inline-block;
+    background: #f4f7f8;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.522);  
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.graph-and-values {
+  border: none;
+  border-color: green;
+  border-width: 5px;
+}
+
+.teste-cor{
+  background: linear-gradient(to top left, transparent 20%, white 50%),
+              radial-gradient(white, #e9f5f8, rgba(21, 105, 116, 0.767));
+}

@@ -1,0 +1,55 @@
+.layout {
+    margin: 300px;
+    margin-top: 200px;
+    width: 100%;
+    height: 600px
+}
+
+.box {
+    display: inline-block;
+    border: solid;
+    border-color: green;
+    width: 420px;
+    height: 600px;
+    margin-right: 15px;
+}
+
+.index-icon {
+    z-index: 1;
+    display: block;
+    position: absolute;
+    margin: 20px 30px 20px 100px;
+    width: 200px;
+    height: 200px;
+}
+
+/*Bordas colocadas somente para referência. Retirá-las após ajustar*/
+.card-text-box{
+    position: absolute;
+    border: solid;
+    margin-top: 250px;
+    margin-left: 7px;
+    width: 400px;
+    height: 300px
+}
+
+.card-title{
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+    border: solid;
+    border-color: red;
+    width: 100%;
+}
+
+.card-description{
+    margin-top: 60px;
+    position: absolute;
+    text-align: justify;
+    font-size: 20px;
+    border: solid;
+    border-color: blue;
+    width: 100%;
+    height: 200px
+}

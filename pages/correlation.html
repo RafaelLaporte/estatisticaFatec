@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SKYLAB - Descritiva</title>
+    <link rel="stylesheet" href="../styles/css/main.css"> 
+    <link rel="stylesheet" href="../styles/css/modal.css"> 
+    <link rel="stylesheet" href="../styles/css/chart.css">
+</head>
+
+<body class='body'>
+    <div>
+        <form id='correlation-form' onsubmit="return btnCorrelation()">
+            <div class='input-box'>
+                <label for='x-name' class='label-form'><b class='label-form'>Nome da variável X:</b></label><br>
+                <div>
+                    <input required type='text' id='x-name' name='x-name' size='40px' class="input-form" placeholder="Ex: -1; 5; 2.9; 1500.12">
+                    <img id='help-xname' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
+                </div>
+            </div>
+
+            <div class='input-box'>
+                <label for='xValues' class='label-form'><b class='label-form'>Valores da variável independente (X):</b></label><br>
+                <div>
+                    <input required type='text' id='xValues' name='xValues' size='40px' class="input-form" placeholder="Ex: -1; 5; 2.9; 1500.12">
+                    <img id='help-xvalues' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
+                </div>
+            </div>
+
+            <div class='input-box'>
+                <label for='y-name' class='label-form'><b class='label-form'>Nome da variável Y:</b></label><br>
+                <div>
+                    <input required type='text' id='y-name' name='y-name' size='40px' class="input-form" placeholder="Ex: -1; 5; 2.9; 1500.12">
+                    <img id='help-yname' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
+                </div>
+            </div>
+
+            <div class='input-box'>
+                    <label for='yValues' class='label-form'><b class='label-form'>Valores da variável dependente (Y):</b></label><br>
+                <div>
+                    <input required type='text' id='yValues' name='yValues' size='40px' class="input-form" placeholder="Ex: 0; 20; 0.5; 29">
+                    <img id='help-yvalues' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
+                </div>
+            </div><br>
+         
+            <button id='btn-file' type="submit" class="btn"> Correlacionar </button>
+        </form>      
+
+        
+        <div id='correlation-result'></div>
+        
+        <div id='angular' style='margin-left: -9999px'></div>
+        <div id='linear' style='margin-left: -9999px'></div>
+
+        <div class="chart-container"> 
+            <canvas id="chart-correlation"></canvas>
+        </div>
+
+        <form id='future-form' style='display:none'>
+            <div class='input-box'>
+                <img id='modal-future' type='button' style='margin-left: 50px' class='help-btn-form' src="../styles/icons/quest-icon.png">
+                <label for='future-select' class='label-form'>Futuro</label><br>
+                <div>
+                    <select id='future-select' name='future-select' class='select'>
+                        <option selected=""></option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                    </select>
+                    <input required type='text' id='future-value' name='future-value' size='5px' class="input-form" placeholder="">
+                    <button id='future-calculate' type='button' class='btn' onclick='btnCorrelation(true)'>Futuro!</button><br>
+                </div>
+            </div><br><br>
+
+            <div id='future-result'></div>
+        </form>   
+        
+    </div>
+
+    <!--Modal-->
+    <div>
+        <div id="modal-xname" class="modal" display='none'>        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    Correlação - Nome (X)
+                </div>
+                <div class="modal-body">
+                    <p>Seleciona se os dados inseridos são Amostra (ou seja, parte de um conjunto maior) 
+                        ou População (todo o conjunto). (Obrigatório)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-xvalues" class="modal" display='none'>        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    Correlação - Valores (X)
+                </div>
+                <div class="modal-body">
+                    <p>Insere os valores da variável x (ou variável independente).
+                    <p>Devem ser somente valores numéricos. </p>
+                    <p>A separação dos valores deverá ser feita por ‘ ; ’ (ponto e vírgula).</p> 
+                    <p>Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade). 
+                        O quantidade de valores inseridos deve ser o mesmo da variável Y.</p>
+                    <p>Ex: 1; 2; 3; 4; 5.3; 6.98</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-yname" class="modal" display='none'>        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    Correlação - Nome (Y)
+                </div>
+                <div class="modal-body">
+                    <p>Seleciona se os dados inseridos são Amostra (ou seja, parte de um conjunto maior) 
+                        ou População (todo o conjunto). (Obrigatório)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-yvalues" class="modal" display='none'>        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    Correlação - Valores (Y)
+                </div>
+                <div class="modal-body">
+                    <p>Insere os valores da variável y (ou variável dependente).
+                        <p>Devem ser somente valores numéricos. </p>
+                        <p>A separação dos valores deverá ser feita por ‘ ; ’ (ponto e vírgula).</p> 
+                        <p>Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade). 
+                            O quantidade de valores inseridos deve ser o mesmo da variável X.</p>
+                        <p>Ex: 1; 2; 3; 4; 5.3; 6.98</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-future" class="modal" display='none'>        
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    Correlação - Previsão de Valores
+                </div>
+                <div class="modal-body">
+                    <p>Seleciona se os dados inseridos são Amostra (ou seja, parte de um conjunto maior) 
+                        ou População (todo o conjunto). (Obrigatório)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='../scripts/organize/csv-to-array.js'></script>
+    <script src='../scripts/btn/btn-correlation.js'></script>
+
+    <script src='../scripts/chart/chart-correlation.js'></script>
+
+    <script src='../scripts/modal/modal-correlation-xname.js'></script>
+    <script src='../scripts/modal/modal-correlation-xvalues.js'></script>
+    <script src='../scripts/modal/modal-correlation-yname.js'></script>
+    <script src='../scripts/modal/modal-correlation-yvalues.js'></script>
+    <script src='../scripts/modal/modal-correlation-future.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+</body>

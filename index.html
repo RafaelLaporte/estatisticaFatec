@@ -1,26 +1,125 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SKYLAB</title>
-    <link rel="stylesheet" href="./frontend/css/style.css"> 
+    <link rel='stylesheet' href='./styles/css/navigation.css'>
+    <link rel='stylesheet' href='./styles/css/index.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Fredericka+the+Great&display=swap" rel="stylesheet">
 
-    <div class="header">
-        <hr class="hr">
-        <h1 class="title">SKYLAB</h1>
-        <h3 class="subtitle">Statistical System</h3>
-        <hr class="hr">
-    </div><br>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class='body'>
-    <div>
-        <form>
-            <a href="descriptive.html"><button type="button" class="btn">Estatística Descritiva</button></a>
-            <a href="probability.html"><button type="button" class="btn">Probabilidade</button></a>
-            <a href="correlation.html"><button type="button" class="btn">Correlação</button></a>
-        </form>
+<body>
+    <header id='header'>         
+        <label class='logo'></label>
+        <hr>
+    </header>
+
+    <nav id="side-nav" class="sidenav" onmouseover="openSideBar()" onmouseout="closeSideBar()">
+        <img id='open-menu-icon' type='button' class='open-menu-icon' src="./styles/icons/icon-hamburger.png">
+
+        <ul>
+            <li><a href="javascript:void(0)" class="close-btn"></a></li>
+            <li><a href="index.html" target='main'>
+                <div>
+                    <img id='icon-home' type='button' class='nav-icon' src="./styles/icons/icon-home.png">
+                    <div style='margin-left: 50px'>Home</div>
+                </div>            
+            </a></li>
+            <li><a href='./pages/descriptive.html' target='main' onclick='hideHome()'>
+                <div>
+                    <img id='icon-home' type='button' class='nav-icon' src="./styles/icons/icon-descriptive.png">
+                    <div style='margin-left: 50px'>Descritiva</div>
+                </div>
+            </a></li>
+            <li><a href="./pages/probability.html" target='main' onclick='hideHome()'>
+                <div>
+                    <img id='icon-home' type='button' class='nav-icon' src="./styles/icons/icon-probability2.png">
+                    <div style='margin-left: 50px'>Probabilidade</div>
+                </div>
+            </a></li>
+            <li><a href="./pages/correlation.html" target='main' onclick='hideHome()'>
+                <div>
+                    <img id='icon-home' type='button' class='nav-icon' src="./styles/icons/icon-correlation.png">
+                    <div style='margin-left: 50px'>Correlação</div>
+                </div>
+            </a></li>
+            <li><a href="#" target='main' onclick='hideHome()'>
+                <div>
+                    <img id='icon-home' type='button' class='nav-icon' src="./styles/icons/icon-about.png">
+                    <div style='margin-left: 50px'>Sobre</div>
+                </div>
+            </a></li>
+        </ul>
+    </nav>
+    
+    <section class='background-color'>
+        <div id='layout' class='layout'>
+            <div class='box'>
+                <div>
+                    <a href='./pages/descriptive.html' target='main' onclick='hideHome()' style='cursor: pointer'>
+                        <img id='icon-prob' type='button' class='index-icon' src="./styles/icons/icon-descriptive.png">
+                    </a>
+                </div>
+
+                <div class='card-text-box'>
+                    <div class='card-title'><b>Descritiva</b></div><br>
+                    <div class='card-description'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod libero quis libero imperdiet eleifend. 
+                        Cras laoreet interdum tristique. Class aptent taciti sociosqu ad litora torquent per 
+                        conubia nostra, per inceptos himenaeos. Suspendisse hendrerit eleifend lacus, id ornare sem rhoncus a. 
+                        Mauris auctor ante augue, eget fermentum nulla luctus sed.  
+                    </div>
+                </div>
+            </div>
+            <div class='box'>
+                <div>
+                    <a href='./pages/probability.html' target='main' onclick='hideHome()'>
+                        <img id='icon-prob' type='button' class='index-icon' src="./styles/icons/icon-probability.png">
+                    </a>
+                </div>
+
+                <div class='card-text-box'>
+                    <div class='card-title'><b>Probabilidade</b></div><br>
+                    <div class='card-description'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod libero quis libero imperdiet eleifend. 
+                        Cras laoreet interdum tristique. Class aptent taciti sociosqu ad litora torquent per 
+                        conubia nostra, per inceptos himenaeos. Suspendisse hendrerit eleifend lacus, id ornare sem rhoncus a. 
+                        Mauris auctor ante augue, eget fermentum nulla luctus sed.  
+                    </div>
+                </div>
+            </div>
+            <div class='box'>
+                <div>
+                    <a href='./pages/correlation.html' target='main' onclick='hideHome()'>
+                        <img id='icon-prob' type='button' class='index-icon' src="./styles/icons/icon-correlation.png">
+                    </a>
+                </div>
+
+                <div class='card-text-box'>
+                    <div class='card-title'><b>Correlação</b></div><br>
+                    <div class='card-description'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod libero quis libero imperdiet eleifend. 
+                        Cras laoreet interdum tristique. Class aptent taciti sociosqu ad litora torquent per 
+                        conubia nostra, per inceptos himenaeos. Suspendisse hendrerit eleifend lacus, id ornare sem rhoncus a. 
+                        Mauris auctor ante augue, eget fermentum nulla luctus sed.  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id='main'>
+        <section>
+            <iframe name='main' width='100%' height='100%' style='border:none'></iframe>
+        </section>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+    <script src='./scripts/editor-html/navigation.js'></script>  
 </body>
 </html>
