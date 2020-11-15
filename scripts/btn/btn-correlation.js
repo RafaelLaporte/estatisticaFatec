@@ -4,6 +4,9 @@
  */
 function btnCorrelation(future = false) {
 
+    //Reseting the fields
+    document.getElementById('correlation-result').innerHTML = ''
+
     //It verifies if the future-form is being used, and returns the correspondent result
     if(future) {
         //Reseting the styles
@@ -44,6 +47,18 @@ function btnCorrelation(future = false) {
 
     let yName = document.getElementById('y-name').value;
     let yValues = csvToArray(document.getElementById('yValues').value);
+
+    //Validating the input
+    let validate = inputValidate(xValues, yValues);
+
+    if(isNaN(validate)) {
+        document.getElementById('correlation-result').innerHTML = validate
+        document.getElementById('future-form').style = 'display: none'
+
+        if(window.bar != undefined) window.bar.destroy();
+        
+        return false
+    }
 
     //Declaring variables
     let r = 0;
@@ -144,4 +159,27 @@ function correlationVerifier(r) {
         if(0 < Math.abs(r) && Math.abs(r) < 0.3) return 'Fraca';            
         if(0.3 < Math.abs(r) && Math.abs(r) < 0.7) return 'Moderada'            
         if(0.7 < Math.abs(r) && Math.abs(r) < 1) return 'Forte';            
+}
+
+function inputValidate(xValues, yValues) {
+    xValues.forEach((value, index) => {
+        xValues[index] = Number(value)
+    });
+
+    yValues.forEach((value, index) => {
+        yValues[index] = Number(value)
+    });
+
+    let xIsThereChar = xValues.filter(value => {return isNaN(value)}).length > 0
+    let yIsThereChar = yValues.filter(value => {return isNaN(value)}).length > 0
+
+    if(xValues.length != yValues.length) {
+        return `Os conjuntos das variáveis dependentes e independentes devem possuir o mesmo tamanho`
+    }
+
+    if(xIsThereChar || yIsThereChar) {
+        return "Os valores das variáveis devem conter somente números separados por ','"        
+    }
+
+    return 1
 }

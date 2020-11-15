@@ -11,6 +11,7 @@ function quickSort(vector, fnComp, start = 0, end = vector.length -1) {
         let divPos = start - 1;
 
         for(let i = start; i < end; i++) {
+            //if vector[i] < vector[pivotPos], it exchanges the values's position and increment divPos.
             if (fnComp(vector[i], vector[pivotPos])) {
                 divPos++
                 [vector[i], vector[divPos]] = [vector[divPos], vector[i]];
