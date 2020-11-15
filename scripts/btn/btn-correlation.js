@@ -3,43 +3,13 @@
  * @param {Boolean} future It verifies if the user is using the future-form. Default is false
  */
 function btnCorrelation(future = false) {
+    //It verifies if the future-form is being used and returns the correspondent result
+    if(future) {
+        return btnFuture()
+    }
 
     //Reseting the fields
     document.getElementById('correlation-result').innerHTML = ''
-
-    //It verifies if the future-form is being used, and returns the correspondent result
-    if(future) {
-        //Reseting the styles
-        let result = document.getElementById('future-result')
-        result.style = ''
-
-        //Taking the variables
-        let linear = Number(document.getElementById('linear').innerHTML);
-        let angular = Number(document.getElementById('angular').innerHTML);
-
-        let variable = document.getElementById('future-select').value;
-        let value = Number(document.getElementById('future-value').value);
-
-        //The dependent variable value for some X value inputed.
-        if(variable == "X") {
-            result.style = 'border: solid; width: 100px; margin: auto'
-            result.innerHTML = `y = ${(angular*value + linear).toFixed(2)}`;
-            return false
-        }
-
-        //The independent variable value for some Y value inputed.
-        if(variable == "Y") {
-            result.style = 'border: solid; width: 100px; margin: auto'
-            result.innerHTML = `x = ${((value - linear)/angular).toFixed(2)}`;
-            return false
-        } 
-
-        //It verifies if the user filled the inputs to use the future-form
-        if(!variable || !value) {
-            result.innerHTML = 'Tem que colocar alguma coisa ali';
-            return false
-        }
-    }
 
     //Reading data
     let xName = document.getElementById('x-name').value;
@@ -114,7 +84,10 @@ function btnCorrelation(future = false) {
     yMean = ySum/N
     rTop = N*productSum - xSum*ySum
     rBottom = Math.sqrt((N*xSquareSum - Math.pow(xSum,2))*(N*ySquareSum - Math.pow(ySum,2)))
-    r = rTop/rBottom;
+
+    //If the denominador is 0, the variables aren't correlated (y is constant)
+    if(rBottom == 0) r = 0
+    else r = rTop/rBottom;
     rType = correlationVerifier(r);
 
     //Calculating the top and bottom expressions of the linear coefficient 'a'
@@ -131,15 +104,20 @@ function btnCorrelation(future = false) {
     document.getElementById('angular').innerHTML = a
     document.getElementById('linear').innerHTML = b
 
-    //It verifies the signal of the linear coefficient to print the correct function at the end
-    finalExpression = b > 0 ? `Y(x) = ${a.toFixed(2)}X + ${b.toFixed(2)}` : 
+    //It verifies the coefficients to print the correct function at the end
+    if (a == 0) finalExpression = `Y(X) = ${b}`
+    else if (b == 0) finalExpression = `Y(X) = ${a}X`
+    else {
+        finalExpression = b > 0 ? `Y(x) = ${a.toFixed(2)}X + ${b.toFixed(2)}` : 
                               `Y(x) = ${a.toFixed(2)}X - ${-b.toFixed(2)}`
+    }
     
     //Output
     document.getElementById('correlation-result').innerHTML = `Função de Correlação: ${finalExpression}
     <br> Grau de Correlação: ${r.toFixed(2)} <br> Tipo de Correlação: ${rType}`
     document.getElementById('correlation-result').style = "border: solid; width: 400px; margin: auto;"
 
+    //Creating the chart
     correlationChart(finalExpression, a, b, points, xValues, xName, yName);
 
     // document.getElementByClassName('chart-container').style = 'border: solid'
@@ -161,6 +139,12 @@ function correlationVerifier(r) {
         if(0.7 < Math.abs(r) && Math.abs(r) < 1) return 'Forte';            
 }
 
+
+/**
+ * It validates the input in correlation form
+ * @param {Array} xValues Independent variable's value
+ * @param {Array} yValues Dependent variable's value
+ */
 function inputValidate(xValues, yValues) {
     xValues.forEach((value, index) => {
         xValues[index] = Number(value)
@@ -180,6 +164,25 @@ function inputValidate(xValues, yValues) {
     if(xIsThereChar || yIsThereChar) {
         return "Os valores das variáveis devem conter somente números separados por ','"        
     }
+
+    //It verifies if there's two equal sucess rate.
+    let counter = 0;
+
+    for (i = 0; i < xValues.length; i++) {
+        counter = 0        
+        xValues.some(value => {
+            // console.log('passei aqui')
+            if (xValues[i] == value) counter++
+            if (counter > 1) return true
+            else return false
+        });
+        
+        if(counter > 1) {
+            break      
+        }
+    }
+
+    if (counter > 1) return 'Os valores da variável independente devem ser diferentes entre si'
 
     return 1
 }

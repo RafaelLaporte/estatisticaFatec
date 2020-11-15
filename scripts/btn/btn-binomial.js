@@ -77,6 +77,12 @@ function btnBinomial() {
     return false
 }
 
+/**
+ * It validates the input in the binomial distribution form
+ * @param {Number} p Sucess rate
+ * @param {Number} n Sample length
+ * @param {Array} data Number of desired sucess events
+ */
 function inputValidate(p, n, data){
 
     data.forEach((value, index) => {
