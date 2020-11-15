@@ -85,9 +85,28 @@ function inputValidate(p, n, data){
 
     if(p > 100 || p < 0) return 'A probabilidade de ocorrência de um evento deve ser um número entre 0 e 100'
     if(n < 0) return 'O tamanho da amostra deve ser um número positivo' 
-    if(data.length > n) return 'O número de eventos deve ser menor que o tamanho da amostra'
-    if(data.filter(value => {return isNaN(value)}).length > 0) return 'Utilize números para representar os eventos desejados'
+    if(data.length > n+1) return 'O número de eventos deve ser menor que o tamanho da amostra'
+    if(data.filter(value => {return isNaN(value)}).length > 0) return 'Utilize números para representar a quantidade de sucessos desejada'
     if(Math.max(...data) > n) return "O evento com maior número de sucessos deve ser menor que o tamanho da amostra"
+
+    //It verifies if there's two equal sucess rate.
+    let counter = 0;
+
+    for (i = 0; i < data.length; i++) {
+        counter = 0        
+        data.some(value => {
+            // console.log('passei aqui')
+            if (data[i] == value) counter++
+            if (counter > 1) return true
+            else return false
+        });
+        
+        if(counter > 1) {
+            break      
+        }
+    }
+
+    if (counter > 1) return 'Não pode haver duas quantidades de sucessos com o mesmo valor.'
 
     return 1
 }
