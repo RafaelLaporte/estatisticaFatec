@@ -125,7 +125,17 @@
                     <div class="chart-container"> 
                         <canvas id="chart"></canvas>
                     </div>
-                </div>         
+                </div> 
+                
+                <form id='search-form'>
+                    <div class='input-box'>
+                            <input required type='text' id='search-value' name='search-value' size='5px' class="input-form" placeholder="">
+                            <button id='search-calculate' type='button' class='btn' onclick='btnSearch()'>Buscar</button><br>
+                        </div>
+                    </div><br><br>
+        
+                    <div id='search-result'></div>
+                </form>   
             </div>
         </div>
 
@@ -232,6 +242,8 @@
     
     <script src='../scripts/btn/btn-calculate.js'></script>
     <script src='../scripts/btn/btn-organize.js'></script>
+    <script src='../scripts/btn/btn-search.js'></script>
+
     
     <script src='../scripts/read/read-input.js'></script>
     <script src='../scripts/read/read-file.js'></script>

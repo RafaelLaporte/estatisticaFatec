@@ -4,18 +4,17 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: rgb(41, 4, 4);
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+    color: rgb(41, 4, 4);
 }
 
 .body {
   margin-top: 200px;
-  background: linear-gradient(to top left, transparent 20%, white 50%),
-              radial-gradient(white, #e9f5f8, rgba(21, 105, 116, 0.767));
+  background: rgba(21, 105, 116, 0.109);
   text-align: center;
   text-decoration: none;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: rgb(41, 4, 4);
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+    color: rgb(41, 4, 4);
 }
 
 
@@ -29,7 +28,7 @@
   text-shadow: 1ch;
   color: rgba(0, 0, 0, 0.822);
   font-weight: lighter;
-  font-family: 'Comic Sans MS'
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
 }
 
 .label-form{
@@ -45,20 +44,28 @@
 
 /*---------------Buttons---------------*/
 .btn {
-  background-color: rgb(11, 87, 19); 
-  border-radius: 1ch;
+  background-color:  rgb(48, 116, 143);
+  border: white;
+  border-radius: 3ch;
   color:  #E9DCDC;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor: pointer
 }
 
 .btn:hover {
-background-color: rgb(12, 184, 40);
+background-color: rgb(89, 202, 246);
+background-repeat: no-repeat;
 }
-
+.btn:focus{
+      outline: thin dotted;
+      outline: 0px auto -webkit-focus-ring-color;
+      outline-offset: 0px;
+  }
+ 
 /*Help Buttons*/
 .help-btn {
   position: absolute;
@@ -66,19 +73,20 @@ background-color: rgb(12, 184, 40);
   margin-left: -20px;
   margin-top: 10px;
   border-radius: 100%;
+  
 }
 
 .help-btn-form {
   position: absolute;
   display: inline-block;
   margin-left: 10px;
-  margin-top: 0px;
+  margin-top: 10px;
   border-radius: 100%;
 }
 
 /*Radio Buttons*/
 .radio {
-  border-color: rgba(0, 0, 0, 0.822); 
+  border-color: rgb(48, 116, 143); 
   cursor: pointer;
   height: 15px;
   transition: 300ms;
@@ -90,8 +98,8 @@ background-color: rgb(12, 184, 40);
 /*Select Buttons*/
 .select {
   border: 2px solid;
-  border-color: rgba(0, 0, 0, 0.522); 
-  border-radius: 1ch;
+  border-color:rgb(48, 116, 143); 
+  border-radius: 3ch;
   cursor: pointer;
   padding: 5px 10px;
   position: justify;
@@ -99,14 +107,17 @@ background-color: rgb(12, 184, 40);
   text-align: center;
   display: inline-block
 }
+.select:focus{
+  outline: thin dotted;
+      outline: 0px auto -webkit-focus-ring-color;
+      outline-offset: 0px;
+  }
 
 /*Upload Button*/
 .upload-btn {
   border: solid;
   padding: 10px 20px
 }
-
-
 
 /*---------------Statistical Values Styles---------------*/
 .statistical-values {
@@ -117,7 +128,7 @@ background-color: rgb(12, 184, 40);
   padding: 15px 32px;
   text-align: justify ;
   text-decoration: none;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
 }
 
 .statistical-title {
@@ -126,7 +137,7 @@ background-color: rgb(12, 184, 40);
   text-shadow: 1ch;
   color: rgba(41, 4, 4, 0.822);
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 3ch;
 }
 
 
@@ -136,7 +147,7 @@ background-color: rgb(12, 184, 40);
   padding: 15px 32px;
   text-align: center ;
   text-decoration: none;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
 }
 
 input::-webkit-outer-spin-button,
@@ -166,10 +177,10 @@ input::-webkit-inner-spin-button {
   background: #f4f7f8;
 	margin: 10px auto;
 	padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 3ch;
   border: solid;
-  border-color: rgba(0, 0, 0, 0.522);  
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-color: rgb(48, 116, 143);  
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
 }
 
 .input-form{
@@ -177,11 +188,23 @@ input::-webkit-inner-spin-button {
     background: #f4f7f8;
     margin: auto;
     padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: 3ch;
     border: solid;
-    border-color: rgba(0, 0, 0, 0.522);  
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-color: rgb(48, 116, 143);  
+    font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+  }
+
+.input:focus{
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
 }
+
+.input-form:focus{
+      outline: thin dotted;
+      outline: 0px auto -webkit-focus-ring-color;
+      outline-offset: 0px;
+  }
 
 
 .graph-and-values {
@@ -190,7 +213,3 @@ input::-webkit-inner-spin-button {
   border-width: 5px;
 }
 
-.teste-cor{
-  background: linear-gradient(to top left, transparent 20%, white 50%),
-              radial-gradient(white, #e9f5f8, rgba(21, 105, 116, 0.767));
-}

@@ -11,20 +11,25 @@
     overflow: auto; 
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
 }
   
 .modal-header {
     padding: 20px 16px;
-    background-color: #5cb85c;
+    background-color: rgb(48, 116, 143);
     color: white;
     font-size: 30px;
-    font-family: 'Comic Sans MS'
+    font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+    border-top-left-radius: 2ch;
+    border-top-right-radius: 2ch;
+
 }
   
 .modal-body {
     padding: 50px 16px;
     font-size: 16px;
-    font-family: 'Comic Sans MS'
+    font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+   
 }
   
 .modal-big {
@@ -45,9 +50,10 @@
 .modal-content {
     position: relative;
     background-color: #fefefe;
+    border-radius: 5ch;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    border: px solid  rgb(48, 116, 143);
     width: 25%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;

@@ -139,9 +139,7 @@ section {
 }
 
 .background-color{
-    background: linear-gradient(to top left, rgba(22, 121, 134, 0.767), white 20%)
-    /* background: linear-gradient(to top left, transparent 40%, white 50%),
-                radial-gradient(white, #e9f5f8, rgba(21, 105, 116, 0.767)); */
+    background: rgba(21, 105, 116, 0.109);
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
