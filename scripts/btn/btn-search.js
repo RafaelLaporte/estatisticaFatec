@@ -4,13 +4,15 @@
  * @param {Booelan} btnOrganize Verifies if the calculation was pushed
  */
 
-
-
 function btnSearch(){
 
+    let input
     let variable = readInput();
-    let input = Number(document.getElementById("search-value").value)
-
+    if(isNaN(Number(document.getElementById("search-value").value))){
+        input = document.getElementById("search-value").value
+    } else{
+        input = Number(document.getElementById("search-value").value)
+    }
     //Organizing the frequencies by crescent order
     quickSort(variable.data, (a,b) => {
         if (a.fi == b.fi) {
@@ -19,7 +21,6 @@ function btnSearch(){
             return a.fi < b.fi
         }
     });
-
 
     let search = binarySearch(variable.data, input, (obj, busca) => {
         if(obj.value === busca) return 0

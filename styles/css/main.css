@@ -383,4 +383,34 @@ a:active {
   text-decoration: none;
 }
 
+.dev-header2 {
+  background: linear-gradient(to top right, rgb(1, 99, 127),rgb(0, 112, 122), rgb(54, 129, 136),rgb(80, 181, 190), rgb(145, 211, 216));
+  color: white;
+  font-size: 16px;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+  border-top-left-radius: 2ch;
+  border-top-right-radius: 2ch;
+
+}
+.dev-header2 h2{
+  font-size: 30px;
+  margin: 2px;
+}
+
+.dev-header{
+  
+  margin-left: 30%;
+  margin-right: 30%;
+ 
+}
+
+.dev-header h2{
+  background: linear-gradient(to top right,  rgb(75, 132, 136),rgb(80, 181, 190),rgb(1, 99, 127),rgb(0, 112, 122), rgb(54, 129, 136),rgb(80, 181, 190), rgb(75, 132, 136));
+  color: white;
+  font-size: 24px;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+  border-radius: 2ch;
+  padding: 5px 3px;
+  
+}
 

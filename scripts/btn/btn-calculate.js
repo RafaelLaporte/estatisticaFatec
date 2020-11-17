@@ -5,6 +5,7 @@
  */
 function btnCalculate(variable = undefined, btnOrganize = false) {  
     
+    document.getElementById('btn-organize').style = "display: ''"
     document.getElementById('graph-and-values').style = "display: ''"
     
     //It reads when click on the button

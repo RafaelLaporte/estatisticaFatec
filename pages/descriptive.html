@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/css/modal.css"> 
     <link rel="stylesheet" href="../styles/css/table.css">
     <link rel="stylesheet" href="../styles/css/chart.css">
+    <link rel="stylesheet" href="../styles/css/ .css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -23,8 +24,8 @@
                     <option value="hand">Manualmente</option>
                     <option value="file">Utilizando um arquivo</option>
                 </select>
-            </div><br>
-    
+            </div>
+            
             <form id='file-form' onsubmit="return readFile()" style='display:none'>
                 <div class='input-box'>
                     <label for='input-file' class='btn'><b>Selecionar arquivo (.csv)</b></label><br>
@@ -35,10 +36,11 @@
                 </div><br><br>
     
                 <div>
-                    <label for='file-scope' class='label-form'><b>Tipo do conjunto de valores:</b></label><br>
+                    <label for='file-scope' class='label-form'><b>Tipo do conjunto de valores:</b><br>
                     <input type='radio' id='file-scope' name='file-scope' value="amostra" class="radio"checked> Amostra |
                     <input type='radio' id='file-scope' name='file-scope' value="populacao" class="radio"> População
-                </div><br>
+                </div>
+                </label><br>
     
                 <div>
                     <label for='file-measures' class='label-form'><b>Selecione a medida separatriz: </b> </label><br>
@@ -111,7 +113,7 @@
             </div>
             </div>
 
-            <div id='btn-organize'></div><br>
+            <div id='btn-organize' ></div><br>
     
             <table id="results" class='table'></table>
     
@@ -273,6 +275,8 @@
     <script src='../scripts/modal/modal-descriptive-name.js'></script>
     <script src='../scripts/modal/modal-descriptive-scope.js'></script>
     <script src='../scripts/modal/modal-descriptive-position.js'></script>
-    <script src='../scripts/modal/modal-descriptive-csv.js'></script>    
+    <script src='../scripts/modal/modal-descriptive-csv.js'></script> 
+    
+   
 </body>
 </html>
