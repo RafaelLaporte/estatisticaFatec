@@ -16,7 +16,7 @@ function btnFuture() {
     //The dependent variable value for some X value inputed.
     if(variable == "X") {
         
-        result.innerHTML = `y = ${(angular*value + linear).toFixed(2)}`;
+        result.innerHTML = `<h3> y = ${(angular*value + linear).toFixed(2)} </h3>`;
         return false
     }
 
@@ -24,19 +24,19 @@ function btnFuture() {
     if(variable == "Y") {
         if(angular == 0) {
             
-            result.innerHTML = `Reais`;
+            result.innerHTML = `<h3> Reais </h3>`;
         }
 
         else {
           
-            result.innerHTML = `x = ${((value - linear)/angular).toFixed(2)}`;
+            result.innerHTML = `<h3> x = ${((value - linear)/angular).toFixed(2)} </h3>`;
             return false
         }
     } 
 
     //It verifies if the user filled the inputs to use the future-form
     if(!variable || !value) {
-        result.innerHTML = 'Tem que colocar alguma coisa ali';
+        result.innerHTML = '<h3> Insira a variável desejada </h3>';
         return false
     }
 }

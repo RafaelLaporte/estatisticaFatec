@@ -30,9 +30,8 @@ function btnSearch(){
     console.log(variable.data[search])
 
     document.getElementById('search-result').style = 'display:""'
-    document.getElementById('search-result-value').innerHTML = `Posição: ${search}`
     document.getElementById('search-result-fi').innerHTML = `Frequência simples: ${variable.data[search].fi}`
-    document.getElementById('search-result-percentualFi').innerHTML = `Frequência simples (%): ${variable.data[search].percentualFi} %`
+   // document.getElementById('search-result-percentualFi').innerHTML = `Frequência simples (%): ${variable.data[search].percentualFi} %`
     document.getElementById('search-result-fac').innerHTML = `Frequência Acumulada: ${variable.data[search].fac}`
-    document.getElementById('search-result-percentualFac').innerHTML = `Frequência Acumulada(%): ${variable.data[search].percentualFac}`
+   // document.getElementById('search-result-percentualFac').innerHTML = `Frequência Acumulada(%): ${variable.data[search].percentualFac}`
 }

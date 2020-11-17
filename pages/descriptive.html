@@ -27,7 +27,7 @@
     
             <form id='file-form' onsubmit="return readFile()" style='display:none'>
                 <div class='input-box'>
-                    <label for='input-file' class='label-form'><b>Selecione um arquivo do tipo .csv</b></label><br>
+                    <label for='input-file' class='btn'><b>Selecionar arquivo (.csv)</b></label><br>
                     <div>
                         <input required type='file' id='input-file' name='input-file' class='upload-btn' accept=".csv">
                         <img id='help-csv' type='button' class='help-btn' style='margin: 0 0 0 20px' src="../styles/icons/quest-icon.png">
@@ -54,7 +54,7 @@
                     <select name="file-part-measure" id="file-part-measure" class="select"></select><br>
                 </div><br>
     
-                <button id='btn-file' type="submit" class="btn"> Calcular usando o arquivo </button>
+                <button id='btn-file' type="submit" class="btn"> Calcular </button>
             </form>      
     
     
@@ -142,13 +142,9 @@
                     </div>
 
                     <div id="search-result" class="search-result" style="display: none">
-                        <h3 id='search-result-value'></h3>
                         <h3 id='search-result-fi' ></h3>
-                        <h3 id='search-result-percentualFi'></h3>
                         <h3 id='search-result-fac'></h3>
-                        <h3 id='search-result-percentualFac'></h3>
                     </div>        
-                    
 
                 </form>   
             </div>
