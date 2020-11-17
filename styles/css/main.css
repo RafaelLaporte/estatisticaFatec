@@ -1,11 +1,11 @@
 /*---------------Header and Body---------------*/
 .header {
   background: #E9DCDC;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
-    color: rgb(41, 4, 4);
+  color: rgb(41, 4, 4);
+  
 }
 
 .body {
@@ -14,7 +14,7 @@
   text-align: center;
   text-decoration: none;
   font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
-    color: rgb(41, 4, 4);
+  color: rgb(41, 4, 4);
 }
 
 
@@ -39,8 +39,6 @@
   color: rgba(0, 0, 0, 0.822);
   font-weight: lighter;
 }
-
-
 
 /*---------------Buttons---------------*/
 .btn {
@@ -126,21 +124,24 @@ background-repeat: no-repeat;
 
 .statistical-values h3{
   padding: 15px 32px;
-  text-align: justify ;
+  text-align: center ;
   text-decoration: none;
   font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+  border: solid;
+  border-color: rgb(89, 202, 246);
+  border-radius: 50px;
+
 }
+
 
 .statistical-title {
   display: inline-block;
   font-size: 30px;
   text-shadow: 1ch;
-  color: rgba(41, 4, 4, 0.822);
+  color:rgb(30, 61, 73);
   font-weight: bold;
   border-radius: 3ch;
 }
-
-
 
 /*---------------Probability Values---------------*/
 .probability-values{
@@ -149,6 +150,7 @@ background-repeat: no-repeat;
   text-decoration: none;
   font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -198,6 +200,7 @@ input::-webkit-inner-spin-button {
   outline: thin dotted;
   outline: 0px auto -webkit-focus-ring-color;
   outline-offset: 0px;
+  background-color: #dce1e9;
 }
 
 .input-form:focus{
@@ -213,3 +216,78 @@ input::-webkit-inner-spin-button {
   border-width: 5px;
 }
 
+.search-result{
+  display: inline-block;
+}
+
+.search-result h3{
+  padding: 15px 32px;
+  text-align: center ;
+  text-decoration: none;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+  border: solid;
+  border-color: rgb(89, 202, 246);
+  border-radius: 50px;
+}
+
+.correlation-result {
+  display: inline-block;
+}
+
+.correlation-result h3{
+  display: justify;
+  border: solid;
+  border-color: rgb(89, 202, 246);
+  border-radius: 50px;
+  padding: 1ch;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+}
+
+.future-result{
+  display: inline-block;
+}
+.future-result h3{
+  display: justify;
+  border: solid;
+  border-color: rgb(89, 202, 246);
+  border-radius: 50px;
+  padding: 1ch;
+  font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+}
+
+
+
+.onoffswitch {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 36px; padding: 0; line-height: 36px;
+  border: 2px solid #4680EB; border-radius: 36px;
+  background-color: #b6cefb;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+  content: "";
+  display: block; width: 36px; margin: 0px;
+  background: #ffffff;
+  position: absolute; top: 0; bottom: 0;
+  right: 22px;
+  border: 2px solid #4680EB; border-radius: 36px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #4680EB;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+ border-color: #4680EB;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px; 
+}

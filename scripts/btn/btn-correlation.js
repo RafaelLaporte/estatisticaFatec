@@ -10,7 +10,7 @@ function btnCorrelation(future = false) {
 
     //Reseting the fields
     document.getElementById('correlation-result').innerHTML = ''
-
+   
     //Reading data
     let xName = document.getElementById('x-name').value;
     let xValues = csvToArray(document.getElementById('xValues').value);
@@ -113,9 +113,9 @@ function btnCorrelation(future = false) {
     }
     
     //Output
-    document.getElementById('correlation-result').innerHTML = `Função de Correlação: ${finalExpression}
-    <br> Grau de Correlação: ${r.toFixed(2)} <br> Tipo de Correlação: ${rType}`
-    document.getElementById('correlation-result').style = "border: solid; width: 400px; margin: auto;"
+    document.getElementById('correlation-result').innerHTML = `<h3>Função de Correlação: ${finalExpression}
+    </h3> <h3> Grau de Correlação: ${r.toFixed(2)} </h3> <h3>Tipo de Correlação: ${rType}</h3>`
+    document.getElementById('correlation-result').className = "correlation-result"
 
     //Creating the chart
     correlationChart(finalExpression, a, b, points, xValues, xName, yName);

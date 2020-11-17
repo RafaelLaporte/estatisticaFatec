@@ -103,8 +103,14 @@
             <div>
                 <p id='explanation' class='textTitle'></p>
             </div>
-    
-    
+            <h3>Organizar dados por frequência</h3>
+            <div style="display:inline-block">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" >
+                <label class="onoffswitch-label" for="myonoffswitch"></label>
+            </div>
+            </div>
+
             <div id='btn-organize'></div><br>
     
             <table id="results" class='table'></table>
@@ -127,14 +133,23 @@
                     </div>
                 </div> 
                 
-                <form id='search-form'>
+                <form id='search-form' style='display: none'>
                     <div class='input-box'>
+                        <h3>Filtrar um valor do conjunto de dados:</h3>
                             <input required type='text' id='search-value' name='search-value' size='5px' class="input-form" placeholder="">
-                            <button id='search-calculate' type='button' class='btn' onclick='btnSearch()'>Buscar</button><br>
+                            <button id='search-calculate' type='button' class='btn' onclick='btnSearch()'>Filtrar</button>
                         </div>
-                    </div><br><br>
-        
-                    <div id='search-result'></div>
+                    </div>
+
+                    <div id="search-result" class="search-result" style="display: none">
+                        <h3 id='search-result-value'></h3>
+                        <h3 id='search-result-fi' ></h3>
+                        <h3 id='search-result-percentualFi'></h3>
+                        <h3 id='search-result-fac'></h3>
+                        <h3 id='search-result-percentualFac'></h3>
+                    </div>        
+                    
+
                 </form>   
             </div>
         </div>
@@ -239,6 +254,8 @@
     <script src='../scripts/organize/frequencies.js'></script>
     <script src='../scripts/organize/csv-to-array.js'></script>
     <script src='../scripts/organize/quick-sort.js'></script>
+
+    <script src='../scripts/search/search-binary.js'></script>
     
     <script src='../scripts/btn/btn-calculate.js'></script>
     <script src='../scripts/btn/btn-organize.js'></script>

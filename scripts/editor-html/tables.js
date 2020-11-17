@@ -54,10 +54,6 @@ function generateTable(variable) {
     document.getElementById('results').appendChild(tableHead)
     document.getElementById('results').appendChild(tableBody)
 
-    //Generating the organize button
-    document.getElementById('btn-organize').innerHTML = `
-    <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>`
-
     //Generating the Header.
     document.getElementById('table-head').appendChild(
         createHeader(variable)

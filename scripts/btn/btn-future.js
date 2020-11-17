@@ -15,7 +15,7 @@ function btnFuture() {
 
     //The dependent variable value for some X value inputed.
     if(variable == "X") {
-        result.style = 'border: solid; width: 100px; margin: auto'
+        
         result.innerHTML = `y = ${(angular*value + linear).toFixed(2)}`;
         return false
     }
@@ -23,12 +23,12 @@ function btnFuture() {
     //The independent variable value for some Y value inputed.
     if(variable == "Y") {
         if(angular == 0) {
-            result.style = 'border: solid; width: 100px; margin: auto'
+            
             result.innerHTML = `Reais`;
         }
 
         else {
-            result.style = 'border: solid; width: 100px; margin: auto'
+          
             result.innerHTML = `x = ${((value - linear)/angular).toFixed(2)}`;
             return false
         }

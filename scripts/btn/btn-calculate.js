@@ -4,6 +4,7 @@
  * @param {Boolean} btnOrganize It verifies if btnOrganize button were clicked
  */
 function btnCalculate(variable = undefined, btnOrganize = false) {  
+    
     document.getElementById('graph-and-values').style = "display: ''"
     
     //It reads when click on the button
@@ -21,5 +22,9 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
     //It generates the variable graphs
     descriptiveChart(variable.type);
 
+    document.getElementById('search-form').style = ''
+    //Generating the organize button
+    document.getElementById('btn-organize').innerHTML = `
+    <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>` 
     return false
 }
