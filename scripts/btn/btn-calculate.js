@@ -5,8 +5,11 @@
  */
 function btnCalculate(variable = undefined, btnOrganize = false) {  
     
-    document.getElementById('btn-organize').style = "display: ''"
+    //Reseting the HTML
+    // document.getElementById('btn-organize').style = "display: ''"
     document.getElementById('graph-and-values').style = "display: ''"
+    document.getElementById('search-result').innerHTML = ''
+    document.getElementById('search-value').value = ''
     
     //It reads when click on the button
     resetDescriptive(btnOrganize);
@@ -24,8 +27,10 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
     descriptiveChart(variable.type);
 
     document.getElementById('search-form').style = ''
+
     //Generating the organize button
-    document.getElementById('btn-organize').innerHTML = `
-    <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>` 
+    // document.getElementById('btn-organize').innerHTML = `
+    // <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>` 
+
     return false
 }

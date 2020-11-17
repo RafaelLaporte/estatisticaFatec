@@ -4,7 +4,7 @@
  * statistical analysis.
  * @param {Boolean} reader It checks if the input were came from HTML or from a .csv uploaded file
  */
-function readInput(reader = false) {
+function readInput(reader = false, search=false) {
     let varName
     let varValues
     let varMeasurePart
@@ -46,5 +46,9 @@ function readInput(reader = false) {
     //It merges all the variables values and properties in a single object called varData
     let varData = variableData(varName, varType, varValues, valuesFi, varScope, varMeasureType, varMeasurePart);
 
+    if(search) {
+        varData = variableData(varName, varType, varValues, valuesFi, varScope, varMeasureType, varMeasurePart, true)
+    }
+    
     return varData
 }

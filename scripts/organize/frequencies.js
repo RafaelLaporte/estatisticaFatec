@@ -22,34 +22,45 @@ function simpleFrequencies(varValues) {
  * @param {String} varMeasureType It sets in how many parts the dataset will be divided
  * @param {String} varMeasurePart The desired fraction of the dataset
  */
-function variableData(varName, varType, varValues, valuesFi, varScope, varMeasureType, varMeasurePart) {    
+function variableData(varName, varType, varValues, valuesFi, varScope, varMeasureType, varMeasurePart, search=false) {    
     let frequencies = [];
     let fac = 0;
     let numberOfValues = varValues.length;
     let orderedKeys = Object.keys(valuesFi);
 
     if (varType === 'quantitativaContinua') {
-        //Max and Min values
-        let min = Math.min(...varValues);
-        let max = Math.max(...varValues);
-
-        //Calculating the classInterval
-        let amplitude = max - min       
-        let k = Math.round(Math.sqrt(numberOfValues)); 
-        let classInterval = Math.ceil(amplitude/k);
-
-        //Constructing the new valuesFi values, counting how many values are in each classInterval
-        let countinuousFi = {}
-        
-        //Creating a new object, counting how many values are in each defined interval
-        for(let i = min; i <= max; i += classInterval){
-            let key = `${i} &vdash; ${i + classInterval}`;
-            countinuousFi[key] = varValues.filter(value => value >= i && value < i + classInterval).length
+        //If the search button were clicked, we just want the organized vector
+        if(search) {
+            for (let i = 0; i < orderedKeys.length; i++) {
+                orderedKeys[i] = Number(orderedKeys[i]);
+            }
         }
 
-        //Updating the values
-        valuesFi = countinuousFi;
-        orderedKeys = Object.keys(valuesFi);
+        //Organizing the vector for continuous variable
+        else {
+            //Max and Min values
+            let min = Math.min(...varValues);
+            let max = Math.max(...varValues);
+
+            //Calculating the classInterval
+            let amplitude = max - min       
+            let k = Math.round(Math.sqrt(numberOfValues)); 
+            let classInterval = Math.ceil(amplitude/k);
+
+            //Constructing the new valuesFi values, counting how many values are in each classInterval
+            let countinuousFi = {}
+            
+            //Creating a new object, counting how many values are in each defined interval
+            for(let i = min; i <= max; i += classInterval){
+                let key = `${i} &vdash; ${i + classInterval}`;
+                countinuousFi[key] = varValues.filter(value => value >= i && value < i + classInterval).length
+            }
+
+            //Updating the values
+            valuesFi = countinuousFi;
+            orderedKeys = Object.keys(valuesFi);
+        }
+
     }
 
     //If varType == 'quantitativaDiscreta', changes the type of each value in orderedKeys to Number.
