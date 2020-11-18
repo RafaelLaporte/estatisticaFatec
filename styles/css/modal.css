@@ -11,8 +11,6 @@
     overflow: auto; 
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-   
-    
 }
 
 
@@ -23,18 +21,18 @@
     color: white;
     font-size: 20px;
     font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+    font-weight: bolder;
     border-top-left-radius: 2ch;
     border-top-right-radius: 2ch;
-
+    text-align: center;
 }
   
 .modal-body {
-    padding: 50px 16px;
+    padding: 20px 8px;
     font-size: 16px;
     font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
     font-weight: bolder;
-    
-   
+    text-align: center;
 }
   
 .modal-big {

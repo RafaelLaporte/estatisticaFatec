@@ -13,14 +13,14 @@
 <body class='body'>
     <div>
         <div>
-            <label for='distribution-select'><b class='label-form'>Escolha uma distribuição de probabilidades:</b> </label><br><br>
+            <label for='distribution-select'><b class='label-form'>Escolha uma distribuição de probabilidades:</b> </label><br>
             <select id='distribution-select' name='distribution-select' class='select'>
                 <option selected=""></option>
                 <option value="binomial">Binomial</option>
                 <option value="normal">Normal</option>
                 <option value="uniform">Uniforme</option>
             </select>
-        </div><br><br>
+        </div><br><br><br>
 
         <!-- Binomial distribution Form -->
         <form id='binomial' onsubmit="return btnBinomial()" method="GET" style='display:none'>
@@ -43,7 +43,7 @@
             <div class='input-box'>
                 <label for='binomial-ocurrences' class='label-form'><b class='label-form'>Eventos:</b></label><br>
                 <div>
-                    <input required id='binomial-ocurrences' name='binomial-ocurrences' size='50px' class="input-form" placeholder="Separados por ; " required>
+                    <input required id='binomial-ocurrences' name='binomial-ocurrences' size='50px' class="input-form" placeholder="Separados por , (vírgula)" required>
                     <img id='help-binomial-event' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -102,7 +102,7 @@
             <div class='input-box'>
                 <label for='uniform-distribution-min' class='label-form'><b class='label-form'>Valor mínimo da distribuição:</b></label><br>
                 <div>
-                    <input required type='number' step="any" id='uniform-distribution-min' name='uniform-distribution-min' size='50px' class="input-form" placeholder="Digite um número">
+                    <input required type='number' step="any" id='uniform-distribution-min' name='uniform-distribution-min' size='50px' class="input-form" placeholder="0">
                     <img id='help-uniform-min' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -110,7 +110,7 @@
             <div class='input-box'>
                 <label for='uniform-distribution-max' class='label-form'><b class='label-form'>Valor máximo da distribuição:</b></label><br>
                 <div>
-                    <input required type='number' step="any" id='uniform-distribution-max' name='uniform-distribution-max' size='50px' class="input-form" placeholder="Digite um número">
+                    <input required type='number' step="any" id='uniform-distribution-max' name='uniform-distribution-max' size='50px' class="input-form" placeholder="0">
                     <img id='help-uniform-max' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -151,12 +151,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Binomial - Probabilidade de Ocorrência do evento
+                    Probabilidade de Ocorrência do evento
                 </div>
                 <div class="modal-body">
                     <p>Define a probabilidade em porcentagem da ocorrência do evento desejado.</p> 
                     Deve ser um valor de 0 a 100. 
-                    <p>Ex: 42. (obrigatório)</p>
+                    <p>Ex. 42 </p>
+                    <p>(Obrigatório)</p>
                 </div>
             </div>
         </div>
@@ -165,13 +166,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Binomial - Tamanho da Amostra
+                    Tamanho da Amostra
                 </div>
                 <div class="modal-body">
                     <p>Define o tamanho da amostra a ser calculada. 
                        A amostra deve ter ao menos tamanho 1. Deve ser um valor inteiro positivo.
                     </p>
-                    <p>Ex. 2500. (obrigatório)</p>
+                    <p>Ex. 2500. </p>
+                    <p>(Obrigatório)</p>
                 </div>
             </div>
         </div>
@@ -183,12 +185,11 @@
                     Binomial - Eventos
                 </div>
                 <div class="modal-body">
-                    <p>Define um ou mais eventos para calcular sua probabilidade de ocorrência. 
-                        Deve ser um valor numérico inteiro. A separação dos valores deverá ser 
-                        feita por ‘ ; ’ (ponto e vírgula). O valor deverá ser no mínimo 0 e no
-                        máximo igual ao tamanho da amostra.
-                    </p>
-                    <p>Ex: 3 ou 4 eventos bem sucedidos: 3; 4</p>
+                    <p>Define um ou mais eventos para calcular sua probabilidade de ocorrência.</p>
+                    <p>Deve ser um valor numérico inteiro. </p> 
+                    <p> A separação dos valores deverá ser feita por " , " (vírgula).</p>
+                    <p> O valor deverá ser no mínimo 0 e no máximo igual ao tamanho da amostra.</p>
+                    <p>Ex: 3 ou 4 eventos bem sucedidos: 3, 4</p>
                     <p>Ex2: 5 eventos bem sucedidos: 5</p>
                 </div>
             </div>
@@ -198,12 +199,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Normal - Média
+                    Média
                 </div>
                 <div class="modal-body">
-                    <p>Define a média da distribuição normal a ser utilizada. Deve ser um valor numérico. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).  
-                    </p>
+                    <p>Define a média da distribuição normal a ser utilizada.</p>
+                    <p>Deve ser um valor numérico. </p>    
+                    <p> Utilize " . " (ponto) para inserir as casas decimais dos valores numéricos 
+                        (caso haja necessidade).  
+                    </p> 
                     <p>Ex: 50</p>
                 </div>
             </div>
@@ -213,15 +216,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Normal - Desvio Padrão
+                    Desvio Padrão
                 </div>
                 <div class="modal-body">
-                    <p>Define o desvio padrão da distribuição a ser utilizada. Deve ser um valor numérico. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).
-                    </p>
-                    <p>
-                        Ex: 5.
-                    </p>
+                    <p>Define o valor mínimo para a distribuição a ser analisada. </p> 
+                    <p>Deve ser um valor numérico.</p>
+                    <p> Utilize " . " (ponto) para inserir as casas decimais dos valores numéricos 
+                        (caso haja necessidade).  
+                    </p> 
+                    <p>Ex: 5</p>
                 </div>
             </div>
         </div>
@@ -230,7 +233,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Normal - Escolha um intervalo
+                    Escolha um intervalo
                 </div>
                 <div class="modal-body">
                     <p>Intervalo: calcula a probabilidade de ocorrência de valores dentro de um escopo estabelecido.</p> 
@@ -240,8 +243,8 @@
                     <p>Ex: 4 e 8</p>
                     <p>Maior que:  calcula a probabilidade do valor se encontrar acima do valor especificado.</p>
                     <p>Ex: 4</p>
-                    <p>Devem ser inseridos somente valores numéricos e apenas um valor em cada caixa de entrada. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).
+                    <p>Devem ser inseridos somente valores numéricos e apenas um valor em cada caixa de entrada. </p>
+                     <p>   Utilize " . "  (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).
                     </p>
                 </div>
             </div>
@@ -251,13 +254,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Uniforme - Valor Mínimo da Distribuição
+                   Valor Mínimo da Distribuição
                 </div>
                 <div class="modal-body">
-                    <p>Define o valor mínimo para a distribuição a ser analisada. Deve ser um valor numérico. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).  
-                        Deve ser um valor menor que o ‘Valor máximo’.
-                    </p>
+                               
+                
+                    <p>Define o valor mínimo para a distribuição a ser analisada. </p>
+                        <p>Deve ser um valor numérico.</p>
+                      <p> Utilize " . " (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade). </p>  
+                      <p> Deve ser um valor menor que o ‘Valor máximo’. </p>
                     <p>Ex: 25.5</p>
                 </div>
             </div>
@@ -267,13 +272,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Uniforme - Valor Máximo da Distribuição
+                    Valor Máximo da Distribuição
                 </div>
                 <div class="modal-body">
-                    <p>Define o valor máximo para a distribuição a ser analisada. Deve ser um valor numérico. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).  
-                        Deve ser um valor maior que o ‘Valor mínimo’.     
-                    </p>
+                    <p>Define o valor máximo para a distribuição a ser analisada. Deve ser um valor numérico.</p> 
+                    <p>  Utilize " . " (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).</p>   
+                    <p>  Deve ser um valor maior que o ‘Valor mínimo’.  </p>   
                     <p>Ex: 154.3</p>
                 </div>
             </div>
@@ -283,7 +287,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    Uniforme - Escolha um intervalo
+                   Escolha um intervalo
                 </div>
                 <div class="modal-body">
                     <p>Intervalo: calcula a probabilidade de ocorrência de valores dentro de um escopo estabelecido.</p> 
@@ -293,9 +297,8 @@
                     <p>Ex: 4 e 8</p>
                     <p>Maior que:  calcula a probabilidade do valor se encontrar acima do valor especificado.</p>
                     <p>Ex: 4</p>
-                    <p>Devem ser inseridos somente valores numéricos e apenas um valor em cada caixa de entrada. 
-                        Utilize ‘.’ (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).
-                    </p>
+                    <p>Devem ser inseridos somente valores numéricos e apenas um valor em cada caixa de entrada. </p>
+                    <p>Utilize " . " (ponto) para inserir as casas decimais dos valores numéricos (caso haja necessidade).</p>
                 </div>
             </div>
         </div>

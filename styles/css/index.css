@@ -2,7 +2,7 @@
     margin: 300px;
     margin-top: 200px;
     width: 100%;
-    height: 600px
+    height: 600px;
 }
 
 .box {
@@ -30,14 +30,13 @@
 .card-text-box{
     position: absolute;
     margin-top: 250px;
-    margin-left: 7px;
-    width: 400px;
+    width: 420px;
     height: 300px;
-    
+       
 }
 
 .card-title{
-    margin-top: 10px;
+
     position: absolute;
     text-align: center;
     font-size: 30px;
@@ -46,11 +45,13 @@
 }
 
 .card-description{
-    margin-top: 60px;
-    position: absolute;
+    margin-top: 30px;
+    padding: 2ch;
+    position: relative;
     text-align: justify;
     font-size: 20px;
-    width: 100%;
-    height: 200px;
+    border-top: solid rgba(89, 202, 246, 0.39);
+    border-radius: 30px;
     font-family: 'Tahoma', 'Verdana', 'Comic Sans MS', 'Fredericka the Great', cursive;
+    line-height: 1.5;
 }
