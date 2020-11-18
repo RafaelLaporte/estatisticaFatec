@@ -7,7 +7,6 @@ function resetDescriptive(btnOrganize = false) {
     if(window.bar != undefined) window.bar.destroy();
 
     document.getElementById('results-title').innerHTML = ""
-    //document.getElementById('btn-organize').innerHTML = "";
     document.getElementById('results').innerHTML = "";
     document.getElementById("explanation").innerHTML = "";
     document.getElementById("chart").innerHTML = "";

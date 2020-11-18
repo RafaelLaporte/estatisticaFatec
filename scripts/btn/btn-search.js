@@ -37,6 +37,7 @@ function btnSearch(){
 
     //Returning the values properties
     else {
+        
         document.getElementById('search-result').style = ''
         document.getElementById('search-result').innerHTML = `
             <h3 id='search-result-fi'>Frequência simples: ${variable.data[search].fi}</h3>

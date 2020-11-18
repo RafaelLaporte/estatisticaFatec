@@ -1,6 +1,7 @@
 /**
  * It sorts the output by it's simple frequency (table and graphs)
  */
+
 function btnOrganize() {
     let dataType = document.getElementById('import-select').value;
     
@@ -17,9 +18,21 @@ function btnOrganize() {
             } else {
                 return a.fi < b.fi
             }
+            
         });
 
+      
         //From here, we are updating all values in html. The median and measures of position can't change by ordering.
         btnCalculate(variable, true);
     }
+
+}
+
+
+function change(obj) {
+    if($(obj).is(":checked")){
+        btnOrganize()
+    }else{
+        btnCalculate()
+    }      
 }

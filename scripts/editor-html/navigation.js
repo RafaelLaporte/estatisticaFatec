@@ -3,11 +3,8 @@
  */
 function openSideBar() {
     document.getElementById("side-nav").style.width = "270px";
-    // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    // let box = document.getElementsByClassName("box");
+       
     
-    
-    //document.getElementById("open-menu-icon").style = 'display: none'
 }
 
 /**
@@ -15,8 +12,7 @@ function openSideBar() {
  */
 function closeSideBar() {
     document.getElementById("side-nav").style.width = "30px";
-    // document.getElementById("open-menu-icon").style = ''
-    // document.body.style.backgroundColor = "white"; 
+   
 
 }
 

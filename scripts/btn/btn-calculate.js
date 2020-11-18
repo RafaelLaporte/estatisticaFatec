@@ -6,8 +6,9 @@
 function btnCalculate(variable = undefined, btnOrganize = false) {  
     
     //Reseting the HTML
-    // document.getElementById('btn-organize').style = "display: ''"
+    document.getElementById('frequency-organizer').style = ''
     document.getElementById('graph-and-values').style = "display: ''"
+    document.getElementById('search-form').style = ''
     document.getElementById('search-result').innerHTML = ''
     document.getElementById('search-value').value = ''
     
@@ -26,11 +27,9 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
     //It generates the variable graphs
     descriptiveChart(variable.type);
 
-    document.getElementById('search-form').style = ''
-
     //Generating the organize button
-    // document.getElementById('btn-organize').innerHTML = `
-    // <button type="button" class="btn" onclick="btnOrganize()"> Ordenar por Fi </button>` 
+    
+    
 
     return false
 }

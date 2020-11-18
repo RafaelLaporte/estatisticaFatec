@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="../styles/css/modal.css"> 
     <link rel="stylesheet" href="../styles/css/table.css">
     <link rel="stylesheet" href="../styles/css/chart.css">
-    <link rel="stylesheet" href="../styles/css/ .css">
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -105,23 +104,23 @@
             <div>
                 <p id='explanation' class='textTitle'></p>
             </div>
-
-            <h3>Organizar dados por frequência</h3>
-            <div style="display:inline-block">
-                <div class="onoffswitch">
-                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" >
-                    <label class="onoffswitch-label" for="myonoffswitch"></label>
-                </div>
             </div>
-
-            <!-- <div id='btn-organize' ></div><br> -->
-    
+          
             <table id="results" class='table'></table>
+            <div id='frequency-organizer'style="display: none">
+            <div  class="onoffswitch" >
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="change(this)" tabindex="0" >
+                <label class="onoffswitch-label" for="myonoffswitch"></label>
+            </div>
+            <h2>Organizar tabela por frequência</h2>
+            <br>
+            </div>
     
             <br><br>
     
             <div id='results-title' class='results-title'></div><br>
                 <div id='graph-and-values' class='graph-and-values' style='display: none'>
+                  
                     <div class="statistical-values">
                         <h3 id='mean'></h3>
                         <h3 id='mode'></h3>
@@ -148,6 +147,7 @@
                     </div>        
                 </form>   
             </div>
+            <br><br>
         </div>
 
         <!--Modal-->
