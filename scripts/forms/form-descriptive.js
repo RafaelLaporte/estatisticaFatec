@@ -1,3 +1,4 @@
+//It chooses what to show when the form is changed
 $("#import-select").on("change", function() {
     let table = document.getElementById('results');
     if (table.innerHTML != "") resetDescriptive();

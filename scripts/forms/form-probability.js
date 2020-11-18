@@ -1,3 +1,4 @@
+//It chooses what to show when the distribution form is changed
 $("#distribution-select").on("change", function() {
     document.getElementById('binomial-error').innerHTML = ''
     document.getElementById('uniform-error').innerHTML = ''
@@ -43,7 +44,9 @@ $("#distribution-select").on("change", function() {
    }
 })
 
+//It chooses what to show when the uniform interval form is changed
 $("#uniform-select").on("change", function() {
+    document.getElementById('probability-values').innerHTML = ''
     document.getElementById('uniform-value-min').value = ''
     document.getElementById('uniform-value-max').value = ''
 
@@ -75,7 +78,9 @@ $("#uniform-select").on("change", function() {
     }
 })
 
+//It chooses what to show when the normal interval form is changed
 $("#normal-select").on("change", function() {
+    document.getElementById('probability-values').innerHTML = ''
     document.getElementById('normal-error').innerHTML = ''
     document.getElementById('normal-var-min').value = ''
     document.getElementById('normal-var-max').value = ''

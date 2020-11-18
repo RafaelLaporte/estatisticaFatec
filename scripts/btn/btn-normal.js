@@ -35,9 +35,14 @@ function btnNormal() {
 
     if(intervalType == 'higher-than') probability = 1 - probability  
 
+    //Creating the HTML tags
     probabilityElements()
+
+    //Returning the probability value
+    if (probability > 1 || probability < 0) probability = 1
     document.getElementById('probability').innerHTML = `Probabilidade: ${(probability*100).toFixed(4)}%`
  
+    //Occulting the HTML tags that are not being used
     hideProbabilityElements()
 
     return false

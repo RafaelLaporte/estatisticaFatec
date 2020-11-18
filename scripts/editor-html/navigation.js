@@ -3,8 +3,6 @@
  */
 function openSideBar() {
     document.getElementById("side-nav").style.width = "270px";
-       
-    
 }
 
 /**
@@ -12,8 +10,6 @@ function openSideBar() {
  */
 function closeSideBar() {
     document.getElementById("side-nav").style.width = "30px";
-   
-
 }
 
 /**
