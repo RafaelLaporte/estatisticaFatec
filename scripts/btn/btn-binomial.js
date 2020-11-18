@@ -15,7 +15,9 @@ function btnBinomial() {
     data = csvToArray(data);
 
     //It creates the html tags to receive the processed input
-    probabilityElements();
+    let results = document.getElementById('probability-values')
+
+    if(results.innerHTML == "") probabilityElements();
 
     //It looks for errors in input
     let validate = inputValidate(p, n, data)
@@ -57,6 +59,7 @@ function btnBinomial() {
         document.getElementById('maximum-probability').innerHTML = `Probabilidade de se obter sucesso em no máximo ${k} eventos: ${(maxProbability*100).toFixed(4)}%`
         document.getElementById('mean').innerHTML = `Média: ${mean.toFixed(4)}`
         document.getElementById('standardDeviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
+
     }
 
     //More than one more events were entered
@@ -73,6 +76,8 @@ function btnBinomial() {
         document.getElementById('mean').innerHTML = `Média: ${mean.toFixed(4)}`
         document.getElementById('standardDeviation').innerHTML = `Desvio Padrão: ${standardDeviation.toFixed(2)}`
     }
+
+    hideProbabilityElements();
 
     return false
 }

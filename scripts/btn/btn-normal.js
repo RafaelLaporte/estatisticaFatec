@@ -38,6 +38,8 @@ function btnNormal() {
     probabilityElements()
     document.getElementById('probability').innerHTML = `Probabilidade: ${(probability*100).toFixed(4)}%`
  
+    hideProbabilityElements()
+
     return false
 }
 

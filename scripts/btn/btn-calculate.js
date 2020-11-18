@@ -4,7 +4,6 @@
  * @param {Boolean} btnOrganize It verifies if btnOrganize button were clicked
  */
 function btnCalculate(variable = undefined, btnOrganize = false) {  
-    
     //Reseting the HTML
     document.getElementById('frequency-organizer').style = ''
     document.getElementById('graph-and-values').style = "display: ''"
@@ -26,10 +25,6 @@ function btnCalculate(variable = undefined, btnOrganize = false) {
 
     //It generates the variable graphs
     descriptiveChart(variable.type);
-
-    //Generating the organize button
-    
-    
 
     return false
 }

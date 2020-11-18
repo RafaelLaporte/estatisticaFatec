@@ -28,3 +28,9 @@ function probabilityElements () {
     document.getElementById('probability-values').appendChild(standardDeviation);
     document.getElementById('probability-values').appendChild(variance);
 }
+
+function hideProbabilityElements() {
+    $('#probability-values > h3').each(function() {
+        if (this.innerHTML == '') this.style = 'display:none'
+    })
+}

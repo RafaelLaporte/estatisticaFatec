@@ -68,5 +68,7 @@ function btnUniform() {
     if(isNaN(variance)) document.getElementById('variance').innerHTML = `Variância: ${variance}`
     else document.getElementById('variance').innerHTML = `Variância: ${(variance*100).toFixed(2)}%`
     
+    hideProbabilityElements()
+
     return false
 }
