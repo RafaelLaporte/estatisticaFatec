@@ -10,7 +10,6 @@ function binarySearch(list, value, fnComp) {
         let res = fnComp(list[half], value)
 
         if(res === 0) { // Found 
-           
             return half
         }
         else if(res < 0) {
@@ -18,7 +17,6 @@ function binarySearch(list, value, fnComp) {
             end = half - 1
         }
         else {  // res > 0
-           
             init = half + 1
         }
     }
