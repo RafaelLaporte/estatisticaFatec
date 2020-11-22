@@ -134,3 +134,16 @@ header .hamburguer:hover {
         width: 480px;
     }
 }
+
+@media screen and (max-width: 320px) {
+    header .logo {
+        width: 350px;
+        height: 140px;
+        margin-left: 10px
+    }
+
+    header {
+        width: 100%;
+        height: 140px
+    }
+}
