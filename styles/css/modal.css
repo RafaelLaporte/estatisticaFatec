@@ -90,3 +90,77 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+    .modal {
+        padding-top: 200px
+    }
+
+    .modal-content {
+        width: 65%;
+    }
+    
+    .modal-body {
+        width: 300px
+      }
+
+    .close {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        padding-top: 200px
+    }
+
+    .modal-content {
+        width: 65%;
+    }
+    
+    .modal-body {
+        width: 380px
+      }
+
+    .close {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        padding-top: 200px
+    }
+
+    .modal-content {
+        width: 560px;
+    }
+    
+    .modal-body {
+        width: 550px;
+        padding-right: 30px 
+    }
+
+    .close {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .modal {
+        padding-top: 200px
+    }
+
+    .modal-content {
+        width: 560px;
+    }
+    
+    .modal-body {
+        width: 550px;
+        padding-right: 30px 
+    }
+
+    .close {
+        font-size: 12px;
+    }
+}

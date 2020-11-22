@@ -7,7 +7,7 @@
 }
 
 header {
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     background: linear-gradient(to top right, rgb(1, 99, 127),rgb(0, 112, 122), rgb(54, 129, 136),rgb(80, 181, 190), rgb(145, 211, 216));
     position: fixed;
@@ -81,7 +81,7 @@ header .hamburguer:hover {
     height: 100%; /* 100% Full-height */
     width: 30px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    z-index: 2; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background: linear-gradient(to bottom, rgb(1, 99, 127),rgb(0, 112, 122), rgb(54, 129, 136));
@@ -114,6 +114,7 @@ header .hamburguer:hover {
 
 /* Position and style the close button (top right corner) */
 .sidenav .close-btn {
+    display: flex;
     position: absolute;
     top: 0;
     bottom: 150px;
@@ -123,8 +124,13 @@ header .hamburguer:hover {
     margin-bottom: 50px
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+@media screen and (max-width: 480px) {
+    header .logo {
+        width: 430px;
+        height: 140px
+    }
+
+    header {
+        width: 480px;
+    }
 }

@@ -34,15 +34,45 @@
   text-align: center;
 }
 
-@media screen and (max-width: 580px) {
+/* @media screen and (max-width: 580px) {
   .cell {
     padding: 2px 16px;
     display: block;
   }
-}
 
-@media screen and (max-width: 580px) {
   .table {
     display: block;
+  }
+} */
+
+@media screen and (max-width: 480px) {
+  .table {
+    width: 400px;
+    display: block
+  }
+
+  .row {
+    font-size: 12px;
+    display: table-row;
+  }
+
+  .row.header {
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .table {
+    width: 600px;
+    display: block
+  }
+
+  .row {
+    font-size: 16px;
+    display: table-row;
+  }
+
+  .row.header {
+    font-weight: 400;
   }
 }
