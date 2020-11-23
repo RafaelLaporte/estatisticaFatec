@@ -182,7 +182,7 @@ function inputValidate(xValues, yValues) {
         }
     }
 
-    if (counter > 1) return 'Os valores da variável independente devem ser diferentes entre si'
+    //if (counter > 1) return 'Os valores da variável independente devem ser diferentes entre si'
 
     return 1
 }
