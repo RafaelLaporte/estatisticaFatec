@@ -35,7 +35,7 @@
             <div class='input-box'>
                 <label for='binomial-sample' class='label-form'><b class='label-form'>Tamanho da amostra:</b></label><br>
                 <div>
-                    <input required type='number' step='0.01' id='binomial-sample' name='binomial-sample' size='50px' class="input-form" placeholder="Número inteiro positivo">
+                    <input required type='number' id='binomial-sample' name='binomial-sample' size='50px' class="input-form" placeholder="Número inteiro positivo">
                     <img id='help-binomial-sample' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -43,7 +43,7 @@
             <div class='input-box'>
                 <label for='binomial-ocurrences' class='label-form'><b class='label-form'>Eventos:</b></label><br>
                 <div>
-                    <input required id='binomial-ocurrences' step='0.01' name='binomial-ocurrences' size='50px' class="input-form" placeholder="Separados por , (vírgula)" required>
+                    <input required id='binomial-ocurrences' name='binomial-ocurrences' size='50px' class="input-form" placeholder="Separados por , (vírgula)" required>
                     <img id='help-binomial-event' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -58,7 +58,7 @@
             <div class='input-box'>
                 <label for='normal-mean' class='label-form'><b class='label-form'>Média:</b></label><br>
                 <div>
-                    <input required type='number' id='normal-mean' name='normal-mean' size='50px' class="input-form" placeholder="0">
+                    <input required type='number' step=0.01 id='normal-mean' name='normal-mean' size='50px' class="input-form" placeholder="0">
                     <img id='help-normal-mean' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
@@ -66,7 +66,7 @@
             <div class='input-box'>
                 <label for='standard-deviation' class='label-form'><b class='label-form'>Desvio padrão:</b></label><br>
                 <div>
-                    <input required type='number' id='standard-deviation' name='standard-deviation' size='50px' class="input-form" placeholder="0">
+                    <input required type='number' step=0.01 id='standard-deviation' name='standard-deviation' size='50px' class="input-form" placeholder="0">
                     <img id='help-normal-stdDeviation' type='button' class='help-btn-form' src="../styles/icons/quest-icon.png">
                 </div>
             </div><br>
